@@ -1,0 +1,58 @@
+.project-index-page .catalog-card {
+  height: 272px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.project-index-page .catalog-card__overlay {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.project-index-page .catalog-card:focus-within {
+  border-color: var(--focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 28%, transparent);
+}
+
+.project-index-page .catalog-card__overlay:focus-visible {
+  outline: 0;
+}
+
+.project-index-page .catalog-card h3 {
+  margin: 18px 0 10px;
+  font-size: clamp(1.3rem, 1.75vw, 1.7rem);
+  line-height: 1.2;
+}
+
+.project-index-page .tag-list {
+  margin-top: 10px;
+}
+
+.project-index-page .catalog-card__facts {
+  padding-top: 16px;
+}
+
+@media (max-width: 600px) {
+  .project-index-page .catalog-card {
+    height: 272px;
+  }
+}
+
+.project-brief-page .detail-hero {
+  min-height: 56vh;
+  padding-bottom: 64px;
+}
+
+.project-brief-page .detail-title {
+  font-size: clamp(2.75rem, 6vw, 6rem);
+  line-height: 1.03;
+  word-break: keep-all;
+}
+
+@media (max-width: 900px) {
+  .project-brief-page .detail-hero {
+    min-height: auto;
+  }
+}
