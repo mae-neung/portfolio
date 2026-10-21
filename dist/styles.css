@@ -805,8 +805,8 @@ a {
   position: relative;
   display: grid;
   grid-template-columns: 48px minmax(0, 1fr);
-  min-height: 390px;
-  padding: 34px;
+  min-height: 340px;
+  padding: 30px;
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 20px;
@@ -816,7 +816,7 @@ a {
 .project--wide {
   grid-column: 1 / -1;
   grid-template-columns: 48px minmax(0, 0.9fr) minmax(300px, 1.1fr);
-  min-height: 490px;
+  min-height: 420px;
 }
 
 .project--dark {
@@ -853,7 +853,7 @@ a {
 
 .project h3 {
   max-width: 560px;
-  margin: auto 0 18px;
+  margin: 48px 0 18px;
   font-size: clamp(1.8rem, 3vw, 3.25rem);
   letter-spacing: -0.045em;
   line-height: 1.12;
@@ -1262,7 +1262,7 @@ a {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 330px;
+  height: 336px;
   padding: 24px;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -1862,7 +1862,7 @@ a {
   .project,
   .project--wide {
     grid-template-columns: 1fr;
-    min-height: 400px;
+    min-height: 0;
     padding: 24px;
   }
 
@@ -1872,6 +1872,10 @@ a {
 
   .project__meta {
     display: grid;
+  }
+
+  .project h3 {
+    margin-top: 34px;
   }
 
   .approach-list li {
