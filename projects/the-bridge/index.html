@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="더 브릿지 기부 플랫폼 React 리뉴얼과 외부 PG 전환 추적 프로젝트" />
+    <meta name="description" content="더 브릿지 기부 플랫폼 React·TypeScript 프론트엔드 리뉴얼 프로젝트" />
     <meta name="theme-color" content="#0b0f18" />
     <title>더 브릿지 기부 플랫폼 — 이강욱</title>
-    <link rel="stylesheet" href="../../styles.css?v=20261021-4" />
+    <link rel="stylesheet" href="../../styles.css?v=20261021-9" />
     <link rel="stylesheet" href="../../projects.css?v=20261021-3" />
     <script src="../../script.js?v=20261021-4" defer></script>
   </head>
@@ -14,24 +14,23 @@
     <a class="skip-link" href="#main">본문으로 건너뛰기</a>
     <header class="site-header" data-header>
       <a class="brand" href="../../" aria-label="이강욱 포트폴리오 처음으로"><span class="brand-mark" aria-hidden="true">GW</span><span class="brand-name">Gangwook Lee</span></a>
-      <nav class="site-nav" aria-label="주요 메뉴"><a href="../">Projects</a><a href="../../#approach">Approach</a><a href="../../#contact">Contact</a></nav>
+      <nav class="site-nav" aria-label="주요 메뉴"><a href="../">Projects</a><a href="../../#contact">Contact</a></nav>
       <button class="theme-toggle" type="button" data-theme-toggle aria-label="라이트 모드로 전환"><span class="theme-toggle__sun" aria-hidden="true">◌</span><span class="theme-toggle__label">Theme</span></button>
     </header>
     <main id="main" class="detail-main">
       <a class="detail-back reveal" href="../"><span aria-hidden="true">←</span> Project Archive</a>
       <section class="detail-hero" aria-labelledby="detail-title">
-        <div><p class="detail-kicker reveal">03 / Experience · 2023—2024</p><h1 id="detail-title" class="detail-title detail-title--bridge reveal">기부의 <br class="mobile-break" />마지막까지<br />데이터를 잇다.</h1><p class="detail-summary reveal">웹사이트를 React로 리뉴얼하고, 외부 결제 페이지에서 끊기던 분석 데이터를 PG사와 협업해 전체 기부 흐름으로 연결했습니다.</p></div>
-        <dl class="detail-facts reveal" aria-label="프로젝트 정보"><div><dt>Role</dt><dd>프론트엔드 개발자</dd></div><div><dt>Period</dt><dd>2023.09 — 2024.05</dd></div><div><dt>Stack</dt><dd>React · TypeScript · Zustand · GA</dd></div><div><dt>Scope</dt><dd>리뉴얼 · 인증 · 기부 · 분석 추적</dd></div></dl>
+        <div><p class="detail-kicker reveal">03 / Experience · 2023—2024</p><h1 id="detail-title" class="detail-title detail-title--bridge reveal">기부 서비스<br />프론트엔드<br />리뉴얼</h1><p class="detail-summary reveal">React·TypeScript로 기존 웹사이트를 리뉴얼하고, 로그인과 캠페인 탐색부터 기부까지 주요 사용자 흐름을 구현했습니다.</p></div>
+        <dl class="detail-facts reveal" aria-label="프로젝트 정보"><div><dt>Role</dt><dd>프론트엔드 개발자</dd></div><div><dt>Period</dt><dd>2023.09 — 2024.05</dd></div><div><dt>Stack</dt><dd>React · TypeScript · Zustand</dd></div><div><dt>Scope</dt><dd>리뉴얼 · 인증 · 캠페인 · 기부</dd></div></dl>
       </section>
-      <div class="detail-stage reveal-on-scroll" role="img" aria-label="캠페인 탐색부터 외부 결제와 분석까지의 흐름을 표현한 다이어그램">
-        <div class="detail-stage__label"><span>DONATION / CONVERSION FLOW</span><span>END TO END</span></div>
-        <span class="detail-node detail-node--a">CAMPAIGN<br />DISCOVER</span><span class="detail-node detail-node--main">DONATION<br />FLOW</span><span class="detail-node detail-node--b">EXTERNAL<br />PG</span><span class="detail-node detail-node--c">GOOGLE<br />ANALYTICS</span>
+      <div class="detail-stage reveal-on-scroll" role="img" aria-label="캠페인 탐색부터 기부까지의 사용자 흐름을 표현한 다이어그램">
+        <div class="detail-stage__label"><span>DONATION / SERVICE FLOW</span><span>FRONTEND</span></div>
+        <span class="detail-node detail-node--a">CAMPAIGN<br />DISCOVER</span><span class="detail-node detail-node--main">DONATION<br />FLOW</span><span class="detail-node detail-node--b">AUTH<br />STATE</span><span class="detail-node detail-node--c">EXTERNAL<br />PG</span>
         <i class="detail-stage__line detail-stage__line--a" aria-hidden="true"></i><i class="detail-stage__line detail-stage__line--b" aria-hidden="true"></i><i class="detail-stage__line detail-stage__line--c" aria-hidden="true"></i>
       </div>
-      <section class="detail-section reveal-on-scroll" aria-labelledby="problem-title"><p class="detail-section__label">01 / Problem</p><div><h2 id="problem-title">결제는 완료되지만, 전환 데이터는 외부 PG에서 끊겼습니다.</h2><p>사용자는 캠페인을 탐색한 뒤 외부 결제 페이지로 이동했습니다. 이 구간에서 Google Analytics 추적이 이어지지 않아 전체 기부 여정을 연속적으로 파악하기 어려웠습니다.</p></div></section>
-      <section class="detail-section reveal-on-scroll" aria-labelledby="solution-title"><p class="detail-section__label">02 / Build</p><div><h2 id="solution-title">사용자 흐름과 측정 흐름을 함께 설계했습니다.</h2><ul class="detail-list"><li>기존 웹사이트를 React와 TypeScript 기반으로 리뉴얼했습니다.</li><li>Zustand로 인증 상태를 관리하고 로그인부터 캠페인 탐색·기부까지 구현했습니다.</li><li>외부 PG 결제 구간에서 추적이 끊기는 지점을 확인했습니다.</li><li>PG사와 협업해 결제 페이지에 더 브릿지의 GA 추적 설정을 반영했습니다.</li></ul></div></section>
-      <section class="detail-section reveal-on-scroll" aria-labelledby="result-title"><p class="detail-section__label">03 / Result</p><div><h2 id="result-title">사이트 밖으로 이어지는 결제까지 하나의 전환 흐름이 됐습니다.</h2><div class="detail-result"><div><strong>End-to-end</strong><p>캠페인 탐색부터 외부 결제까지 전체 기부 플로우의 데이터를 연속 수집했습니다.</p></div><div><strong>Cross-team</strong><p>웹사이트 코드만으로 해결할 수 없는 문제를 PG사와의 협업으로 마무리했습니다.</p></div></div><div class="detail-gallery" aria-label="더 브릿지 프로젝트 화면"><figure><img src="../../assets/projects/the-bridge-01.webp" alt="" loading="lazy" /></figure><figure><img src="../../assets/projects/the-bridge-02.webp" alt="" loading="lazy" /></figure><figure><img src="../../assets/projects/the-bridge-03.webp" alt="" loading="lazy" /></figure></div></div></section>
-      <a class="detail-next" href="../ai-docs/"><span>Next project</span><strong>AI 에이전트 문서 관리 <span aria-hidden="true">→</span></strong></a>
+      <section class="detail-section reveal-on-scroll" aria-labelledby="problem-title"><p class="detail-section__label">01 / Context</p><div><h2 id="problem-title">기부 서비스의 주요 화면을 새로운 프론트엔드 구조로 옮겼습니다.</h2><p>로그인, 캠페인 탐색, 기부가 여러 화면과 상태에 걸쳐 이어지는 서비스였습니다. React 기반 리뉴얼 과정에서 이 흐름을 일관된 기준으로 다시 구현했습니다.</p></div></section>
+      <section class="detail-section reveal-on-scroll" aria-labelledby="solution-title"><p class="detail-section__label">02 / Build</p><div><h2 id="solution-title">핵심 화면과 상태 관리 기준을 함께 정리했습니다.</h2><ul class="detail-list"><li>기존 웹사이트를 React와 TypeScript 기반으로 리뉴얼했습니다.</li><li>Zustand로 인증과 서비스 상태를 관리했습니다.</li><li>로그인부터 캠페인 탐색, 기부까지 주요 사용자 화면을 구현했습니다.</li><li>외부 PG로 이동하는 결제 과정도 서비스 흐름 안에서 점검했습니다.</li></ul></div></section>
+      <section class="detail-section reveal-on-scroll" aria-labelledby="result-title"><p class="detail-section__label">03 / Result</p><div><h2 id="result-title">기부 서비스의 주요 흐름을 구현했습니다.</h2><div class="detail-result"><div><strong>Core flow</strong><p>로그인부터 캠페인 탐색·기부까지 주요 사용자 흐름을 구현했습니다.</p></div><div><strong>Consistent state</strong><p>인증과 서비스 상태를 Zustand로 정리해 화면 간 동작 기준을 맞췄습니다.</p></div></div><div class="detail-gallery" aria-label="더 브릿지 프로젝트 화면"><figure><img src="../../assets/projects/the-bridge-01.webp" alt="" loading="lazy" /></figure><figure><img src="../../assets/projects/the-bridge-02.webp" alt="" loading="lazy" /></figure><figure><img src="../../assets/projects/the-bridge-03.webp" alt="" loading="lazy" /></figure></div></div></section>
     </main>
     <footer class="site-footer"><span>© <span data-year></span> Gangwook Lee</span><span>Case Study 03 / 04</span></footer>
   </body>

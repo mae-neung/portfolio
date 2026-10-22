@@ -266,7 +266,11 @@ a {
 }
 
 .hero__title span {
+  display: inline-block;
   color: var(--text-muted);
+  font-size: 0.68em;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
 }
 
 .hero__lede {
@@ -326,7 +330,7 @@ a {
 
 .hero__proof {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0;
   max-width: 720px;
   margin: 66px 0 0;
@@ -786,6 +790,8 @@ a {
   font-weight: 720;
   letter-spacing: -0.05em;
   line-height: 1.08;
+  text-wrap: balance;
+  word-break: keep-all;
 }
 
 .section-heading > p:last-child {
@@ -793,6 +799,10 @@ a {
   color: var(--text-muted);
   font-size: 17px;
   line-height: 1.7;
+}
+
+.work--profile .section-heading {
+  margin-bottom: 0;
 }
 
 .project-list {
@@ -857,6 +867,8 @@ a {
   font-size: clamp(1.8rem, 3vw, 3.25rem);
   letter-spacing: -0.045em;
   line-height: 1.12;
+  text-wrap: balance;
+  word-break: keep-all;
 }
 
 .project p {
@@ -1095,6 +1107,10 @@ a {
   border-top: 1px solid var(--border);
 }
 
+.detail-section:last-of-type {
+  padding-bottom: 48px;
+}
+
 .detail-section__label {
   margin: 0;
   color: var(--primary);
@@ -1204,8 +1220,8 @@ a {
 }
 
 .archive-hero {
-  min-height: 42vh;
-  padding-bottom: 72px;
+  min-height: auto;
+  padding-bottom: 56px;
 }
 
 .archive-title {
@@ -1503,12 +1519,20 @@ a {
   line-height: 0.98;
 }
 
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px 36px;
+  margin-top: 58px;
+}
+
 .contact-link {
   display: inline-flex;
   align-items: center;
   gap: 14px;
   min-height: 52px;
-  margin-top: 58px;
+  margin-top: 0;
   padding: 10px 0;
   border-bottom: 1px solid var(--primary);
   color: var(--primary);
@@ -1645,12 +1669,13 @@ a {
   }
 
   .site-header {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto 1fr auto;
     padding-inline: 20px;
   }
 
   .site-nav {
-    display: none;
+    justify-self: center;
+    gap: 20px;
   }
 
   .brand-name {
@@ -1885,6 +1910,17 @@ a {
 
   .contact h2 {
     font-size: clamp(3.1rem, 15.5vw, 5rem);
+  }
+
+  .contact-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 42px;
+  }
+
+  .contact-link {
+    font-size: 16px;
   }
 
   .site-footer {
