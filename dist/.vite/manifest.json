@@ -1,0 +1,30 @@
+{
+  "_devup-ui-0-Dugufcm2.css": {
+    "file": "assets/devup-ui-0-Dugufcm2.css",
+    "src": "_devup-ui-0-Dugufcm2.css"
+  },
+  "_devup-ui-10-Bqkp3uej.css": {
+    "file": "assets/devup-ui-10-Bqkp3uej.css",
+    "src": "_devup-ui-10-Bqkp3uej.css"
+  },
+  "_devup-ui-13-DIpqd4OF.css": {
+    "file": "assets/devup-ui-13-DIpqd4OF.css",
+    "src": "_devup-ui-13-DIpqd4OF.css"
+  },
+  "_devup-ui-C7Vx2vO_.css": {
+    "file": "assets/devup-ui-C7Vx2vO_.css",
+    "src": "_devup-ui-C7Vx2vO_.css"
+  },
+  "src/main.tsx": {
+    "file": "assets/main-DcjblZFy.js",
+    "name": "main",
+    "src": "src/main.tsx",
+    "isEntry": true,
+    "css": [
+      "assets/devup-ui-C7Vx2vO_.css",
+      "assets/devup-ui-0-Dugufcm2.css",
+      "assets/devup-ui-10-Bqkp3uej.css",
+      "assets/devup-ui-13-DIpqd4OF.css"
+    ]
+  }
+}

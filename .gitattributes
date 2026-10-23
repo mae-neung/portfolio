@@ -1,0 +1,4 @@
+dist/**/*.html text eol=lf
+dist/**/*.css text eol=lf
+dist/**/*.js text eol=lf
+dist/**/*.json text eol=lf

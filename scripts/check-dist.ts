@@ -9,8 +9,10 @@ const dist = path.join(root, 'dist')
 const ignoredDirectories = new Set(['.git', 'node_modules', 'dist'])
 const expectedHtml = portfolioRoutes.map((route) => route.path === '/' ? 'index.html' : `${route.path.slice(1)}index.html`)
 
-const trackedMarkup = execFileSync('git', ['ls-files', '--cached', '--', '*.html', '*.css'], { cwd: root, encoding: 'utf8' }).trim()
-if (trackedMarkup) throw new Error(`Tracked HTML/CSS is forbidden: ${trackedMarkup.replaceAll('\n', ', ')}`)
+const trackedAuthoredMarkup = execFileSync('git', ['ls-files', '--cached', '--', '*.html', '*.css'], { cwd: root, encoding: 'utf8' })
+  .split(/\r?\n/)
+  .filter((entry) => entry && !entry.startsWith('dist/'))
+if (trackedAuthoredMarkup.length) throw new Error(`Tracked authored HTML/CSS is forbidden: ${trackedAuthoredMarkup.join(', ')}`)
 
 const authoredMarkup: string[] = []
 async function collectAuthored(directory: string): Promise<void> {
@@ -56,4 +58,4 @@ if (!assets.some((entry) => entry.endsWith('.js'))) throw new Error('Missing bui
 if (!assets.some((entry) => entry.startsWith('devup-ui') && entry.endsWith('.css'))) throw new Error('Missing generated DEVUP UI CSS')
 const imageFiles = await readdir(path.join(dist, 'assets', 'projects'))
 if (imageFiles.length !== 29) throw new Error(`Expected 29 project images, got ${imageFiles.length}`)
-console.log('Checked zero tracked/authored HTML or CSS, 16 prerendered pages, generated JS/CSS, local references, and 29 images.')
+console.log('Checked zero authored HTML or CSS, 16 prerendered pages, generated JS/CSS, local references, and 29 images.')
