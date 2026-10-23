@@ -10,7 +10,6 @@ export function PortfolioLayout({ route }: { route: PortfolioRoute }) {
   const page = route.path === '/' ? 'home' : route.path === '/projects/' ? 'archive' : 'detail'
 
   useEffect(() => {
-    document.body.className = route.bodyClasses
     document.title = route.title
     document.querySelector('meta[name="description"]')?.setAttribute('content', route.description)
   }, [route])

@@ -1,164 +1,28 @@
 <!doctype html>
-<html lang="ko" data-theme="dark">
+<html lang="ko" data-theme="default">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="이강욱이 참여한 프론트엔드 프로젝트 아카이브" />
-    <meta name="theme-color" content="#0b0f18" />
+    <meta name="theme-color" content="#F5F7FA" />
+    <script>
+      (() => {
+        try {
+          const saved = localStorage.getItem('portfolio-theme')
+          const dark = saved === 'dark' || (saved !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches)
+          document.documentElement.dataset.theme = dark ? 'dark' : 'default'
+          document.querySelector('meta[name="theme-color"]').content = dark ? '#101A2A' : '#F5F7FA'
+        } catch { /* The light theme remains readable when storage is unavailable. */ }
+      })()
+    </script>
     <title>Project Archive — 이강욱</title>
-    <script type="module" crossorigin src="../assets/main-DqHr7ZfF.js"></script>
-    <link rel="stylesheet" crossorigin href="../assets/main-DUlAwMR1.css">
+    <script type="module" crossorigin src="../assets/index-B05LGThV.js"></script>
+    <link rel="stylesheet" crossorigin href="../assets/devup-ui-C7Vx2vO_.css">
+    <link rel="stylesheet" crossorigin href="../assets/devup-ui-0-Dugufcm2.css">
+    <link rel="stylesheet" crossorigin href="../assets/devup-ui-9-BIRt7OqZ.css">
+    <link rel="stylesheet" crossorigin href="../assets/devup-ui-12-BJPX1nmg.css">
   </head>
-  <body class="detail-page project-index-page">
-    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header" data-header="true"><a class="brand" href="../" aria-label="이강욱 포트폴리오 처음으로"><span class="brand-mark" aria-hidden="true">GW</span><span class="brand-name">Gangwook Lee</span></a><nav class="site-nav" aria-label="주요 메뉴"><a href="#archive" aria-current="page">Projects</a><a href="../#approach">Approach</a><a href="../#contact">Contact</a></nav><button class="theme-toggle" type="button" aria-label="라이트 모드로 전환"><span class="theme-toggle__sun" aria-hidden="true">◌</span><span class="theme-toggle__label">Theme</span></button></header><main id="main" class="project-archive">      <a class="detail-back reveal" href="../"><span aria-hidden="true">←</span> Portfolio Home</a>
-      <header class="archive-hero"><div><p class="detail-kicker reveal">Project Archive · 2021—2024</p><h1 class="archive-title reveal">Projects</h1></div></header>
-      <section class="archive-section" id="archive" aria-labelledby="archive-heading">
-        <div class="archive-toolbar reveal-on-scroll"><h2 id="archive-heading">All Projects</h2><p>13 projects</p></div>
-        <div class="catalog-grid">
-          <article class="catalog-card catalog-card--linked reveal-on-scroll">
-            <a class="catalog-card__overlay" href="./shinhan/" aria-label="2021 신한은행 업적평가 프로젝트 상세 보기"></a>
-            <figure class="catalog-card__media"><img src="../assets/projects/shinhan-01.png" alt="" fetchpriority="high" /></figure>
-            <div class="catalog-card__body">
-              <div class="catalog-card__top"><span>01</span></div>
-              <h3>2021 신한은행 업적평가</h3>
-              <ul class="tag-list" aria-label="기술"><li>React</li><li>TypeScript</li><li>Vite</li></ul>
-              <dl class="catalog-card__facts"><div><dt>기간</dt><dd>2021.11 — 2021.12</dd></div><div><dt>역할</dt><dd>프론트엔드 개발</dd></div></dl>
-            </div>
-          </article>
-
-          <article class="catalog-card catalog-card--linked reveal-on-scroll">
-            <a class="catalog-card__overlay" href="./devfive-landing/" aria-label="DEVFIVE 랜딩페이지 프로젝트 상세 보기"></a>
-            <div class="catalog-card__media catalog-card__media--fallback catalog-card__media--violet" aria-hidden="true"><span>DEVFIVE / WEB</span></div>
-            <div class="catalog-card__body">
-              <div class="catalog-card__top"><span>02</span></div>
-              <h3>DEVFIVE 랜딩페이지</h3>
-              <ul class="tag-list" aria-label="기술"><li>Next.js</li><li>Notion API</li><li>TypeScript</li></ul>
-              <dl class="catalog-card__facts"><div><dt>기간</dt><dd>2022.08 — 2022.09</dd></div><div><dt>역할</dt><dd>프론트엔드 개발</dd></div></dl>
-            </div>
-          </article>
-
-          <article class="catalog-card catalog-card--linked reveal-on-scroll">
-            <a class="catalog-card__overlay" href="./humansense/" aria-label="HumanSense 프로젝트 상세 보기"></a>
-            <div class="catalog-card__media catalog-card__media--fallback catalog-card__media--cyan" aria-hidden="true"><span>HUMANSENSE / WEB</span></div>
-            <div class="catalog-card__body">
-              <div class="catalog-card__top"><span>03</span></div>
-              <h3>HumanSense</h3>
-              <ul class="tag-list" aria-label="기술"><li>Next.js</li><li>TypeScript</li><li>Vite</li></ul>
-              <dl class="catalog-card__facts"><div><dt>기간</dt><dd>2021.10 — 2021.11</dd></div><div><dt>역할</dt><dd>프론트엔드 개발</dd></div></dl>
-            </div>
-          </article>
-
-          <article class="catalog-card catalog-card--linked reveal-on-scroll">
-            <a class="catalog-card__overlay" href="./planb/" aria-label="플랜비 프로젝트 상세 보기"></a>
-            <figure class="catalog-card__media"><img src="../assets/projects/planb-01.webp" alt="" loading="lazy" /></figure>
-            <div class="catalog-card__body">
-              <div class="catalog-card__top"><span>04</span></div>
-              <h3>플랜비</h3>
-              <ul class="tag-list" aria-label="기술"><li>React</li><li>React Native</li><li>TypeScript</li><li>Vite</li></ul>
-              <dl class="catalog-card__facts"><div><dt>기간</dt><dd>2022.03 — 2022.11</dd></div><div><dt>역할</dt><dd>프론트엔드 개발</dd></div></dl>
-            </div>
-          </article>
-
-          <article class="catalog-card catalog-card--linked reveal-on-scroll">
-            <a class="catalog-card__overlay" href="./hankyu-plant/" aria-label="한큐플랜트 프로젝트 상세 보기"></a>
-            <figure class="catalog-card__media"><img src="../assets/projects/hankyu-plant-01.webp" alt="" loading="lazy" /></figure>
-            <div class="catalog-card__body">
-              <div class="catalog-card__top"><span>05</span></div>
-              <h3>한큐플랜트</h3>
-              <ul class="tag-list" aria-label="기술"><li>React</li><li>FastAPI</li><li>TypeScript</li></ul>
-              <dl class="catalog-card__facts"><div><dt>기간</dt><dd>2021.10 — 2021.12</dd></div><div><dt>역할</dt><dd>프론트엔드 개발</dd></div></dl>
-            </div>
-          </article>
-
-          <article class="catalog-card catalog-card--linked reveal-on-scroll">
-            <a class="catalog-card__overlay" href="./matched-admin/" aria-label="Matched Admin 프로젝트 상세 보기"></a>
-            <figure class="catalog-card__media"><img src="../assets/projects/matched-admin-01.webp" alt="" loading="lazy" /></figure>
-            <div class="catalog-card__body">
-              <div class="catalog-card__top"><span>06</span></div>
-              <h3>Matched Admin</h3>
-              <ul class="tag-list" aria-label="기술"><li>React</li><li>Vite</li><li>TypeScript</li></ul>
-              <dl class="catalog-card__facts"><div><dt>기간</dt><dd>2022.04 — 2022.05</dd></div><div><dt>역할</dt><dd>프론트엔드 개발</dd></div></dl>
-            </div>
-          </article>
-
-          <article class="catalog-card catalog-card--linked reveal-on-scroll">
-            <a class="catalog-card__overlay" href="./ncsoft-ncdp/" aria-label="NCSOFT NCDP 프로젝트 상세 보기"></a>
-            <figure class="catalog-card__media"><img src="../assets/projects/ncsoft-ncdp-01.webp" alt="" loading="lazy" /></figure>
-            <div class="catalog-card__body">
-              <div class="catalog-card__top"><span>07</span></div>
-              <h3>NCSOFT NCDP</h3>
-              <ul class="tag-list" aria-label="기술"><li>React</li><li>Vite</li><li>TypeScript</li></ul>
-              <dl class="catalog-card__facts"><div><dt>기간</dt><dd>2022.04 — 2022.05</dd></div><div><dt>역할</dt><dd>프론트엔드 개발</dd></div></dl>
-            </div>
-          </article>
-
-          <article class="catalog-card catalog-card--linked reveal-on-scroll">
-            <a class="catalog-card__overlay" href="./seocho-family-center/" aria-label="서초구가족센터 프로젝트 상세 보기"></a>
-            <figure class="catalog-card__media"><img src="../assets/projects/seocho-family-center-01.webp" alt="" loading="lazy" /></figure>
-            <div class="catalog-card__body">
-              <div class="catalog-card__top"><span>08</span></div>
-              <h3>서초구가족센터</h3>
-              <ul class="tag-list" aria-label="기술"><li>React</li><li>Zustand</li></ul>
-              <dl class="catalog-card__facts"><div><dt>기간</dt><dd>2023.10 — 2024.05</dd></div><div><dt>역할</dt><dd>프론트엔드 개발자</dd></div></dl>
-            </div>
-          </article>
-
-          <article class="catalog-card catalog-card--linked reveal-on-scroll">
-            <a class="catalog-card__overlay" href="./finance-security-intelligence/" aria-label="금융보안원 위험 인텔리전스 관리 시스템 프로젝트 상세 보기"></a>
-            <figure class="catalog-card__media"><img src="../assets/projects/finance-security-intelligence-01.webp" alt="" loading="lazy" /></figure>
-            <div class="catalog-card__body">
-              <div class="catalog-card__top"><span>09</span></div>
-              <h3>금융보안원 위험 인텔리전스 관리 시스템</h3>
-              <ul class="tag-list" aria-label="기술"><li>React</li><li>TypeScript</li><li>Vite</li></ul>
-              <dl class="catalog-card__facts"><div><dt>기간</dt><dd>2021.10 — 2021.12</dd></div><div><dt>역할</dt><dd>프론트엔드 개발자</dd></div></dl>
-            </div>
-          </article>
-
-          <article class="catalog-card catalog-card--linked reveal-on-scroll">
-            <a class="catalog-card__overlay" href="./round-table/" aria-label="라운드 테이블 프로젝트 상세 보기"></a>
-            <figure class="catalog-card__media"><img src="../assets/projects/round-table-01.webp" alt="" loading="lazy" /></figure>
-            <div class="catalog-card__body">
-              <div class="catalog-card__top"><span>10</span></div>
-              <h3>라운드 테이블</h3>
-              <ul class="tag-list" aria-label="기술"><li>Node.js</li><li>Flutter</li><li>Next.js</li></ul>
-              <dl class="catalog-card__facts"><div><dt>기간</dt><dd>2023.05 — 2024.01</dd></div><div><dt>역할</dt><dd>프론트엔드 개발자</dd></div></dl>
-            </div>
-          </article>
-
-          <article class="catalog-card catalog-card--linked reveal-on-scroll">
-            <a class="catalog-card__overlay" href="./the-bridge/" aria-label="더 브릿지 프로젝트 상세 보기"></a>
-            <figure class="catalog-card__media"><img src="../assets/projects/the-bridge-01.webp" alt="" loading="lazy" /></figure>
-            <div class="catalog-card__body">
-              <div class="catalog-card__top"><span>11</span></div>
-              <h3>더 브릿지</h3>
-              <ul class="tag-list" aria-label="기술"><li>React</li><li>TypeScript</li><li>Zustand</li><li>Google Analytics</li></ul>
-              <dl class="catalog-card__facts"><div><dt>기간</dt><dd>2023.09 — 2024.05</dd></div><div><dt>역할</dt><dd>프론트엔드 개발자</dd></div></dl>
-            </div>
-          </article>
-
-          <article class="catalog-card catalog-card--linked reveal-on-scroll">
-            <a class="catalog-card__overlay" href="./joara/" aria-label="조아라 웹소설 서비스 리뉴얼 프로젝트 상세 보기"></a>
-            <figure class="catalog-card__media"><img src="../assets/projects/joara-01.webp" alt="" loading="lazy" /></figure>
-            <div class="catalog-card__body">
-              <div class="catalog-card__top"><span>12</span></div>
-              <h3>조아라 웹소설 서비스 리뉴얼</h3>
-              <ul class="tag-list" aria-label="기술"><li>React</li><li>Redux</li></ul>
-              <dl class="catalog-card__facts"><div><dt>기간</dt><dd>2022.05 — 2022.09</dd></div><div><dt>역할</dt><dd>프론트엔드 개발자</dd></div></dl>
-            </div>
-          </article>
-
-          <article class="catalog-card catalog-card--linked reveal-on-scroll">
-            <a class="catalog-card__overlay" href="./devfive/" aria-label="DEVFIVE 사내 공통 컴포넌트 라이브러리 프로젝트 상세 보기"></a>
-            <div class="catalog-card__media catalog-card__media--fallback catalog-card__media--blue" aria-hidden="true"><span>DEVFIVE / SYSTEM</span></div>
-            <div class="catalog-card__body">
-              <div class="catalog-card__top"><span>13</span></div>
-              <h3>DEVFIVE 사내 공통 컴포넌트 라이브러리</h3>
-              <ul class="tag-list" aria-label="기술"><li>React</li><li>Next.js</li><li>Vite</li><li>Vitest</li></ul>
-              <dl class="catalog-card__facts"><div><dt>기간</dt><dd>2023.05 — 2024.05</dd></div><div><dt>역할</dt><dd>라이브러리 설계·개발</dd></div></dl>
-            </div>
-          </article>
-        </div>
-      </section>
-</main><footer class="site-footer"><span>© <!-- -->2026<!-- --> Gangwook Lee</span><span>13 Projects</span></footer></div>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header page-shell"><a href="../" aria-label="이강욱 포트폴리오 처음으로" class="brand">Gangwook Lee</a><div class="header-actions a"><nav aria-label="주요 메뉴" class="site-nav"><a href="#archive" aria-current="page">Projects</a><a href="../#approach">Approach</a><a href="../#contact">Contact</a></nav><button type="button" aria-label="다크 모드로 전환" class="theme-toggle"><span aria-hidden="true">◐</span> Theme</button></div></header><main id="main" class="page-shell"><a href="../" class="back-link">← Portfolio Home</a><header class="archive-hero"><p class="j-a">Project Archive · 2021—2024</p><h1>Projects</h1><p>이강욱이 참여한 프론트엔드 프로젝트 13개를 모았습니다.</p></header><section id="archive" aria-label="전체 프로젝트"><div class="archive-grid"><a href="./shinhan/" aria-label="2021 신한은행 업적평가 프로젝트 상세 보기" class="archive-card"><div class="archive-card-copy a b"><span class="j-a">01<!-- --> / 13</span><h2>2021 신한은행 업적평가</h2><ul class="tag-row"><li>React</li><li>TypeScript</li><li>Vite</li></ul><span class="archive-card-meta">기간 2021.11 — 2021.12 · 역할 프론트엔드 개발</span></div><img class="archive-card-image" src="../assets/projects/shinhan-01.png" alt="" loading="lazy"/></a><a href="./devfive-landing/" aria-label="DEVFIVE 랜딩페이지 프로젝트 상세 보기" class="archive-card"><div class="archive-card-copy a b"><span class="j-a">02<!-- --> / 13</span><h2>DEVFIVE 랜딩페이지</h2><ul class="tag-row"><li>Next.js</li><li>Notion API</li><li>TypeScript</li></ul><span class="archive-card-meta">기간 2022.08 — 2022.09 · 역할 프론트엔드 개발</span></div><div aria-hidden="true" class="archive-card-fallback">DEVFIVE / WEB</div></a><a href="./humansense/" aria-label="HumanSense 프로젝트 상세 보기" class="archive-card"><div class="archive-card-copy a b"><span class="j-a">03<!-- --> / 13</span><h2>HumanSense</h2><ul class="tag-row"><li>Next.js</li><li>TypeScript</li><li>Vite</li></ul><span class="archive-card-meta">기간 2021.10 — 2021.11 · 역할 프론트엔드 개발</span></div><div aria-hidden="true" class="archive-card-fallback">HUMANSENSE / WEB</div></a><a href="./planb/" aria-label="플랜비 프로젝트 상세 보기" class="archive-card"><div class="archive-card-copy a b"><span class="j-a">04<!-- --> / 13</span><h2>플랜비</h2><ul class="tag-row"><li>React</li><li>React Native</li><li>TypeScript</li><li>Vite</li></ul><span class="archive-card-meta">기간 2022.03 — 2022.11 · 역할 프론트엔드 개발</span></div><img class="archive-card-image" src="../assets/projects/planb-01.webp" alt="" loading="lazy"/></a><a href="./hankyu-plant/" aria-label="한큐플랜트 프로젝트 상세 보기" class="archive-card"><div class="archive-card-copy a b"><span class="j-a">05<!-- --> / 13</span><h2>한큐플랜트</h2><ul class="tag-row"><li>React</li><li>FastAPI</li><li>TypeScript</li></ul><span class="archive-card-meta">기간 2021.10 — 2021.12 · 역할 프론트엔드 개발</span></div><img class="archive-card-image" src="../assets/projects/hankyu-plant-01.webp" alt="" loading="lazy"/></a><a href="./matched-admin/" aria-label="Matched Admin 프로젝트 상세 보기" class="archive-card"><div class="archive-card-copy a b"><span class="j-a">06<!-- --> / 13</span><h2>Matched Admin</h2><ul class="tag-row"><li>React</li><li>Vite</li><li>TypeScript</li></ul><span class="archive-card-meta">기간 2022.04 — 2022.05 · 역할 프론트엔드 개발</span></div><img class="archive-card-image" src="../assets/projects/matched-admin-01.webp" alt="" loading="lazy"/></a><a href="./ncsoft-ncdp/" aria-label="NCSOFT NCDP 프로젝트 상세 보기" class="archive-card"><div class="archive-card-copy a b"><span class="j-a">07<!-- --> / 13</span><h2>NCSOFT NCDP</h2><ul class="tag-row"><li>React</li><li>Vite</li><li>TypeScript</li></ul><span class="archive-card-meta">기간 2022.04 — 2022.05 · 역할 프론트엔드 개발</span></div><img class="archive-card-image" src="../assets/projects/ncsoft-ncdp-01.webp" alt="" loading="lazy"/></a><a href="./seocho-family-center/" aria-label="서초구가족센터 프로젝트 상세 보기" class="archive-card"><div class="archive-card-copy a b"><span class="j-a">08<!-- --> / 13</span><h2>서초구가족센터</h2><ul class="tag-row"><li>React</li><li>Zustand</li></ul><span class="archive-card-meta">기간 2023.10 — 2024.05 · 역할 프론트엔드 개발자</span></div><img class="archive-card-image" src="../assets/projects/seocho-family-center-01.webp" alt="" loading="lazy"/></a><a href="./finance-security-intelligence/" aria-label="금융보안원 위험 인텔리전스 관리 시스템 프로젝트 상세 보기" class="archive-card"><div class="archive-card-copy a b"><span class="j-a">09<!-- --> / 13</span><h2>금융보안원 위험 인텔리전스 관리 시스템</h2><ul class="tag-row"><li>React</li><li>TypeScript</li><li>Vite</li></ul><span class="archive-card-meta">기간 2021.10 — 2021.12 · 역할 프론트엔드 개발자</span></div><img class="archive-card-image" src="../assets/projects/finance-security-intelligence-01.webp" alt="" loading="lazy"/></a><a href="./round-table/" aria-label="라운드 테이블 프로젝트 상세 보기" class="archive-card"><div class="archive-card-copy a b"><span class="j-a">10<!-- --> / 13</span><h2>라운드 테이블</h2><ul class="tag-row"><li>Node.js</li><li>Flutter</li><li>Next.js</li></ul><span class="archive-card-meta">기간 2023.05 — 2024.01 · 역할 프론트엔드 개발자</span></div><img class="archive-card-image" src="../assets/projects/round-table-01.webp" alt="" loading="lazy"/></a><a href="./the-bridge/" aria-label="더 브릿지 프로젝트 상세 보기" class="archive-card"><div class="archive-card-copy a b"><span class="j-a">11<!-- --> / 13</span><h2>더 브릿지</h2><ul class="tag-row"><li>React</li><li>TypeScript</li><li>Zustand</li><li>Google Analytics</li></ul><span class="archive-card-meta">기간 2023.09 — 2024.05 · 역할 프론트엔드 개발자</span></div><img class="archive-card-image" src="../assets/projects/the-bridge-01.webp" alt="" loading="lazy"/></a><a href="./joara/" aria-label="조아라 웹소설 서비스 리뉴얼 프로젝트 상세 보기" class="archive-card"><div class="archive-card-copy a b"><span class="j-a">12<!-- --> / 13</span><h2>조아라 웹소설 서비스 리뉴얼</h2><ul class="tag-row"><li>React</li><li>Redux</li></ul><span class="archive-card-meta">기간 2022.05 — 2022.09 · 역할 프론트엔드 개발자</span></div><img class="archive-card-image" src="../assets/projects/joara-01.webp" alt="" loading="lazy"/></a><a href="./devfive/" aria-label="DEVFIVE 사내 공통 컴포넌트 라이브러리 프로젝트 상세 보기" class="archive-card"><div class="archive-card-copy a b"><span class="j-a">13<!-- --> / 13</span><h2>DEVFIVE 사내 공통 컴포넌트 라이브러리</h2><ul class="tag-row"><li>React</li><li>Next.js</li><li>Vite</li><li>Vitest</li></ul><span class="archive-card-meta">기간 2023.05 — 2024.05 · 역할 라이브러리 설계·개발</span></div><div aria-hidden="true" class="archive-card-fallback">DEVFIVE / SYSTEM</div></a></div></section></main><footer class="site-footer page-shell a"><span>© <!-- -->2026<!-- --> Gangwook Lee</span><span>13 Projects</span></footer></div>
   </body>
 </html>

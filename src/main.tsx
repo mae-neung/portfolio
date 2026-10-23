@@ -1,18 +1,20 @@
 import { StrictMode } from 'react'
-import { hydrateRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { App } from './router/App'
 import { getBasename } from './utils/paths'
-import './styles/styles.css'
-import './styles/projects.css'
+import './theme/styles'
 
 const container = document.getElementById('root')
 if (!container) throw new Error('Root element is missing')
 
-hydrateRoot(container,
+const app = (
   <StrictMode>
     <BrowserRouter basename={getBasename(window.location.pathname)}>
       <App />
     </BrowserRouter>
-  </StrictMode>,
+  </StrictMode>
 )
+
+if (container.hasChildNodes()) hydrateRoot(container, app)
+else createRoot(container).render(app)

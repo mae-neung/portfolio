@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import React from 'react'
@@ -7,6 +7,8 @@ import { MemoryRouter } from 'react-router-dom'
 import { createServer } from 'vite'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
+const dist = path.join(root, 'dist')
+const template = await readFile(path.join(dist, 'index.html'), 'utf8')
 const server = await createServer({
   configFile: path.join(root, 'vite.config.ts'),
   server: { middlewareMode: true },
@@ -21,19 +23,18 @@ try {
   ])
 
   for (const route of portfolioRoutes) {
-    const entry = route.path === '/' ? 'index.html' : route.path.slice(1) + 'index.html'
-    const output = path.join(root, 'dist', entry)
-    const html = await readFile(output, 'utf8')
-    const markup = renderToString(
-      React.createElement(MemoryRouter, { initialEntries: [route.path] }, React.createElement(App)),
-    )
+    const entry = route.path === '/' ? 'index.html' : `${route.path.slice(1)}index.html`
+    const depth = route.path.split('/').filter(Boolean).length
+    const relativeAssets = `${'../'.repeat(depth) || './'}assets/`
+    const markup = renderToString(React.createElement(MemoryRouter, { initialEntries: [route.path] }, React.createElement(App)))
     if (!markup.includes('<main id="main"')) throw new Error(`Missing page body: ${route.path}`)
-    const rootElement = '<div id="root"></div>'
-    if (!html.includes(rootElement)) throw new Error(`Missing root element: ${output}`)
-    const withBodyClass = route.bodyClasses
-      ? html.replace('<body>', `<body class="${route.bodyClasses}">`)
-      : html
-    await writeFile(output, withBodyClass.replace(rootElement, `<div id="root">${markup}</div>`))
+    let html = template.replaceAll('./assets/', relativeAssets)
+    html = html.replace(/<title>[^<]*<\/title>/, `<title>${route.title}</title>`)
+    html = html.replace(/(<meta name="description" content=")[^"]*("\s*\/?>)/, `$1${route.description}$2`)
+    html = html.replace('<div id="root"></div>', `<div id="root">${markup}</div>`)
+    const output = path.join(dist, entry)
+    await mkdir(path.dirname(output), { recursive: true })
+    await writeFile(output, html)
   }
 } finally {
   await server.close()

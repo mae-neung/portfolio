@@ -1,41 +1,52 @@
 import { useEffect, useState } from 'react'
+import { setTheme } from '@devup-ui/react'
 
 export type Theme = 'light' | 'dark'
 const storageKey = 'portfolio-theme'
 
 export function readTheme(): Theme {
+  if (typeof window === 'undefined') return 'light'
   try {
     const saved = localStorage.getItem(storageKey)
     if (saved === 'light' || saved === 'dark') return saved
   } catch {
     // Storage can be unavailable in privacy-restricted contexts.
   }
-  return window.matchMedia?.('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
 export function useTheme() {
-  // Match the prerendered dark markup, then restore the visitor's preference.
-  const [theme, setTheme] = useState<Theme>('dark')
+  // Match the prerendered markup until hydration restores the visitor's preference.
+  const [theme, setPortfolioTheme] = useState<Theme>('light')
+  const [ready, setReady] = useState(false)
 
   useEffect(() => {
     let active = true
     queueMicrotask(() => {
-      if (active) setTheme(readTheme())
+      if (active) {
+        setPortfolioTheme(readTheme())
+        setReady(true)
+      }
     })
     return () => { active = false }
   }, [])
 
   useEffect(() => {
-    document.documentElement.dataset.theme = theme
+    if (!ready) return
+    try {
+      setTheme(theme === 'light' ? 'default' : 'dark')
+    } catch {
+      document.documentElement.dataset.theme = theme === 'light' ? 'default' : 'dark'
+    }
     document.querySelector('meta[name="theme-color"]')?.setAttribute(
       'content',
-      theme === 'dark' ? '#0b0f18' : '#f5f6fa',
+      theme === 'dark' ? '#101A2A' : '#F5F7FA',
     )
-  }, [theme])
+  }, [ready, theme])
 
   const toggleTheme = () => {
     const next = theme === 'dark' ? 'light' : 'dark'
-    setTheme(next)
+    setPortfolioTheme(next)
     try {
       localStorage.setItem(storageKey, next)
     } catch {

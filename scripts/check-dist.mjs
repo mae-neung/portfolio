@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const dist = path.join(root, 'dist')
+const ignoredDirectories = new Set(['.git', 'node_modules', 'dist'])
 const sourceEntries = [
   'index.html',
   'projects/index.html',
@@ -23,6 +24,19 @@ async function collectHtml(directory) {
   }
 }
 await collectHtml(dist)
+const authoredMarkup = []
+async function collectAuthored(directory) {
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    if (entry.isDirectory() && ignoredDirectories.has(entry.name)) continue
+    const full = path.join(directory, entry.name)
+    if (entry.isDirectory()) await collectAuthored(full)
+    else if (/\.(?:css|html)$/.test(entry.name) && path.relative(root, full).replaceAll('\\', '/') !== 'index.html') {
+      authoredMarkup.push(path.relative(root, full))
+    }
+  }
+}
+await collectAuthored(root)
+if (authoredMarkup.length) throw new Error(`Unexpected authored HTML/CSS: ${authoredMarkup.join(', ')}`)
 if (htmlFiles.length !== sourceEntries.length) {
   throw new Error(`Expected 16 HTML entries, got ${htmlFiles.length}`)
 }

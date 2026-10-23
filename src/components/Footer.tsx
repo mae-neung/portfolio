@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Flex, Text } from '@devup-ui/react'
 
 const currentYear = new Date().getFullYear()
 
@@ -14,9 +15,9 @@ export function Footer({ label }: { label: string }) {
   }, [])
 
   return (
-    <footer className="site-footer">
-      <span ref={yearRef} suppressHydrationWarning>© {currentYear} Gangwook Lee</span>
-      <span>{label}</span>
-    </footer>
+    <Flex as="footer" className="site-footer page-shell">
+      <Text as="span" ref={yearRef} suppressHydrationWarning>© {currentYear} Gangwook Lee</Text>
+      <Text as="span">{label}</Text>
+    </Flex>
   )
 }
