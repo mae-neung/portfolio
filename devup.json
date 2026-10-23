@@ -1,0 +1,38 @@
+{
+  "theme": {
+    "colors": {
+      "default": {
+        "background": "#f5f6fa",
+        "surface": "#ffffff",
+        "text": "#171b25",
+        "textMuted": "#596376",
+        "border": "#d5dce7",
+        "primary": "#1855d6",
+        "onPrimary": "#ffffff",
+        "secondary": "#0c6974",
+        "onSecondary": "#ffffff",
+        "success": "#166b4a",
+        "warning": "#875100",
+        "error": "#b3263a",
+        "focus": "#114cc6",
+        "overlay": "#090f1b8c"
+      },
+      "dark": {
+        "background": "#0b0f18",
+        "surface": "#141b29",
+        "text": "#f4f7fb",
+        "textMuted": "#b8c4d6",
+        "border": "#3a485e",
+        "primary": "#92bbff",
+        "onPrimary": "#071322",
+        "secondary": "#71d7e0",
+        "onSecondary": "#082026",
+        "success": "#8be1b5",
+        "warning": "#ffd27f",
+        "error": "#ff96a2",
+        "focus": "#b9d3ff",
+        "overlay": "#000000a6"
+      }
+    }
+  }
+}
