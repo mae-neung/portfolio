@@ -9,8 +9,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && node scripts/prerender.mjs && node scripts/check-dist.mjs",
-    "lint": "oxlint src vite.config.ts",
+    "build": "tsc -b && vite build && node scripts/prerender.ts && node scripts/check-dist.ts",
+    "lint": "oxlint src scripts vite.config.ts",
     "test": "vitest run",
     "typecheck": "tsc -b --pretty false",
     "verify": "pnpm lint && pnpm test && pnpm build",
