@@ -16,9 +16,9 @@ function assetHref(route: PortfolioRoute, source: string) {
 
 export function ArchivePage({ route }: { route: PortfolioRoute }) {
   return <Box as="main" id="main"><PageShell><BackLink href="../">← Portfolio Home</BackLink>
-    <MotionArchiveHero {...revealUp} transition={enterTransition()}><ArchiveEyebrow>Project Archive · 2021—2024</ArchiveEyebrow><ArchiveTitle>Projects</ArchiveTitle><ArchiveSummary>이강욱이 참여한 프론트엔드 프로젝트 13개를 모았습니다.</ArchiveSummary></MotionArchiveHero>
+    <MotionArchiveHero {...revealUp} transition={enterTransition()}><ArchiveEyebrow>Project Archive · 2021—2025</ArchiveEyebrow><ArchiveTitle>Projects</ArchiveTitle><ArchiveSummary>이강욱이 참여한 프론트엔드 프로젝트 {overview.archive.length}개를 모았습니다.</ArchiveSummary></MotionArchiveHero>
     <Box as="section" id="archive" aria-label="전체 프로젝트"><ArchiveGrid>{overview.archive.map((project, index) => <MotionArchiveCardLink {...revealOpacity} transition={enterTransition((index % 2) * 0.08)} href={project.href} aria-label={project.linkLabel} key={project.index}>
-      <ArchiveCardCopy><OverlineSpan>{project.index} / 13</OverlineSpan><ArchiveCardTitle>{project.heading}</ArchiveCardTitle><TagRow>{project.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}</TagRow><ArchiveCardMeta>{project.facts.map((fact) => `${fact.label} ${fact.value}`).join(' · ')}</ArchiveCardMeta></ArchiveCardCopy>
+      <ArchiveCardCopy><OverlineSpan>{project.index} / {overview.archive.length}</OverlineSpan><ArchiveCardTitle>{project.heading}</ArchiveCardTitle><TagRow>{project.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}</TagRow><ArchiveCardMeta>{project.facts.map((fact) => `${fact.label} ${fact.value}`).join(' · ')}</ArchiveCardMeta></ArchiveCardCopy>
       <ArchiveMediaFrame>{project.image ? <ArchiveCardImage src={assetHref(route, project.image)} alt="" loading="lazy" /> : <ArchiveCardFallback aria-hidden="true">{project.fallback}</ArchiveCardFallback>}</ArchiveMediaFrame>
     </MotionArchiveCardLink>)}</ArchiveGrid></Box>
   </PageShell></Box>

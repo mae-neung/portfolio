@@ -95,6 +95,35 @@ export const ArchiveCta = styled.a`
   color: var(--primary); font-size: 15px; font-weight: 800;
   &:hover { color: var(--primaryHover); }
 `
+export const Skills = styled.section`
+  padding-block: 80px 98px; border-top: 1px solid var(--border);
+`
+export const SkillsHead = styled.div`
+  display: grid; grid-template-columns: 1.2fr .8fr; align-items: end; gap: 40px; margin: 20px 0 44px;
+  @media (max-width: 750px) { grid-template-columns: 1fr; gap: 20px; }
+`
+export const SkillsIntro = styled.p`
+  max-width: 390px; color: var(--textMuted); line-height: 1.8;
+`
+export const SkillsGrid = styled.div`
+  display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px;
+  @media (max-width: 750px) { grid-template-columns: 1fr; }
+`
+export const SkillGroup = styled.article`
+  display: flex; flex-direction: column; gap: 24px; min-width: 0; padding: 25px;
+  border: 1px solid var(--border); border-radius: var(--tileRadius); background: var(--surface);
+  @media (max-width: 390px) { padding: 19px; }
+`
+export const SkillGroupTitle = styled.h3`
+  color: var(--primary); font-size: 12px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase;
+`
+export const SkillList = styled.ul`
+  display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none;
+`
+export const Skill = styled.li`
+  padding: 8px 11px; border: 1px solid var(--border); border-radius: 999px;
+  background: var(--surfaceRaised); color: var(--text); font-size: 13px; font-weight: 700;
+`
 export const Approach = styled.section`
   width: min(calc(100% - 76px), 1120px); margin-inline: auto; padding-block: 80px 98px; border-top: 1px solid var(--border);
   @media (max-width: 750px) { width: calc(100% - 38px); }

@@ -6,8 +6,8 @@ export const overview = {
     "intro": "React와 Next.js로 사용자 흐름을 설계하고 구현합니다. 공통 라이브러리부터 업무 자동화까지, 설계·개발·운영을 연결합니다.",
     "proof": [
       {
-        "value": "15",
-        "label": "AI 워크플로우로 정비한 프로젝트"
+        "value": "17",
+        "label": "진행한 프로젝트"
       },
       {
         "value": "FE",
@@ -23,7 +23,7 @@ export const overview = {
         "index": "01",
         "meta": [
           "2021",
-          "React / TypeScript / Vite"
+          "React / TypeScript"
         ],
         "heading": "2021 신한은행 업적평가",
         "summary": "메타버스·영상·이미지 콘텐츠와 반응형 UI를 구현한 신한은행 사내 업적평가 이벤트 웹페이지입니다.",
@@ -35,7 +35,7 @@ export const overview = {
         "index": "02",
         "meta": [
           "2022",
-          "React / TypeScript / Vite"
+          "React / TypeScript"
         ],
         "heading": "NCSOFT NCDP",
         "summary": "44개 강연의 온라인 진행과 참가자 접근을 지원한 NCSOFT 사내 개발자 컨퍼런스 사이트입니다.",
@@ -47,7 +47,7 @@ export const overview = {
         "index": "03",
         "meta": [
           "2021",
-          "React / TypeScript / Vite"
+          "React / TypeScript"
         ],
         "heading": "위험 인텔리전스 관리 시스템",
         "summary": "다양한 위협 데이터를 수집·분류하고 실시간 알림·시각화를 제공하는 금융 보안 관리 시스템입니다.",
@@ -59,13 +59,31 @@ export const overview = {
         "index": "04",
         "meta": [
           "2022",
-          "React / Redux / WebView"
+          "React / TypeScript"
         ],
         "heading": "웹소설 서비스·CMS 리뉴얼",
-        "summary": "작품 탐색, 뷰어, 결제 등 사용자 핵심 흐름과 운영 CMS를 구현하고 Redux로 복잡한 데이터 흐름을 정리했습니다.",
+        "summary": "웹소설 사용자 서비스와 운영 CMS의 핵심 화면·결제·뷰어를 구현한 리뉴얼 프로젝트입니다.",
         "proof": "",
         "href": "./projects/joara/",
         "linkLabel": "조아라 웹소설 서비스와 CMS 리뉴얼 상세 보기"
+      }
+    ]
+  },
+  "skills": {
+    "heading": "프로젝트에서 사용해 온 핵심 기술입니다.",
+    "intro": "세부 라이브러리보다 실제 제품 개발의 기반이 된 프레임워크와 런타임을 중심으로 정리했습니다.",
+    "groups": [
+      {
+        "heading": "Frontend",
+        "items": ["React", "Next.js", "TypeScript"]
+      },
+      {
+        "heading": "App",
+        "items": ["React Native", "Flutter"]
+      },
+      {
+        "heading": "Backend",
+        "items": ["Node.js", "FastAPI"]
       }
     ]
   },
@@ -105,8 +123,7 @@ export const overview = {
       "heading": "2021 신한은행 업적평가",
       "tags": [
         "React",
-        "TypeScript",
-        "Vite"
+        "TypeScript"
       ],
       "facts": [
         {
@@ -128,7 +145,6 @@ export const overview = {
       "heading": "DEVFIVE 랜딩페이지",
       "tags": [
         "Next.js",
-        "Notion API",
         "TypeScript"
       ],
       "facts": [
@@ -151,8 +167,7 @@ export const overview = {
       "heading": "HumanSense",
       "tags": [
         "Next.js",
-        "TypeScript",
-        "Vite"
+        "TypeScript"
       ],
       "facts": [
         {
@@ -175,8 +190,7 @@ export const overview = {
       "tags": [
         "React",
         "React Native",
-        "TypeScript",
-        "Vite"
+        "TypeScript"
       ],
       "facts": [
         {
@@ -221,7 +235,6 @@ export const overview = {
       "heading": "Matched Admin",
       "tags": [
         "React",
-        "Vite",
         "TypeScript"
       ],
       "facts": [
@@ -244,7 +257,6 @@ export const overview = {
       "heading": "NCSOFT NCDP",
       "tags": [
         "React",
-        "Vite",
         "TypeScript"
       ],
       "facts": [
@@ -267,7 +279,7 @@ export const overview = {
       "heading": "서초구가족센터",
       "tags": [
         "React",
-        "Zustand"
+        "TypeScript"
       ],
       "facts": [
         {
@@ -289,8 +301,7 @@ export const overview = {
       "heading": "금융보안원 위험 인텔리전스 관리 시스템",
       "tags": [
         "React",
-        "TypeScript",
-        "Vite"
+        "TypeScript"
       ],
       "facts": [
         {
@@ -311,9 +322,9 @@ export const overview = {
       "linkLabel": "라운드 테이블 프로젝트 상세 보기",
       "heading": "라운드 테이블",
       "tags": [
-        "Node.js",
+        "React",
         "Flutter",
-        "Next.js"
+        "TypeScript"
       ],
       "facts": [
         {
@@ -335,9 +346,7 @@ export const overview = {
       "heading": "더 브릿지",
       "tags": [
         "React",
-        "TypeScript",
-        "Zustand",
-        "Google Analytics"
+        "TypeScript"
       ],
       "facts": [
         {
@@ -359,7 +368,7 @@ export const overview = {
       "heading": "조아라 웹소설 서비스 리뉴얼",
       "tags": [
         "React",
-        "Redux"
+        "TypeScript"
       ],
       "facts": [
         {
@@ -381,9 +390,7 @@ export const overview = {
       "heading": "DEVFIVE 사내 공통 컴포넌트 라이브러리",
       "tags": [
         "React",
-        "Next.js",
-        "Vite",
-        "Vitest"
+        "Next.js"
       ],
       "facts": [
         {
@@ -397,6 +404,50 @@ export const overview = {
       ],
       "image": "",
       "fallback": "DEVFIVE / SYSTEM"
+    },
+    {
+      "index": "14",
+      "href": "./vine-international-academy/",
+      "linkLabel": "Vine International Academy 프로젝트 상세 보기",
+      "heading": "Vine International Academy",
+      "tags": [
+        "React",
+        "TypeScript"
+      ],
+      "facts": [
+        {
+          "label": "기간",
+          "value": "2021.11 — 2022.01"
+        },
+        {
+          "label": "역할",
+          "value": "프론트엔드 개발"
+        }
+      ],
+      "image": "/assets/projects/vine-international-academy-01.webp",
+      "fallback": ""
+    },
+    {
+      "index": "15",
+      "href": "./yourtest/",
+      "linkLabel": "유어테스트 프로젝트 상세 보기",
+      "heading": "유어테스트",
+      "tags": [
+        "Next.js",
+        "TypeScript"
+      ],
+      "facts": [
+        {
+          "label": "기간",
+          "value": "2025.06 — 2025.08"
+        },
+        {
+          "label": "역할",
+          "value": "프론트엔드 개발"
+        }
+      ],
+      "image": "/assets/projects/yourtest-01.webp",
+      "fallback": ""
     }
   ]
 }

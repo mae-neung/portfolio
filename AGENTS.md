@@ -10,9 +10,9 @@
 
 ## 콘텐츠·디자인 보존
 
-승인된 서사형 UI와 뉴트럴·블루 Design Foundation을 유지한다. 포트폴리오 사실관계는 사용자 승인 없이 바꾸지 않는다. 16개 물리적 `index.html` 배포 경로, 각 페이지 제목·설명, 이미지·링크, 라이트·다크 테마의 `portfolio-theme` 저장 키, 접근성과 reduced-motion을 보존한다.
+승인된 서사형 UI와 뉴트럴·블루 Design Foundation을 유지한다. 포트폴리오 사실관계는 사용자 승인 없이 바꾸지 않는다. 18개 물리적 `index.html` 배포 경로, 각 페이지 제목·설명, 이미지·링크, 라이트·다크 테마의 `portfolio-theme` 저장 키, 접근성과 reduced-motion을 보존한다.
 
-작성 소스에 `.html`·`.css` 파일은 두지 않는다. 문서 셸, 본문과 프리렌더 스크립트는 TypeScript/TSX로, 스타일은 DEVUP UI와 `devup.json`의 토큰으로 구성한다. `dist/`의 HTML·CSS는 16개 정적 배포 경로와 DEVUP 스타일을 위한 추적 빌드 산출물이다.
+작성 소스에 `.html`·`.css` 파일은 두지 않는다. 문서 셸, 본문과 프리렌더 스크립트는 TypeScript/TSX로, 스타일은 DEVUP UI와 `devup.json`의 토큰으로 구성한다. `dist/`의 HTML·CSS는 18개 정적 배포 경로와 DEVUP 스타일을 위한 추적 빌드 산출물이다.
 
 `src/`의 `className`과 인라인 `style`은 사용하지 않는다. `globalCss`에는 클래스 선택자를 두지 않고 리셋·문서 전역 규칙만 유지한다. 페이지·컴포넌트 스타일은 DEVUP UI props와 지역 `styled` 컴포넌트로 관리한다.
 
