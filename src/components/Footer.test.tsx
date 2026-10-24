@@ -8,7 +8,7 @@ describe('Footer', () => {
   it('refreshes a prior-year prerender without a hydration mismatch', async () => {
     const currentYear = new Date().getFullYear()
     const container = document.createElement('div')
-    container.innerHTML = renderToString(<Footer label="13 Projects" />)
+    container.innerHTML = renderToString(<Footer label="15 Projects" />)
     const yearSpan = container.querySelector('footer span')
     const yearTextNode = [...(yearSpan?.childNodes ?? [])].find(
       (node) => node.nodeType === Node.TEXT_NODE && node.textContent === String(currentYear),
@@ -21,7 +21,7 @@ describe('Footer', () => {
     const recovered: unknown[] = []
     let root: ReturnType<typeof hydrateRoot> | undefined
     await act(async () => {
-      root = hydrateRoot(container, <Footer label="13 Projects" />, {
+      root = hydrateRoot(container, <Footer label="15 Projects" />, {
         onRecoverableError: (error) => recovered.push(error),
       })
     })

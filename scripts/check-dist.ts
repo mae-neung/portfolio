@@ -57,7 +57,7 @@ async function collectHtml(directory: string): Promise<void> {
 }
 await collectHtml(dist)
 if (htmlFiles.length !== expectedHtml.length || expectedHtml.some((entry) => !htmlFiles.includes(entry))) {
-  throw new Error(`Expected exactly 16 HTML pages, got: ${htmlFiles.join(', ')}`)
+  throw new Error(`Expected exactly 18 HTML pages, got: ${htmlFiles.join(', ')}`)
 }
 
 for (const entry of expectedHtml) {
@@ -78,5 +78,5 @@ const assets = await readdir(path.join(dist, 'assets'))
 if (!assets.some((entry) => entry.endsWith('.js'))) throw new Error('Missing built client JavaScript')
 if (!assets.some((entry) => entry.startsWith('devup-ui') && entry.endsWith('.css'))) throw new Error('Missing generated DEVUP UI CSS')
 const imageFiles = await readdir(path.join(dist, 'assets', 'projects'))
-if (imageFiles.length !== 29) throw new Error(`Expected 29 project images, got ${imageFiles.length}`)
-console.log('Checked zero authored HTML/CSS, className, inline styles, or global class selectors; 16 prerendered pages, generated JS/CSS, local references, and 29 images.')
+if (imageFiles.length !== 35) throw new Error(`Expected 35 project images, got ${imageFiles.length}`)
+console.log('Checked zero authored HTML/CSS, className, inline styles, or global class selectors; 18 prerendered pages, generated JS/CSS, local references, and 35 images.')

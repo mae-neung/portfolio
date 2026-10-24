@@ -210,4 +210,21 @@ export const projectContent: Record<string, ProjectContent> = {
     technology: ['React와 TypeScript 기반 웹사이트'],
     images: ['the-bridge-01.webp', 'the-bridge-02.webp', 'the-bridge-03.webp'],
   }),
+  'vine-international-academy': createProject({
+    index: '14', year: '2021—2022', heading: 'Vine International Academy', summary: '국제학교의 교육과정과 입학 정보를 사용자 친화적인 구조와 반응형 UI로 제공하는 공식 웹사이트입니다.',
+    role: '프론트엔드 개발', period: '2021.11 — 2022.01', stack: 'React · TypeScript', scope: '학교 소개 · 교육과정 · 입학 안내 · 반응형',
+    intro: ['VIA 국제학교의 브랜드 가치와 교육 전문성을 온라인에서 전달하는 공식 웹사이트입니다. 미국 대학 진학 준비를 위한 커리큘럼과 프로그램, 입학 정보를 학부모와 학생이 쉽게 탐색할 수 있도록 구성했습니다.'],
+    features: ['학교와 교육 철학 소개', '유치원·초등·중등·고등 과정별 교육 프로그램 안내', '입학 정보와 학교 커뮤니티 콘텐츠 제공', '컬러·타이포그래피·이미지를 활용한 브랜드 아이덴티티 표현', '데스크톱과 모바일 환경에 대응하는 반응형 화면'],
+    technology: ['React와 TypeScript 기반 웹사이트', '학부모와 학생의 정보 탐색 흐름을 고려한 반응형 UI'],
+    images: ['vine-international-academy-01.webp', 'vine-international-academy-02.webp', 'vine-international-academy-03.webp'],
+  }),
+  yourtest: createProject({
+    index: '15', year: '2025', heading: '유어테스트', summary: '회원가입 없이 다양한 심리·성향 테스트를 이용하고 결과를 공유할 수 있는 종합 테스트 플랫폼입니다.',
+    role: '프론트엔드 개발', period: '2025.06 — 2025.08', stack: 'Next.js · TypeScript', scope: '테스트 참여 · 결과 · 공유 · 관리자 화면',
+    intro: ['성격 유형과 개인적 취향, 가치관 등을 알아볼 수 있는 다양한 테스트 콘텐츠를 제공하는 종합 유틸리티 플랫폼입니다. 회원가입 없이 바로 참여할 수 있으며, 직관적인 화면을 통해 자기 탐색과 엔터테인먼트를 함께 경험할 수 있도록 구성했습니다.'],
+    features: ['회원가입 없이 바로 참여할 수 있는 심리·성향 테스트', '질문·응답·결과 매칭과 점수 계산을 통한 유형별 결과 제공', '밸런스 게임, 유형 분석, 캐릭터 매칭 등 다양한 테스트 방식', '결과 이미지 생성과 SNS 공유 인터페이스', '테스트 등록과 결과 현황·이용 통계를 확인하는 관리자 화면'],
+    technology: ['Next.js와 TypeScript 기반 웹사이트', '테스트 참여 흐름과 결과 공유에 최적화된 반응형 UI'],
+    images: ['yourtest-01.webp', 'yourtest-02.webp', 'yourtest-03.webp'],
+    links: [{ href: 'https://yourtest.kr/', label: '유어테스트 바로가기 ↗', external: true }],
+  }),
 }

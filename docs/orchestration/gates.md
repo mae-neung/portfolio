@@ -16,4 +16,4 @@
 
 ## 검증
 
-`pnpm verify`를 최종 변경본에서 수행한다. 경로·전역 UI 변경은 [UI 점검표](ui-smoke-checklist.md)의 full 수준을 확인한다. `dist/` 밖의 작성 HTML·CSS가 0개인지, 빌드된 `dist/`에 16개 HTML과 JS·DEVUP CSS·모든 프로젝트 이미지가 있는지 검사한다. 빌드된 `dist/`도 함께 커밋하며 CI에서 `git diff --exit-code -- dist/`와 미추적 파일 검사로 재생성 결과와의 일치를 확인한다. PR에서는 배포하지 않는다. `main` push 또는 `main`에서 수동 실행 시 검증을 거쳐 기존 GitHub Pages의 legacy `gh-pages` 브랜치 루트에 게시한다. PR 생성·업로드는 전역 `full-pr` Gate를 따른다.
+`pnpm verify`를 최종 변경본에서 수행한다. 경로·전역 UI 변경은 [UI 점검표](ui-smoke-checklist.md)의 full 수준을 확인한다. `dist/` 밖의 작성 HTML·CSS가 0개인지, 빌드된 `dist/`에 18개 HTML과 JS·DEVUP CSS·모든 프로젝트 이미지가 있는지 검사한다. 빌드된 `dist/`도 함께 커밋하며 CI에서 `git diff --exit-code -- dist/`와 미추적 파일 검사로 재생성 결과와의 일치를 확인한다. PR에서는 배포하지 않는다. `main` push 또는 `main`에서 수동 실행 시 검증을 거쳐 기존 GitHub Pages의 legacy `gh-pages` 브랜치 루트에 게시한다. PR 생성·업로드는 전역 `full-pr` Gate를 따른다.

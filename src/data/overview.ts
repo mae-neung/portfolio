@@ -6,7 +6,7 @@ export const overview = {
     "intro": "React와 Next.js로 사용자 흐름을 설계하고 구현합니다. 공통 라이브러리부터 업무 자동화까지, 설계·개발·운영을 연결합니다.",
     "proof": [
       {
-        "value": "15",
+        "value": "17",
         "label": "진행한 프로젝트"
       },
       {
@@ -404,6 +404,50 @@ export const overview = {
       ],
       "image": "",
       "fallback": "DEVFIVE / SYSTEM"
+    },
+    {
+      "index": "14",
+      "href": "./vine-international-academy/",
+      "linkLabel": "Vine International Academy 프로젝트 상세 보기",
+      "heading": "Vine International Academy",
+      "tags": [
+        "React",
+        "TypeScript"
+      ],
+      "facts": [
+        {
+          "label": "기간",
+          "value": "2021.11 — 2022.01"
+        },
+        {
+          "label": "역할",
+          "value": "프론트엔드 개발"
+        }
+      ],
+      "image": "/assets/projects/vine-international-academy-01.webp",
+      "fallback": ""
+    },
+    {
+      "index": "15",
+      "href": "./yourtest/",
+      "linkLabel": "유어테스트 프로젝트 상세 보기",
+      "heading": "유어테스트",
+      "tags": [
+        "Next.js",
+        "TypeScript"
+      ],
+      "facts": [
+        {
+          "label": "기간",
+          "value": "2025.06 — 2025.08"
+        },
+        {
+          "label": "역할",
+          "value": "프론트엔드 개발"
+        }
+      ],
+      "image": "/assets/projects/yourtest-01.webp",
+      "fallback": ""
     }
   ]
 }

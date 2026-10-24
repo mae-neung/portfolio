@@ -18,13 +18,13 @@ beforeEach(() => {
 })
 
 describe('portfolio routes', () => {
-  it('retains the 16 physical routes and structured content', () => {
-    expect(portfolioRoutes).toHaveLength(16)
-    expect(projectRoutes).toHaveLength(14)
-    expect(overview.archive).toHaveLength(13)
-    expect(Object.keys(projectContent)).toHaveLength(14)
+  it('retains the 18 physical routes and structured content', () => {
+    expect(portfolioRoutes).toHaveLength(18)
+    expect(projectRoutes).toHaveLength(16)
+    expect(overview.archive).toHaveLength(15)
+    expect(Object.keys(projectContent)).toHaveLength(16)
     expect(JSON.stringify({ projectContent, overview })).not.toMatch(/<\/?[a-z][^>]*>/i)
-    expect(new Set(portfolioRoutes.map((route) => route.path)).size).toBe(16)
+    expect(new Set(portfolioRoutes.map((route) => route.path)).size).toBe(18)
     for (const route of projectRoutes) {
       const slug = route.path.split('/').filter(Boolean).at(-1) ?? ''
       const content = projectContent[slug]
@@ -35,7 +35,7 @@ describe('portfolio routes', () => {
       expect(route.description).toBeTruthy()
     }
     const images = Object.values(projectContent).flatMap((content) => content.sections.flatMap((section) => section.images))
-    expect(new Set(images.map((image) => image.src)).size).toBe(29)
+    expect(new Set(images.map((image) => image.src)).size).toBe(35)
   })
 
   it('recognizes root and project subpaths, including explicit index.html URLs', () => {
@@ -86,7 +86,7 @@ describe('portfolio routes', () => {
   it('shows the verified project count and available technology groups', () => {
     render(<MemoryRouter initialEntries={['/']}><App /></MemoryRouter>)
     expect(screen.getByText('진행한 프로젝트')).toBeInTheDocument()
-    expect(screen.getByText('15')).toBeInTheDocument()
+    expect(screen.getByText('17')).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Frontend' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Backend' })).toBeInTheDocument()
     expect(screen.getByText('React Native')).toBeInTheDocument()
@@ -107,8 +107,14 @@ describe('portfolio routes', () => {
     expect(projectContent['seocho-family-center'].facts.find((fact) => fact.label === 'Stack')?.value).toBe('React · TypeScript')
     expect(archiveByHref.get('./joara/')?.tags).toEqual(['React', 'TypeScript'])
     expect(projectContent.joara.facts.find((fact) => fact.label === 'Stack')?.value).toBe('React · TypeScript')
+    expect(archiveByHref.get('./vine-international-academy/')?.tags).toEqual(['React', 'TypeScript'])
+    expect(projectContent['vine-international-academy'].facts.find((fact) => fact.label === 'Stack')?.value).toBe('React · TypeScript')
+    expect(archiveByHref.get('./yourtest/')?.tags).toEqual(['Next.js', 'TypeScript'])
+    expect(projectContent.yourtest.facts.find((fact) => fact.label === 'Stack')?.value).toBe('Next.js · TypeScript')
+    expect(projectContent.yourtest.sections.flatMap((section) => section.links)).toContainEqual({ href: 'https://yourtest.kr/', label: '유어테스트 바로가기 ↗', external: true })
+    expect(projectContent['vine-international-academy'].sections.flatMap((section) => section.links)).toEqual([])
     const displayedStacks = Object.values(projectContent).flatMap((content) => content.facts.filter((fact) => fact.label === 'Stack').map((fact) => fact.value))
-    expect(displayedStacks.join(' ')).not.toMatch(/Vite|Vitest|Zustand|Redux|Notion API|GitHub Actions|Google Analytics|Express|AWS/)
+    expect(displayedStacks.join(' ')).not.toMatch(/Vite|Vitest|Zustand|Redux|Notion API|GitHub Actions|Google Analytics|Express|Python|AWS/)
   })
 
   it('hydrates prerendered detail markup without a recovery error', async () => {

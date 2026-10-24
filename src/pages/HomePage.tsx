@@ -63,7 +63,7 @@ export function HomePage({ route }: { route: PortfolioRoute }) {
         {project.proof && <FeaturedProof>{project.proof}</FeaturedProof>}
         <DetailLink href={project.href} aria-label={project.linkLabel}>프로젝트 상세 <span aria-hidden="true">↗</span></DetailLink>
       </MotionFeaturedCard>)}</FeaturedGrid>
-      <MotionArchiveCta {...revealUp} transition={enterTransition()} href="./projects/">전체 프로젝트 13개 보기 <span aria-hidden="true">→</span></MotionArchiveCta>
+      <MotionArchiveCta {...revealUp} transition={enterTransition()} href="./projects/">전체 프로젝트 {overview.archive.length}개 보기 <span aria-hidden="true">→</span></MotionArchiveCta>
     </PageShell></Work>
     <Skills id="skills" aria-labelledby="skills-title"><PageShell>
       <MotionOverline {...revealUp} transition={enterTransition()}>Technical Toolkit</MotionOverline>
