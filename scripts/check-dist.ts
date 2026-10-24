@@ -6,6 +6,7 @@ import { portfolioRoutes } from '../src/data/routes.ts'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const dist = path.join(root, 'dist')
+const source = path.join(root, 'src')
 const ignoredDirectories = new Set(['.git', 'node_modules', 'dist'])
 const expectedHtml = portfolioRoutes.map((route) => route.path === '/' ? 'index.html' : `${route.path.slice(1)}index.html`)
 
@@ -25,6 +26,26 @@ async function collectAuthored(directory: string): Promise<void> {
 }
 await collectAuthored(root)
 if (authoredMarkup.length) throw new Error(`Unexpected authored HTML/CSS: ${authoredMarkup.join(', ')}`)
+
+const sourcePolicyViolations: string[] = []
+async function checkSource(directory: string): Promise<void> {
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    const full = path.join(directory, entry.name)
+    if (entry.isDirectory()) {
+      await checkSource(full)
+      continue
+    }
+    if (!/\.tsx?$/.test(entry.name)) continue
+    const relative = path.relative(root, full)
+    const content = await readFile(full, 'utf8')
+    if (/\bclassName\s*=/.test(content)) sourcePolicyViolations.push(`${relative}: className`)
+    if (/\bstyle\s*=/.test(content)) sourcePolicyViolations.push(`${relative}: inline style`)
+  }
+}
+await checkSource(source)
+const globalStyles = await readFile(path.join(source, 'theme', 'globalStyles.ts'), 'utf8')
+if (/\.[A-Za-z_][\w-]*(?=[\s:{>+~,#.[]|$)/.test(globalStyles)) sourcePolicyViolations.push('src/theme/globalStyles.ts: class selector')
+if (sourcePolicyViolations.length) throw new Error(`Source style policy failed: ${sourcePolicyViolations.join(', ')}`)
 
 const htmlFiles: string[] = []
 async function collectHtml(directory: string): Promise<void> {
@@ -58,4 +79,4 @@ if (!assets.some((entry) => entry.endsWith('.js'))) throw new Error('Missing bui
 if (!assets.some((entry) => entry.startsWith('devup-ui') && entry.endsWith('.css'))) throw new Error('Missing generated DEVUP UI CSS')
 const imageFiles = await readdir(path.join(dist, 'assets', 'projects'))
 if (imageFiles.length !== 29) throw new Error(`Expected 29 project images, got ${imageFiles.length}`)
-console.log('Checked zero authored HTML or CSS, 16 prerendered pages, generated JS/CSS, local references, and 29 images.')
+console.log('Checked zero authored HTML/CSS, className, inline styles, or global class selectors; 16 prerendered pages, generated JS/CSS, local references, and 29 images.')

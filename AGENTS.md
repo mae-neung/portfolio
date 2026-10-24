@@ -14,6 +14,10 @@
 
 작성 소스에 `.html`·`.css` 파일은 두지 않는다. 문서 셸, 본문과 프리렌더 스크립트는 TypeScript/TSX로, 스타일은 DEVUP UI와 `devup.json`의 토큰으로 구성한다. `dist/`의 HTML·CSS는 16개 정적 배포 경로와 DEVUP 스타일을 위한 추적 빌드 산출물이다.
 
+`src/`의 `className`과 인라인 `style`은 사용하지 않는다. `globalCss`에는 클래스 선택자를 두지 않고 리셋·문서 전역 규칙만 유지한다. 페이지·컴포넌트 스타일은 DEVUP UI props와 지역 `styled` 컴포넌트로 관리한다.
+
+레이아웃 래퍼는 `styled.div`에 `display: grid` 또는 `display: flex`를 명시한다. 현재 DEVUP의 `styled(Grid/Flex/VStack/Center)`와 직접 사용한 `Grid`의 기본 display 클래스가 반복 빌드에서 서로 다른 이름으로 생성되어 JS·CSS가 어긋난 사례가 있었다. 해당 primitive를 다시 쓰기 전에는 연속 빌드의 `dist/` 바이트 동일성과 실제 렌더링을 확인한다.
+
 새로운 시각 방향이 필요한 요청은 전역 Designer 승인 절차를 따른다. 콘텐츠·구조 마이그레이션은 현재 디자인을 보존한다.
 
 ## 구조

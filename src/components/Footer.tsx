@@ -1,5 +1,12 @@
 import { useEffect, useRef } from 'react'
-import { Flex, Text } from '@devup-ui/react'
+import { Text, styled } from '@devup-ui/react'
+
+const FooterShell = styled.footer`
+  display: flex; justify-content: space-between; gap: 16px; width: min(calc(100% - 76px), 1120px); margin-inline: auto;
+  padding-block: 25px; color: var(--textMuted); font-size: 12px;
+  @media (max-width: 750px) { width: calc(100% - 38px); }
+  @media (max-width: 390px) { width: calc(100% - 28px); display: block; & > span:last-child { display: block; margin-top: 7px; } }
+`
 
 const currentYear = new Date().getFullYear()
 
@@ -15,9 +22,9 @@ export function Footer({ label }: { label: string }) {
   }, [])
 
   return (
-    <Flex as="footer" className="site-footer page-shell">
+    <FooterShell>
       <Text as="span" ref={yearRef} suppressHydrationWarning>© {currentYear} Gangwook Lee</Text>
       <Text as="span">{label}</Text>
-    </Flex>
+    </FooterShell>
   )
 }

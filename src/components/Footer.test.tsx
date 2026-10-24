@@ -9,7 +9,7 @@ describe('Footer', () => {
     const currentYear = new Date().getFullYear()
     const container = document.createElement('div')
     container.innerHTML = renderToString(<Footer label="13 Projects" />)
-    const yearSpan = container.querySelector('.site-footer span')
+    const yearSpan = container.querySelector('footer span')
     const yearTextNode = [...(yearSpan?.childNodes ?? [])].find(
       (node) => node.nodeType === Node.TEXT_NODE && node.textContent === String(currentYear),
     )
@@ -27,7 +27,7 @@ describe('Footer', () => {
     })
 
     expect(recovered).toEqual([])
-    expect(container.querySelector('.site-footer span')).toHaveTextContent(
+    expect(container.querySelector('footer span')).toHaveTextContent(
       `© ${currentYear} Gangwook Lee`,
     )
     await act(async () => root?.unmount())

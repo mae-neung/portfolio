@@ -3,7 +3,16 @@ import type { PortfolioRoute } from '../data/routes'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { useTheme } from '../hooks/useTheme'
-import { PortfolioPage } from '../pages/PortfolioPage'
+import { HomePage } from '../pages/HomePage'
+import { ArchivePage } from '../pages/ArchivePage'
+import { DetailPage } from '../pages/DetailPage'
+import { styled } from '@devup-ui/react'
+
+const SkipLink = styled.a`
+  position: fixed; z-index: 100; top: 8px; left: 8px; transform: translateY(-160%);
+  padding: 10px 15px; background: var(--primary); color: var(--onPrimary); border-radius: var(--buttonRadius);
+  &:focus { transform: translateY(0); }
+`
 
 export function PortfolioLayout({ route }: { route: PortfolioRoute }) {
   const { theme, toggleTheme } = useTheme()
@@ -16,9 +25,9 @@ export function PortfolioLayout({ route }: { route: PortfolioRoute }) {
 
   return (
     <>
-      <a className="skip-link" href="#main">본문으로 건너뛰기</a>
+      <SkipLink href="#main">본문으로 건너뛰기</SkipLink>
       <Header page={page} theme={theme} onToggleTheme={toggleTheme} />
-      <PortfolioPage route={route} />
+      {page === 'home' ? <HomePage route={route} /> : page === 'archive' ? <ArchivePage route={route} /> : <DetailPage route={route} />}
       <Footer label={route.footerLabel} />
     </>
   )
