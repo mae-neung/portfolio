@@ -1,223 +1,34 @@
 <!doctype html>
-<html lang="ko" data-theme="dark">
+<html lang="ko" data-theme="default">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="React·Next.js 프론트엔드 개발자 이강욱의 프로젝트 포트폴리오"
-    />
-    <meta name="theme-color" content="#0b0f18" />
+    <meta name="description" content="React·Next.js 프론트엔드 개발자 이강욱의 프로젝트 포트폴리오" />
+    <meta name="theme-color" content="#F5F7FA" />
+    <script>
+      (() => {
+        try {
+          const saved = localStorage.getItem('portfolio-theme')
+          const dark = saved === 'dark' || (saved !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches)
+          document.documentElement.dataset.theme = dark ? 'dark' : 'default'
+          document.querySelector('meta[name="theme-color"]').content = dark ? '#101A2A' : '#F5F7FA'
+        } catch { /* The light theme remains readable when storage is unavailable. */ }
+      })()
+    </script>
     <title>이강욱 — Frontend Developer</title>
-    <link rel="stylesheet" href="./styles.css?v=20261021-9" />
-    <script src="./script.js?v=20261021-4" defer></script>
+    <link rel="stylesheet" href="./assets/devup-ui-Bi3FlMSP.css" />
+    <link rel="stylesheet" href="./assets/devup-ui-8-BVfjxZs1.css" />
+    <link rel="stylesheet" href="./assets/devup-ui-1-DTI2-7nZ.css" />
+    <link rel="stylesheet" href="./assets/devup-ui-0-CDFaKCT6.css" />
+    <link rel="stylesheet" href="./assets/devup-ui-15-YKpXffVK.css" />
+    <link rel="stylesheet" href="./assets/devup-ui-19-D-nzHAaP.css" />
+    <link rel="stylesheet" href="./assets/devup-ui-14-kkdUZCBr.css" />
+    <link rel="stylesheet" href="./assets/devup-ui-10-CZh5zkOk.css" />
+    <link rel="stylesheet" href="./assets/devup-ui-12-BHsRA0OV.css" />
+    <link rel="stylesheet" href="./assets/devup-ui-18-Dugufcm2.css" />
   </head>
   <body>
-    <a class="skip-link" href="#main">본문으로 건너뛰기</a>
-
-    <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="이강욱 포트폴리오 처음으로">
-        <span class="brand-mark" aria-hidden="true">GW</span>
-        <span class="brand-name">Gangwook Lee</span>
-      </a>
-
-      <nav class="site-nav" aria-label="주요 메뉴">
-        <a href="./projects/">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="라이트 모드로 전환">
-        <span class="theme-toggle__sun" aria-hidden="true">◌</span>
-        <span class="theme-toggle__label">Theme</span>
-      </button>
-    </header>
-
-    <main id="main">
-      <section class="hero" id="top" aria-labelledby="hero-title">
-        <div class="hero__copy">
-          <p class="eyebrow reveal">LEE GANG WOOK · PORTFOLIO</p>
-          <h1 id="hero-title" class="hero__title reveal">
-            <span>프론트엔드 개발자,</span><br />
-            이강욱입니다.
-          </h1>
-          <p class="hero__lede reveal">
-            React·Next.js로 사용자 서비스와 운영 도구를 만듭니다.<br class="desktop-only" />
-            팀과 구현 기준을 맞추고, 출시 이후까지 함께 챙깁니다.
-          </p>
-
-        </div>
-
-        <div class="hero__visual reveal" role="group" aria-label="프로젝트 경험을 조립되는 인터페이스로 표현한 모션그래픽">
-          <div class="motion-stage is-playing" data-motion-stage>
-            <div class="motion-stage__grid" aria-hidden="true"></div>
-            <div class="motion-stage__glow" aria-hidden="true"></div>
-
-            <div class="motion-stage__topbar" aria-hidden="true">
-              <span>PORTFOLIO / SYSTEM MAP</span>
-              <span>2026.10</span>
-            </div>
-
-            <svg class="motion-stage__path" viewBox="0 0 560 560" aria-hidden="true">
-              <defs>
-                <linearGradient id="routeGradient" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="currentColor" stop-opacity="0.18" />
-                  <stop offset="0.52" stop-color="currentColor" stop-opacity="0.9" />
-                  <stop offset="1" stop-color="currentColor" stop-opacity="0.2" />
-                </linearGradient>
-              </defs>
-              <path d="M70 150 C 160 70, 245 92, 285 185 S 370 330, 485 255 S 500 420, 390 460 S 185 435, 95 365" />
-              <circle cx="70" cy="150" r="5" />
-              <circle cx="285" cy="185" r="5" />
-              <circle cx="485" cy="255" r="5" />
-              <circle cx="390" cy="460" r="5" />
-              <circle cx="95" cy="365" r="5" />
-            </svg>
-
-            <article class="motion-card motion-card--library" aria-hidden="true">
-              <div class="motion-card__meta">
-                <span>01 / REUSE</span>
-                <span class="status-dot"></span>
-              </div>
-              <strong>UI</strong>
-              <p>SHARED<br />COMPONENTS</p>
-              <div class="block-stack">
-                <i></i><i></i><i></i><i></i>
-              </div>
-            </article>
-
-            <article class="motion-card motion-card--product" aria-hidden="true">
-              <div class="motion-card__meta">
-                <span>02 / PRODUCT</span>
-                <span>LIVE</span>
-              </div>
-              <div class="window-dots"><i></i><i></i><i></i></div>
-              <div class="interface-lines"><i></i><i></i><i></i></div>
-              <div class="interface-chart"><i></i><i></i><i></i><i></i></div>
-              <p>USER FLOW / CMS / PAYMENT</p>
-            </article>
-
-            <article class="motion-card motion-card--automation" aria-hidden="true">
-              <div class="motion-card__meta">
-                <span>03 / AUTOMATE</span>
-                <span class="status-dot"></span>
-              </div>
-              <strong>15</strong>
-              <p>PROJECTS<br />ALIGNED</p>
-              <div class="node-row"><i></i><span></span><i></i><span></span><i></i></div>
-            </article>
-
-            <div class="motion-stage__caption" aria-hidden="true">
-              <span>DESIGN</span><i></i><span>BUILD</span><i></i><span>OPERATE</span>
-            </div>
-
-            <button class="motion-replay" type="button" data-motion-replay disabled>
-              <span aria-hidden="true">↻</span>
-              인트로 다시 보기
-            </button>
-          </div>
-        </div>
-
-        <div class="hero__actions reveal">
-          <a class="button button--primary" href="./projects/">
-            프로젝트 보기
-            <span aria-hidden="true">↘</span>
-          </a>
-          <a
-            class="button button--secondary"
-            href="https://github.com/mae-neung"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-
-        <dl class="hero__proof reveal" aria-label="핵심 경험">
-          <div>
-            <dt>15</dt>
-            <dd>프로젝트 데이터 정비</dd>
-          </div>
-          <div>
-            <dt>FE</dt>
-            <dd>React · Next.js · TypeScript</dd>
-          </div>
-        </dl>
-
-        <div class="scroll-cue" aria-hidden="true">
-          <span>Scroll to explore</span>
-          <i></i>
-        </div>
-      </section>
-
-      <section class="work section work--profile" id="work" aria-labelledby="work-title">
-        <div class="section-heading reveal-on-scroll">
-          <p class="eyebrow">Working Together</p>
-          <h2 id="work-title">팀과 같은 맥락을 보고,<br />제품을 함께 만드는 개발자입니다.</h2>
-          <p>팀과 요구사항·구현 기준을 맞추고, 재사용 가능한 컴포넌트와 일관된 상태 구조로 정리합니다. 리뷰와 QA, 운영 대응까지 함께 조율하며 제품을 만들어 왔습니다.</p>
-        </div>
-      </section>
-
-      <section class="approach section" id="approach" aria-labelledby="approach-title">
-        <div class="section-heading reveal-on-scroll">
-          <p class="eyebrow">Working Principles</p>
-          <h2 id="approach-title">빠르게 만들고,<br />운영에서 증명합니다.</h2>
-        </div>
-
-        <ol class="approach-list">
-          <li class="reveal-on-scroll">
-            <span>01</span>
-            <div>
-              <h3>화면보다 흐름부터</h3>
-              <p>사용자의 목표, 데이터 흐름, 실패 케이스를 먼저 정리한 뒤 구현합니다.</p>
-            </div>
-          </li>
-          <li class="reveal-on-scroll">
-            <span>02</span>
-            <div>
-              <h3>반복 대신 시스템</h3>
-              <p>공통 컴포넌트와 일관된 상태 관리로 다음 변경이 쉬운 구조를 만듭니다.</p>
-            </div>
-          </li>
-          <li class="reveal-on-scroll">
-            <span>03</span>
-            <div>
-              <h3>배포가 끝이 아니니까</h3>
-              <p>QA, 분석 데이터, 운영 피드백을 확인하고 제품이 안정될 때까지 다듬습니다.</p>
-            </div>
-          </li>
-        </ol>
-      </section>
-
-      <section class="contact section" id="contact" aria-labelledby="contact-title">
-        <p class="eyebrow reveal-on-scroll">LET’S WORK TOGETHER</p>
-        <h2 id="contact-title" class="reveal-on-scroll">좋은 팀과,<br />오래 쓰이는 제품을 만들고 싶습니다.</h2>
-        <div class="contact-actions reveal-on-scroll">
-          <a
-            class="contact-link"
-            href="mailto:maeneung@kakao.com"
-            aria-label="maeneung@kakao.com으로 이메일 보내기"
-          >
-            maeneung@kakao.com
-            <span aria-hidden="true">↗</span>
-          </a>
-          <a
-            class="contact-link"
-            href="https://github.com/mae-neung"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub 프로필 보기
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <span>© <span data-year></span> Gangwook Lee</span>
-      <span>React · Next.js · TypeScript</span>
-    </footer>
+    <div id="root"><a href="#main" class="i-a i-b i-c i-d i-e i-f i-g i-h i-i i-j">본문으로 건너뛰기</a><header class="b-a b-b b-c b-d b-e b-f b-g b-h b-i b-j b-k b-l b-m b-n"><a href="#top" aria-label="이강욱 포트폴리오 처음으로" class="b-o b-p b-q b-r b-s">Gangwook Lee</a><div class="b-t b-u b-v b-w b-x b-l b-n"><nav aria-label="주요 메뉴" class="b-y b-v b-z b-_ b-aa b-ab b-ac b-a-d b-l b-n"><a href="./projects/" class="b-ae b-af">Projects</a><a href="#approach" class="b-ae">Approach</a><a href="#contact" class="b-ae">Contact</a></nav><button type="button" aria-label="다크 모드로 전환" class="b-ag b-ah b-ai b-aj b-ak b-al b-am b-an b-ao b-q b-ap b-aq b-ar"><span aria-hidden="true">◐</span> Theme</button></div></header><main id="main"><section id="top" aria-labelledby="hero-title" class="o-a o-b o-c o-d o-e o-f o-g o-h o-i o-j o-k"><div aria-hidden="true" class="o-l o-m o-n o-o o-p o-q o-r o-s o-t o-u o-v o-w"><span>GW / FRONTEND</span><span>DESIGN · BUILD · OPERATE</span></div><div><p class="t-e t-f t-g t-h t-i">이강욱 · Frontend Developer</p><h1 id="hero-title" class="o-x o-y o-z o-_ o-aa o-q o-ab o-ac o-a-d o-ae">복잡한 문제를,<br/><em>실제로 쓰이는<br/>제품으로.</em></h1><div class="o-g o-af o-ag o-ah o-k o-ai"><p class="o-aj o-ak o-al o-am">React와 Next.js로 사용자 흐름을 설계하고 구현합니다. 공통 라이브러리부터 업무 자동화까지, 설계·개발·운영을 연결합니다.</p><div class="o-an o-ao o-ap o-u"><a href="#work" class="t-m t-n t-o t-p t-q t-r t-g t-s t-t t-u t-v t-w t-x t-y t-z">프로젝트 보기 <span aria-hidden="true">↘</span></a><a href="https://github.com/mae-neung" target="_blank" rel="noreferrer" class="t-m t-n t-o t-p t-q t-r t-g t-s t-t t-_ t-v t-aa t-ab t-ac t-a-d t-z">GitHub <span aria-hidden="true">↗</span></a></div></div></div></section><dl aria-label="핵심 경험" class="o-a o-b o-c o-aq o-f o-ar o-as o-g o-at o-au o-av o-k o-aw o-ax"><div class="o-ay o-u o-az"><dt class="o-a0 o-q o-a1 o-v">20+</dt><dd class="o-a2 o-r o-am">공통 라이브러리 적용 프로젝트</dd></div><div class="o-ay o-u o-az"><dt class="o-a0 o-q o-a1 o-v">15</dt><dd class="o-a2 o-r o-am">AI 워크플로우로 정비한 프로젝트</dd></div><div class="o-ay o-u o-az"><dt class="o-a0 o-q o-a1 o-v">FE</dt><dd class="o-a2 o-r o-am">React · Next.js · TypeScript</dd></div></dl><section id="work" aria-labelledby="work-title" class="o-a3 o-aw"><div class="t-a t-b t-c t-d"><p class="t-e t-f t-g t-h t-i">Selected Work / 04</p><div class="o-a4 o-g o-a5 o-ag o-a6 o-k o-ai"><h2 id="work-title" class="t-j t-k t-g t-l">화면을 만드는 데서 멈추지 않고,<br/>제품의 흐름을 완성합니다.</h2><p class="o-a7 o-ak o-am">요구사항 분석부터 상태 관리, 외부 연동, QA와 운영 대응까지 맡은 범위를 끝까지 연결했습니다.</p></div><div class="o-a8 o-a9 o-g o-a_ o-ay o-k"><article class="o-ba o-bb o-bc o-bd o-be o-bf o-bg o-bh o-bi o-s o-u o-bj o-bk o-bl o-bm"><span aria-hidden="true" class="o-bv o-bw o-bx o-by o-bp o-bq o-br o-bs o-bt o-q o-bz o-b0 o-v">01</span><div aria-label="공통 라이브러리 구성: Button, OAuth, Utils, Form" class="o-b1 o-ba o-cf o-cg o-ch o-ci o-cj o-ck o-cl o-ay o-cm o-k o-bj o-bk o-bm o-cn"><span class="o-co o-cp o-cq o-cr o-q o-cs o-k o-v o-bj o-bk">Button</span><span class="o-co o-cp o-cq o-cr o-q o-cs o-k o-v o-bj o-bk">OAuth</span><span class="o-co o-cp o-cq o-cr o-q o-cs o-k o-v o-bj o-bk">Utils</span><span class="o-co o-cp o-cq o-cr o-q o-cs o-k o-v o-bj o-bk">Form</span></div><span class="p-a p-b p-c typo-meta">01<!-- --> / <!-- -->DEVFIVE · 2023—2024 · React / Next.js / Vite / Vitest</span><h3 class="o-b1 o-ba o-b2 o-b3 o-b4 o-q o-b5">사내 공통 컴포넌트 라이브러리</h3><p class="o-b1 o-ba o-b6 o-b7 o-b8 o-am">React·Next.js 선택 빌드 구조와 테스트 환경을 설계하고, 공통 UI·유틸리티·SNS 로그인 모듈을 재사용 가능한 패키지로 만들었습니다.</p><strong class="o-b1 o-ba o-b9 o-b8 o-v">20개 이상 프로젝트에 적용</strong><a href="./projects/devfive/" aria-label="DEVFIVE 사내 공통 컴포넌트 라이브러리 상세 보기" class="o-b1 o-ba o-ct o-cu o-q o-r o-cv o-v o-cw o-cx">프로젝트 상세 <span aria-hidden="true">↗</span></a></article><article class="o-ba o-bb o-bc o-bd o-be o-bf o-bg o-bh o-bi o-s o-u o-bj o-bk o-bl o-bm"><span aria-hidden="true" class="o-bn o-bo o-bp o-bq o-br o-bs o-bt o-q o-bu o-v">02</span><img src="./assets/projects/joara-01.webp" alt="웹소설 서비스·CMS 리뉴얼 프로젝트 화면" loading="lazy" class="o-b1 o-b_ o-ba o-ca o-cb o-cc o-cd o-ce o-bj o-bk"/><span class="p-a p-b p-c typo-meta">02<!-- --> / <!-- -->조아라 · 2022 · React / Redux / WebView</span><h3 class="o-b1 o-ba o-b2 o-b3 o-b4 o-q o-b5">웹소설 서비스·CMS 리뉴얼</h3><p class="o-b1 o-ba o-b6 o-b7 o-b8 o-am">작품 탐색, 뷰어, 결제 등 사용자 핵심 흐름과 운영 CMS를 구현하고 Redux로 복잡한 데이터 흐름을 정리했습니다.</p><a href="./projects/joara/" aria-label="조아라 웹소설 서비스와 CMS 리뉴얼 상세 보기" class="o-b1 o-ba o-ct o-cu o-q o-r o-cv o-v o-cw o-cx">프로젝트 상세 <span aria-hidden="true">↗</span></a></article><article class="o-ba o-bb o-bc o-bd o-be o-bf o-bg o-bh o-bi o-s o-u o-bj o-bk o-bl o-bm"><span aria-hidden="true" class="o-bn o-bo o-bp o-bq o-br o-bs o-bt o-q o-bu o-v">03</span><img src="./assets/projects/the-bridge-01.webp" alt="기부 흐름과 분석 추적 연결 프로젝트 화면" loading="lazy" class="o-b1 o-b_ o-ba o-ca o-cb o-cc o-cd o-ce o-bj o-bk"/><span class="p-a p-b p-c typo-meta">03<!-- --> / <!-- -->더 브릿지 · 2023—2024 · React / TypeScript / Zustand</span><h3 class="o-b1 o-ba o-b2 o-b3 o-b4 o-q o-b5">기부 흐름과 분석 추적 연결</h3><p class="o-b1 o-ba o-b6 o-b7 o-b8 o-am">로그인부터 캠페인 탐색·기부까지 구현하고, 외부 PG에서 끊기던 전환 추적을 협업을 통해 복구했습니다.</p><a href="./projects/the-bridge/" aria-label="더 브릿지 기부 흐름과 분석 추적 상세 보기" class="o-b1 o-ba o-ct o-cu o-q o-r o-cv o-v o-cw o-cx">프로젝트 상세 <span aria-hidden="true">↗</span></a></article><article class="o-ba o-bb o-bc o-bd o-be o-bf o-bg o-bh o-bi o-s o-u o-bj o-bk o-bl o-bm"><span aria-hidden="true" class="o-bn o-bo o-bp o-bq o-br o-bs o-bt o-q o-bu o-v">04</span><span class="p-a p-b p-c typo-meta">04<!-- --> / <!-- -->Personal · 2026—현재 · Codex / Notion API / Automation</span><h3 class="o-b1 o-ba o-b2 o-b3 o-b4 o-q o-b5">AI 에이전트 기반 문서 관리</h3><p class="o-b1 o-ba o-b6 o-b7 o-b8 o-am">역할별 에이전트, 컨텍스트 라우팅과 사용자 승인 흐름을 연결해 프로젝트·채용 문서의 정합성을 관리합니다.</p><strong class="o-b1 o-ba o-b9 o-b8 o-v">15개 프로젝트 정보 정비</strong><a href="./projects/ai-docs/" aria-label="AI 에이전트 기반 문서 관리 상세 보기" class="o-b1 o-ba o-ct o-cu o-q o-r o-cv o-v o-cw o-cx">프로젝트 상세 <span aria-hidden="true">↗</span></a></article></div><a href="./projects/" class="o-cy o-cz o-p o-c0 o-q o-al o-u o-cv o-v o-aw o-ax o-c1">전체 프로젝트 13개 보기 <span aria-hidden="true">→</span></a></div></section><section id="approach" aria-labelledby="approach-title" class="o-a o-b o-c o-c2 o-f o-aw"><p class="t-e t-f t-g t-h t-i">How I Work</p><h2 id="approach-title" class="o-a4 o-c3 o-c4 o-q o-c5">구현은 빠르게,<br/>판단 근거는 분명하게.</h2><ol class="o-c6 o-c7 o-g o-at o-ah o-k"><li class="o-c8 o-c9"><span class="o-c_ o-q o-r o-v">01</span><h3 class="o-da o-db o-dc o-q o-dd">흐름부터 봅니다</h3><p class="o-de o-am">화면 단위보다 사용자의 목표, 데이터 흐름과 예외 상황을 먼저 구조화합니다.</p></li><li class="o-c8 o-c9"><span class="o-c_ o-q o-r o-v">02</span><h3 class="o-da o-db o-dc o-q o-dd">반복을 구조로 바꿉니다</h3><p class="o-de o-am">공통 컴포넌트와 명확한 상태 관리로 다음 변경의 비용까지 줄입니다.</p></li><li class="o-c8 o-c9"><span class="o-c_ o-q o-r o-v">03</span><h3 class="o-da o-db o-dc o-q o-dd">운영까지 확인합니다</h3><p class="o-de o-am">QA, 분석 데이터와 실제 운영 피드백을 구현의 마지막 단계로 포함합니다.</p></li></ol></section><section id="contact" aria-labelledby="contact-title" class="o-df o-dg o-dh"><div class="t-a t-b t-c t-d"><p class="o-di o-dj o-q o-r o-dg">Let’s build something useful.</p><h2 id="contact-title" class="o-dk o-dl o-dm o-q o-dn">복잡한 요구사항을<br/>선명한 제품 경험으로.</h2><a href="https://github.com/mae-neung" target="_blank" rel="noreferrer" class="o-do o-dp o-q o-dq o-dr">GitHub에서 작업 보기 ↗</a></div></section></main><footer class="a-a a-b a-c a-d a-e a-f a-g a-h a-i a-j a-k a-l a-m"><span>© <!-- -->2026<!-- --> Gangwook Lee</span><span>React · Next.js · TypeScript</span></footer></div>
+    <script type="module" src="./assets/main-IGoFlBAK.js"></script>
   </body>
 </html>
-

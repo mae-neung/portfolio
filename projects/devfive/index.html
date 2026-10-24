@@ -1,90 +1,34 @@
 <!doctype html>
-<html lang="ko" data-theme="dark">
+<html lang="ko" data-theme="default">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="React·Next.js 공통 컴포넌트 라이브러리 설계·개발 프로젝트" />
-    <meta name="theme-color" content="#0b0f18" />
+    <meta name="theme-color" content="#F5F7FA" />
+    <script>
+      (() => {
+        try {
+          const saved = localStorage.getItem('portfolio-theme')
+          const dark = saved === 'dark' || (saved !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches)
+          document.documentElement.dataset.theme = dark ? 'dark' : 'default'
+          document.querySelector('meta[name="theme-color"]').content = dark ? '#101A2A' : '#F5F7FA'
+        } catch { /* The light theme remains readable when storage is unavailable. */ }
+      })()
+    </script>
     <title>DEVFIVE 공통 라이브러리 — 이강욱</title>
-    <link rel="stylesheet" href="../../styles.css?v=20261021-9" />
-    <script src="../../script.js?v=20261021-4" defer></script>
+    <link rel="stylesheet" href="../../assets/devup-ui-Bi3FlMSP.css" />
+    <link rel="stylesheet" href="../../assets/devup-ui-8-BVfjxZs1.css" />
+    <link rel="stylesheet" href="../../assets/devup-ui-1-DTI2-7nZ.css" />
+    <link rel="stylesheet" href="../../assets/devup-ui-0-CDFaKCT6.css" />
+    <link rel="stylesheet" href="../../assets/devup-ui-15-YKpXffVK.css" />
+    <link rel="stylesheet" href="../../assets/devup-ui-19-D-nzHAaP.css" />
+    <link rel="stylesheet" href="../../assets/devup-ui-14-kkdUZCBr.css" />
+    <link rel="stylesheet" href="../../assets/devup-ui-10-CZh5zkOk.css" />
+    <link rel="stylesheet" href="../../assets/devup-ui-12-BHsRA0OV.css" />
+    <link rel="stylesheet" href="../../assets/devup-ui-18-Dugufcm2.css" />
   </head>
-  <body class="detail-page">
-    <a class="skip-link" href="#main">본문으로 건너뛰기</a>
-    <header class="site-header" data-header>
-      <a class="brand" href="../../" aria-label="이강욱 포트폴리오 처음으로">
-        <span class="brand-mark" aria-hidden="true">GW</span><span class="brand-name">Gangwook Lee</span>
-      </a>
-      <nav class="site-nav" aria-label="주요 메뉴">
-        <a href="../">Projects</a><a href="../../#contact">Contact</a>
-      </nav>
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="라이트 모드로 전환">
-        <span class="theme-toggle__sun" aria-hidden="true">◌</span><span class="theme-toggle__label">Theme</span>
-      </button>
-    </header>
-
-    <main id="main" class="detail-main">
-      <a class="detail-back reveal" href="../"><span aria-hidden="true">←</span> Project Archive</a>
-      <section class="detail-hero" aria-labelledby="detail-title">
-        <div>
-          <p class="detail-kicker reveal">01 / Platform · 2023—2024</p>
-          <h1 id="detail-title" class="detail-title reveal">반복 구현을<br />재사용 구조로.</h1>
-          <p class="detail-summary reveal">React와 Next.js 프로젝트가 같은 기능을 다시 만들지 않도록, 선택 빌드부터 테스트까지 하나의 공통 라이브러리로 설계했습니다.</p>
-        </div>
-        <dl class="detail-facts reveal" aria-label="프로젝트 정보">
-          <div><dt>Role</dt><dd>라이브러리 설계·개발</dd></div>
-          <div><dt>Period</dt><dd>2023.05 — 2024.05</dd></div>
-          <div><dt>Stack</dt><dd>React · Next.js · Vite · Vitest</dd></div>
-          <div><dt>Scope</dt><dd>선택 빌드 · 공통 UI · OAuth · Utils</dd></div>
-        </dl>
-      </section>
-
-      <div class="detail-stage reveal-on-scroll" role="img" aria-label="공통 라이브러리의 모듈 구조를 표현한 다이어그램">
-        <div class="detail-stage__label"><span>SHARED LIBRARY / MODULE MAP</span><span>20+ PROJECTS</span></div>
-        <span class="detail-node detail-node--a">REACT<br />BUILD</span>
-        <span class="detail-node detail-node--main">SHARED<br />LIBRARY</span>
-        <span class="detail-node detail-node--b">NEXT.JS<br />BUILD</span>
-        <span class="detail-node detail-node--c">VITE<br />VITEST</span>
-        <i class="detail-stage__line detail-stage__line--a" aria-hidden="true"></i>
-        <i class="detail-stage__line detail-stage__line--b" aria-hidden="true"></i>
-        <i class="detail-stage__line detail-stage__line--c" aria-hidden="true"></i>
-      </div>
-
-      <section class="detail-section reveal-on-scroll" aria-labelledby="problem-title">
-        <p class="detail-section__label">01 / Problem</p>
-        <div>
-          <h2 id="problem-title">프로젝트마다 같은 UI와 기능을 다시 만들고 있었습니다.</h2>
-          <p>공통 기능을 반복 구현하면서 개발 시간과 수정 비용이 누적됐습니다. React와 Next.js라는 서로 다른 환경에서도 필요한 모듈만 골라 사용할 수 있는 기반이 필요했습니다.</p>
-        </div>
-      </section>
-
-      <section class="detail-section reveal-on-scroll" aria-labelledby="solution-title">
-        <p class="detail-section__label">02 / Build</p>
-        <div>
-          <h2 id="solution-title">환경별 차이는 빌드에서 흡수하고, 사용 방식은 단순하게 만들었습니다.</h2>
-          <ul class="detail-list">
-            <li>React와 Next.js 환경에서 필요한 대상만 선택해 빌드할 수 있는 구조를 설계했습니다.</li>
-            <li>Next.js에서 바로 사용하기 어려운 React 라이브러리를 전처리해 호환성을 확보했습니다.</li>
-            <li>Vite와 Vitest 기반의 개발·테스트 환경을 구성해 변경을 빠르게 확인할 수 있게 했습니다.</li>
-            <li>Props 기반 UI, SNS 로그인, 자주 쓰는 유틸리티를 재사용 가능한 모듈로 제공했습니다.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="detail-section reveal-on-scroll" aria-labelledby="result-title">
-        <p class="detail-section__label">03 / Result</p>
-        <div>
-          <h2 id="result-title">재사용의 효과를 적용 범위와 작업 흐름에서 확인했습니다.</h2>
-          <div class="detail-result">
-            <div><strong>20+</strong><p>프로젝트에 공통 라이브러리를 적용해 중복 구현 부담을 줄였습니다.</p></div>
-            <div><strong>Reuse</strong><p>공통 UI·인증·유틸리티를 프로젝트마다 다시 만들지 않는 기반을 마련했습니다.</p></div>
-            <div><strong>2 builds</strong><p>React와 Next.js 환경 차이를 선택 빌드 구조 안에서 처리했습니다.</p></div>
-            <div><strong>1 system</strong><p>개발·테스트·환경별 빌드를 하나의 재사용 흐름으로 연결했습니다.</p></div>
-          </div>
-        </div>
-      </section>
-
-    </main>
-    <footer class="site-footer"><span>© <span data-year></span> Gangwook Lee</span><span>Case Study 01 / 04</span></footer>
+  <body>
+    <div id="root"><a href="#main" class="i-a i-b i-c i-d i-e i-f i-g i-h i-i i-j">본문으로 건너뛰기</a><header class="b-a b-b b-c b-d b-e b-f b-g b-h b-i b-j b-k b-l b-m b-n"><a href="../../" aria-label="이강욱 포트폴리오 처음으로" class="b-o b-p b-q b-r b-s">Gangwook Lee</a><div class="b-t b-u b-v b-w b-x b-l b-n"><nav aria-label="주요 메뉴" class="b-y b-v b-z b-_ b-aa b-ab b-ac b-a-d b-l b-n"><a href="../" class="b-ae b-af">Projects</a><a href="../../#approach" class="b-ae">Approach</a><a href="../../#contact" class="b-ae">Contact</a></nav><button type="button" aria-label="다크 모드로 전환" class="b-ag b-ah b-ai b-aj b-ak b-al b-am b-an b-ao b-q b-ap b-aq b-ar"><span aria-hidden="true">◐</span> Theme</button></div></header><main id="main"><div class="t-a t-b t-c t-d"><a href="../" class="t-ae t-g t-af t-ag t-ah t-i">← Project Archive</a><header class="m-a m-b"><p class="t-e t-f t-g t-h t-i">01 / Platform · 2023—2024</p><h1 id="detail-title" class="m-c m-d m-e m-f m-g m-h m-i m-j">반복 구현을 재사용 구조로.</h1><p class="m-k m-l m-m m-n">React와 Next.js 프로젝트가 같은 기능을 다시 만들지 않도록, 선택 빌드부터 테스트까지 하나의 공통 라이브러리로 설계했습니다.</p><dl aria-label="프로젝트 정보" class="m-o m-p m-q m-r m-s m-t m-u m-v"><div><dt class="m-w m-h m-x m-y">Role</dt><dd class="m-z m-_ m-n">라이브러리 설계·개발</dd></div><div><dt class="m-w m-h m-x m-y">Period</dt><dd class="m-z m-_ m-n">2023.05 — 2024.05</dd></div><div><dt class="m-w m-h m-x m-y">Stack</dt><dd class="m-z m-_ m-n">React · Next.js · Vite · Vitest</dd></div><div><dt class="m-w m-h m-x m-y">Scope</dt><dd class="m-z m-_ m-n">선택 빌드 · 공통 UI · OAuth · Utils</dd></div></dl></header><section aria-label="공통 라이브러리의 모듈 구조를 표현한 다이어그램" class="m-aa m-b"><p class="t-e t-f t-g t-h t-i">Project Flow</p><ol class="m-ab m-ac m-a-d m-r m-s m-ae m-u"><li class="m-af m-ag m-ah m-h m-y m-ai m-aj m-ak"><span class="m-al m-am m-an">0<!-- -->1</span>REACT BUILD</li><li class="m-af m-ag m-ah m-h m-y m-ai m-aj m-ak"><span class="m-al m-am m-an">0<!-- -->2</span>SHARED LIBRARY</li><li class="m-af m-ag m-ah m-h m-y m-ai m-aj m-ak"><span class="m-al m-am m-an">0<!-- -->3</span>NEXT.JS BUILD</li><li class="m-af m-ag m-ah m-h m-y m-ai m-aj m-ak"><span class="m-al m-am m-an">0<!-- -->4</span>VITE VITEST</li></ol></section><section aria-labelledby="section-0" class="m-ao m-ap m-aq m-ar m-as m-at m-u m-b"><p class="m-au m-w m-h m-x m-y">01 / Problem</p><div><h2 id="section-0" class="m-av m-aw m-ah m-ax m-h m-ay">프로젝트마다 같은 UI와 기능을 다시 만들고 있었습니다.</h2><p class="m-az m-a0 m-a1 m-a2 m-n">공통 기능을 반복 구현하면서 개발 시간과 수정 비용이 누적됐습니다. React와 Next.js라는 서로 다른 환경에서도 필요한 모듈만 골라 사용할 수 있는 기반이 필요했습니다.</p></div></section><section aria-labelledby="section-1" class="m-ao m-ap m-aq m-ar m-as m-at m-u m-b"><p class="m-au m-w m-h m-x m-y">02 / Build</p><div><h2 id="section-1" class="m-av m-aw m-ah m-ax m-h m-ay">환경별 차이는 빌드에서 흡수하고, 사용 방식은 단순하게 만들었습니다.</h2><ul class="m-a3 m-l m-a4 m-a2 m-u m-a5 m-n"><li>React와 Next.js 환경에서 필요한 대상만 선택해 빌드할 수 있는 구조를 설계했습니다.</li><li>Next.js에서 바로 사용하기 어려운 React 라이브러리를 전처리해 호환성을 확보했습니다.</li><li>Vite와 Vitest 기반의 개발·테스트 환경을 구성해 변경을 빠르게 확인할 수 있게 했습니다.</li><li>Props 기반 UI, SNS 로그인, 자주 쓰는 유틸리티를 재사용 가능한 모듈로 제공했습니다.</li></ul></div></section><section aria-labelledby="section-2" class="m-ao m-ap m-aq m-ar m-as m-at m-u m-b"><p class="m-au m-w m-h m-x m-y">03 / Result</p><div><h2 id="section-2" class="m-av m-aw m-ah m-ax m-h m-ay">재사용의 효과를 적용 범위와 작업 흐름에서 확인했습니다.</h2><div class="m-a6 m-a7 m-a8 m-a4 m-u"><div class="m-a9 m-a_ m-ai m-aj m-ba"><strong class="m-h m-bb m-y">20+</strong><p class="m-bc m-a1 m-_ m-n">프로젝트에 공통 라이브러리를 적용해 중복 구현 부담을 줄였습니다.</p></div><div class="m-a9 m-a_ m-ai m-aj m-ba"><strong class="m-h m-bb m-y">Reuse</strong><p class="m-bc m-a1 m-_ m-n">공통 UI·인증·유틸리티를 프로젝트마다 다시 만들지 않는 기반을 마련했습니다.</p></div><div class="m-a9 m-a_ m-ai m-aj m-ba"><strong class="m-h m-bb m-y">2 builds</strong><p class="m-bc m-a1 m-_ m-n">React와 Next.js 환경 차이를 선택 빌드 구조 안에서 처리했습니다.</p></div><div class="m-a9 m-a_ m-ai m-aj m-ba"><strong class="m-h m-bb m-y">1 system</strong><p class="m-bc m-a1 m-_ m-n">개발·테스트·환경별 빌드를 하나의 재사용 흐름으로 연결했습니다.</p></div></div></div></section><a href="../joara/" class="m-bl m-bm m-bn m-bo m-bp m-y m-v m-b m-bq"><span class="m-h m-x m-n">Next project</span><strong class="m-br m-h m-bs">조아라 서비스·CMS 리뉴얼 →</strong></a></div></main><footer class="a-a a-b a-c a-d a-e a-f a-g a-h a-i a-j a-k a-l a-m"><span>© <!-- -->2026<!-- --> Gangwook Lee</span><span>Case Study 01 / 04</span></footer></div>
+    <script type="module" src="../../assets/main-IGoFlBAK.js"></script>
   </body>
 </html>
