@@ -2,3 +2,10 @@
 Thumbs.db
 *.log
 
+node_modules/
+.pnpm-store/
+*.local
+.env
+.env.*
+!.env.example
+
