@@ -169,10 +169,6 @@ export const projectContent: Record<string, ProjectContent> = {
         "bullets": [],
         "results": [
           {
-            "label": "20+",
-            "text": "프로젝트에 공통 라이브러리를 적용해 중복 구현 부담을 줄였습니다."
-          },
-          {
             "label": "Reuse",
             "text": "공통 UI·인증·유틸리티를 프로젝트마다 다시 만들지 않는 기반을 마련했습니다."
           },

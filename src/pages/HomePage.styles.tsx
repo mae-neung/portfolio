@@ -30,7 +30,7 @@ export const HeroActions = styled.div`
   @media (max-width: 390px) { gap: 7px; }
 `
 export const Proof = styled.dl`
-  display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; margin-bottom: 92px;
+  display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; margin-bottom: 92px;
   width: min(calc(100% - 76px), 1120px); margin-inline: auto;
   padding-block: 24px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
   @media (max-width: 750px) { width: calc(100% - 38px); grid-template-columns: 1fr; gap: 12px; margin-bottom: 76px; }
@@ -56,24 +56,19 @@ export const WorkIntro = styled.p`
   max-width: 375px; color: var(--textMuted); line-height: 1.8;
 `
 export const FeaturedGrid = styled.div`
-  display: grid; grid-template-columns: minmax(0,1.08fr) minmax(0,.92fr); grid-template-rows: repeat(3,minmax(270px,auto)); gap: 12px;
+  display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); grid-template-rows: repeat(2,minmax(270px,auto)); gap: 12px;
   @media (max-width: 750px) { grid-template-columns: 1fr; grid-template-rows: none; }
 `
 export const FeaturedCard = styled.article`
-  position: relative; display: flex; flex-direction: column; justify-content: end; min-width: 0; overflow: hidden;
+  position: relative; display: flex; flex-direction: column; justify-content: start; min-width: 0; overflow: hidden;
   padding: 25px; border: 1px solid var(--border); border-radius: var(--tileRadius); background: var(--surface);
-  &:first-child { grid-row: span 3; background: var(--surfaceRaised); }
-  @media (max-width: 750px) { min-height: 268px; &:first-child { grid-row: auto; } }
+  &:first-child { background: var(--surfaceRaised); }
+  @media (max-width: 750px) { min-height: 268px; }
   @media (max-width: 390px) { padding: 19px; }
 `
 export const FeaturedMark = styled.span`
   position: absolute; right: -12px; top: -57px; color: var(--primary); opacity: .065;
   font-size: 258px; font-weight: 800; line-height: 1; letter-spacing: -.12em; pointer-events: none;
-`
-export const FeaturedLeadMark = styled.span`
-  position: absolute; right: -35px; top: 29px; color: var(--primary); opacity: .065;
-  font-size: 430px; font-weight: 800; line-height: 1; letter-spacing: -.12em; pointer-events: none;
-  @media (max-width: 750px) { right: -12px; top: -57px; font-size: 258px; }
 `
 export const FeaturedHeading = styled.h3`
   position: relative; z-index: 1; margin: 11px 0 7px; font-size: clamp(18px,2.4vw,25px);
@@ -86,23 +81,11 @@ export const FeaturedProof = styled.strong`
   position: relative; z-index: 1; margin-top: 12px; color: var(--primary); font-size: 13px;
 `
 export const FeaturedMedia = styled(Image)`
-  position: relative; z-index: 1; display: block; width: 100%; max-height: 160px; margin-bottom: 20px;
+  position: relative; z-index: 1; display: block; width: 100%; height: 160px; margin-bottom: 20px;
   border: 1px solid var(--border); border-radius: var(--tileRadius); object-fit: cover; object-position: top;
 `
-export const ModuleMap = styled.div`
-  position: relative; z-index: 1; display: grid; grid-template-columns: repeat(2,1fr); align-content: center; gap: 12px;
-  flex: 1; min-height: 320px; margin-bottom: 28px; padding: 22px;
-  border: 1px solid var(--border); border-radius: var(--tileRadius); background: var(--surface);
-  @media (max-width: 750px) { min-height: 190px; grid-template-columns: repeat(4,1fr); }
-  @media (max-width: 520px) { grid-template-columns: repeat(2,1fr); }
-`
-export const ModuleTile = styled.span`
-  display: grid; place-items: center; min-height: 85px; padding: 8px; border: 1px solid var(--border); border-radius: var(--tileRadius);
-  color: var(--primary); font-size: 14px; font-weight: 800;
-  @media (max-width: 750px) { min-height: 70px; }
-`
 export const DetailLink = styled.a`
-  position: relative; z-index: 1; align-self: start; margin-top: 14px; padding-bottom: 3px;
+  position: relative; z-index: 1; align-self: start; margin-top: auto; padding-top: 14px; padding-bottom: 3px;
   border-bottom: 1px solid currentColor; color: var(--primary); font-size: 12px; font-weight: 800;
   &:hover { color: var(--primaryHover); }
 `

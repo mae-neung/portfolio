@@ -32,7 +32,6 @@ interface HeaderProps {
 export function Header({ page, theme, onToggleTheme }: HeaderProps) {
   const homeHref = page === 'home' ? '#top' : page === 'archive' ? '../' : '../../'
   const projectsHref = page === 'home' ? './projects/' : page === 'archive' ? '#archive' : '../'
-  const approachHref = page === 'home' ? '#approach' : page === 'archive' ? '../#approach' : '../../#approach'
   const contactHref = page === 'home' ? '#contact' : page === 'archive' ? '../#contact' : '../../#contact'
 
   return (
@@ -40,8 +39,7 @@ export function Header({ page, theme, onToggleTheme }: HeaderProps) {
       <Brand href={homeHref} aria-label="이강욱 포트폴리오 처음으로">Gangwook Lee</Brand>
       <HeaderActions>
         <Navigation aria-label="주요 메뉴">
-          <Box as="a" href={projectsHref} aria-current={page === 'archive' ? 'page' : undefined} _hover={{ color: '$primary' }} selectors={{ '&[aria-current="page"]': { color: '$primary' } }}>Projects</Box>
-          <Box as="a" href={approachHref} _hover={{ color: '$primary' }}>Approach</Box>
+          <Box as="a" href={projectsHref} aria-current={page === 'archive' ? 'page' : undefined} _hover={{ color: '$primary' }} selectors={{ '&[aria-current="page"]': { color: '$primary' } }}>Project</Box>
           <Box as="a" href={contactHref} _hover={{ color: '$primary' }}>Contact</Box>
         </Navigation>
         <Button type="button" onClick={onToggleTheme} aria-label={`${theme === 'dark' ? '라이트' : '다크'} 모드로 전환`}

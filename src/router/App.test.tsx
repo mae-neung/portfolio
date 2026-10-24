@@ -1,7 +1,7 @@
 import { act, StrictMode } from 'react'
 import { hydrateRoot } from 'react-dom/client'
 import { renderToString } from 'react-dom/server'
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { BrowserRouter, MemoryRouter } from 'react-router-dom'
 import { beforeEach, describe, expect, it } from 'vitest'
@@ -59,7 +59,10 @@ describe('portfolio routes', () => {
   it('renders a direct detail with the same facts and navigation', () => {
     render(<MemoryRouter initialEntries={['/projects/ai-docs/']}><App /></MemoryRouter>)
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('AI의 속도에')
-    expect(screen.getByRole('navigation', { name: '주요 메뉴' })).toBeInTheDocument()
+    const navigation = screen.getByRole('navigation', { name: '주요 메뉴' })
+    expect(within(navigation).getAllByRole('link')).toHaveLength(2)
+    expect(within(navigation).getByRole('link', { name: 'Project' })).toHaveAttribute('href', '../')
+    expect(within(navigation).getByRole('link', { name: 'Contact' })).toHaveAttribute('href', '../../#contact')
     expect(screen.getByRole('link', { name: /Project Archive/ })).toHaveAttribute('href', '../')
     expect(document.title).toBe('AI 에이전트 문서 관리 — 이강욱')
   })
@@ -73,6 +76,11 @@ describe('portfolio routes', () => {
     expect(document.documentElement).toHaveAttribute('data-theme', 'dark')
     expect(localStorage.getItem('portfolio-theme')).toBe('dark')
     expect(toggle).toHaveAccessibleName('라이트 모드로 전환')
+  })
+
+  it('provides the contact email as a mail link', () => {
+    render(<MemoryRouter initialEntries={['/']}><App /></MemoryRouter>)
+    expect(screen.getByRole('link', { name: 'maeneung@kakao.com' })).toHaveAttribute('href', 'mailto:maeneung@kakao.com')
   })
 
   it('hydrates prerendered detail markup without a recovery error', async () => {

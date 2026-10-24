@@ -6,10 +6,6 @@ export const overview = {
     "intro": "React와 Next.js로 사용자 흐름을 설계하고 구현합니다. 공통 라이브러리부터 업무 자동화까지, 설계·개발·운영을 연결합니다.",
     "proof": [
       {
-        "value": "20+",
-        "label": "공통 라이브러리 적용 프로젝트"
-      },
-      {
         "value": "15",
         "label": "AI 워크플로우로 정비한 프로젝트"
       },
@@ -26,19 +22,43 @@ export const overview = {
       {
         "index": "01",
         "meta": [
-          "DEVFIVE · 2023—2024",
-          "React / Next.js / Vite / Vitest"
+          "2021",
+          "React / TypeScript / Vite"
         ],
-        "heading": "사내 공통 컴포넌트 라이브러리",
-        "summary": "React·Next.js 선택 빌드 구조와 테스트 환경을 설계하고, 공통 UI·유틸리티·SNS 로그인 모듈을 재사용 가능한 패키지로 만들었습니다.",
-        "proof": "20개 이상 프로젝트에 적용",
-        "href": "./projects/devfive/",
-        "linkLabel": "DEVFIVE 사내 공통 컴포넌트 라이브러리 상세 보기"
+        "heading": "2021 신한은행 업적평가",
+        "summary": "메타버스·영상·이미지 콘텐츠와 반응형 UI를 구현한 신한은행 사내 업적평가 이벤트 웹페이지입니다.",
+        "proof": "이벤트 UI · 인증 · 반응형",
+        "href": "./projects/shinhan/",
+        "linkLabel": "2021 신한은행 업적평가 프로젝트 상세 보기"
       },
       {
         "index": "02",
         "meta": [
-          "조아라 · 2022",
+          "2022",
+          "React / TypeScript / Vite"
+        ],
+        "heading": "NCSOFT NCDP",
+        "summary": "44개 강연의 온라인 진행과 참가자 접근을 지원한 NCSOFT 사내 개발자 컨퍼런스 사이트입니다.",
+        "proof": "",
+        "href": "./projects/ncsoft-ncdp/",
+        "linkLabel": "NCSOFT NCDP 프로젝트 상세 보기"
+      },
+      {
+        "index": "03",
+        "meta": [
+          "2021",
+          "React / TypeScript / Vite"
+        ],
+        "heading": "위험 인텔리전스 관리 시스템",
+        "summary": "다양한 위협 데이터를 수집·분류하고 실시간 알림·시각화를 제공하는 금융 보안 관리 시스템입니다.",
+        "proof": "",
+        "href": "./projects/finance-security-intelligence/",
+        "linkLabel": "금융보안원 위험 인텔리전스 관리 시스템 프로젝트 상세 보기"
+      },
+      {
+        "index": "04",
+        "meta": [
+          "2022",
           "React / Redux / WebView"
         ],
         "heading": "웹소설 서비스·CMS 리뉴얼",
@@ -46,30 +66,6 @@ export const overview = {
         "proof": "",
         "href": "./projects/joara/",
         "linkLabel": "조아라 웹소설 서비스와 CMS 리뉴얼 상세 보기"
-      },
-      {
-        "index": "03",
-        "meta": [
-          "더 브릿지 · 2023—2024",
-          "React / TypeScript / Zustand"
-        ],
-        "heading": "기부 흐름과 분석 추적 연결",
-        "summary": "로그인부터 캠페인 탐색·기부까지 구현하고, 외부 PG에서 끊기던 전환 추적을 협업을 통해 복구했습니다.",
-        "proof": "",
-        "href": "./projects/the-bridge/",
-        "linkLabel": "더 브릿지 기부 흐름과 분석 추적 상세 보기"
-      },
-      {
-        "index": "04",
-        "meta": [
-          "Personal · 2026—현재",
-          "Codex / Notion API / Automation"
-        ],
-        "heading": "AI 에이전트 기반 문서 관리",
-        "summary": "역할별 에이전트, 컨텍스트 라우팅과 사용자 승인 흐름을 연결해 프로젝트·채용 문서의 정합성을 관리합니다.",
-        "proof": "15개 프로젝트 정보 정비",
-        "href": "./projects/ai-docs/",
-        "linkLabel": "AI 에이전트 기반 문서 관리 상세 보기"
       }
     ]
   },
@@ -97,8 +93,8 @@ export const overview = {
     "eyebrow": "Let’s build something useful.",
     "heading": "복잡한 요구사항을 선명한 제품 경험으로.",
     "link": {
-      "href": "https://github.com/mae-neung",
-      "label": "GitHub에서 작업 보기 ↗"
+      "href": "mailto:maeneung@kakao.com",
+      "label": "maeneung@kakao.com"
     }
   },
   "archive": [

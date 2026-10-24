@@ -7,6 +7,7 @@ import { HomePage } from '../pages/HomePage'
 import { ArchivePage } from '../pages/ArchivePage'
 import { DetailPage } from '../pages/DetailPage'
 import { styled } from '@devup-ui/react'
+import { domAnimation, LazyMotion, MotionConfig } from 'motion/react'
 
 const SkipLink = styled.a`
   position: fixed; z-index: 100; top: 8px; left: 8px; transform: translateY(-160%);
@@ -24,11 +25,13 @@ export function PortfolioLayout({ route }: { route: PortfolioRoute }) {
   }, [route])
 
   return (
-    <>
-      <SkipLink href="#main">본문으로 건너뛰기</SkipLink>
-      <Header page={page} theme={theme} onToggleTheme={toggleTheme} />
-      {page === 'home' ? <HomePage route={route} /> : page === 'archive' ? <ArchivePage route={route} /> : <DetailPage route={route} />}
-      <Footer label={route.footerLabel} />
-    </>
+    <MotionConfig reducedMotion="user">
+      <LazyMotion features={domAnimation} strict>
+        <SkipLink href="#main">본문으로 건너뛰기</SkipLink>
+        <Header page={page} theme={theme} onToggleTheme={toggleTheme} />
+        {page === 'home' ? <HomePage route={route} /> : page === 'archive' ? <ArchivePage route={route} /> : <DetailPage route={route} />}
+        <Footer label={route.footerLabel} />
+      </LazyMotion>
+    </MotionConfig>
   )
 }
