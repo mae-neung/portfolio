@@ -91,21 +91,22 @@ describe('portfolio routes', () => {
     expect(screen.getByRole('heading', { name: 'Backend' })).toBeInTheDocument()
     expect(screen.getByText('React Native')).toBeInTheDocument()
     expect(screen.getByText('Node.js')).toBeInTheDocument()
+    expect(screen.getByText('TypeScript')).toBeInTheDocument()
     expect(screen.queryByText('GitHub Actions')).not.toBeInTheDocument()
   })
 
   it('keeps archive and detail stacks limited to core technologies', () => {
     const archiveByHref = new Map(overview.archive.map((project) => [project.href, project]))
     const archiveTags = overview.archive.flatMap((project) => project.tags)
-    expect(new Set(archiveTags)).toEqual(new Set(['React', 'Next.js', 'React Native', 'Flutter', 'FastAPI']))
-    expect(archiveByHref.get('./planb/')?.tags).toEqual(['React', 'React Native'])
-    expect(projectContent.planb.facts.find((fact) => fact.label === 'Stack')?.value).toBe('React · React Native')
+    expect(new Set(archiveTags)).toEqual(new Set(['React', 'Next.js', 'React Native', 'Flutter', 'FastAPI', 'TypeScript']))
+    expect(archiveByHref.get('./planb/')?.tags).toEqual(['React', 'React Native', 'TypeScript'])
+    expect(projectContent.planb.facts.find((fact) => fact.label === 'Stack')?.value).toBe('React · React Native · TypeScript')
     expect(archiveByHref.get('./round-table/')?.tags).toEqual(['Flutter', 'Next.js'])
     expect(projectContent['round-table'].facts.find((fact) => fact.label === 'Stack')?.value).not.toContain('Node.js')
-    expect(archiveByHref.get('./joara/')?.tags).toEqual(['React'])
-    expect(projectContent.joara.facts.find((fact) => fact.label === 'Stack')?.value).toBe('React')
+    expect(archiveByHref.get('./joara/')?.tags).toEqual(['React', 'TypeScript'])
+    expect(projectContent.joara.facts.find((fact) => fact.label === 'Stack')?.value).toBe('React · TypeScript')
     const displayedStacks = Object.values(projectContent).flatMap((content) => content.facts.filter((fact) => fact.label === 'Stack').map((fact) => fact.value))
-    expect(displayedStacks.join(' ')).not.toMatch(/TypeScript|Vite|Vitest|Zustand|Redux|Notion API|GitHub Actions|Google Analytics|Express|AWS/)
+    expect(displayedStacks.join(' ')).not.toMatch(/Vite|Vitest|Zustand|Redux|Notion API|GitHub Actions|Google Analytics|Express|AWS/)
   })
 
   it('hydrates prerendered detail markup without a recovery error', async () => {

@@ -10,7 +10,7 @@ export const portfolioRoutes: PortfolioRoute[] = [
     "path": "/",
     "title": "이강욱 — Frontend Developer",
     "description": "React·Next.js 프론트엔드 개발자 이강욱의 프로젝트 포트폴리오",
-    "footerLabel": "React · Next.js · Node.js"
+    "footerLabel": "React · Next.js · TypeScript"
   },
   {
     "path": "/projects/",
