@@ -4,13 +4,17 @@ import { overview } from '../data/overview'
 import { PageShell, Overline, PrimaryAction, SecondaryAction, SectionTitle } from '../theme/primitives'
 import {
   Hero, HeroRail, HeroTitle, HeroBottom, HeroIntro, HeroActions, Proof, ProofItem, ProofValue, ProofLabel,
-  Work, WorkHead, WorkIntro, FeaturedGrid, FeaturedCard, FeaturedMark, FeaturedLeadMark,
-  FeaturedHeading, FeaturedSummary, FeaturedProof, FeaturedMedia, ModuleMap, ModuleTile, DetailLink,
+  Work, WorkHead, WorkIntro, FeaturedGrid, FeaturedCard, FeaturedMark,
+  FeaturedHeading, FeaturedSummary, FeaturedProof, FeaturedMedia, DetailLink,
   ArchiveCta, Approach, ApproachTitle, Steps, Step, StepNumber, StepHeading, StepBody, Contact, ContactEyebrow,
   ContactTitle, ContactLink,
 } from './HomePage.styles'
 
-const featuredImages: Record<string, string> = { '02': 'joara-01.webp', '03': 'the-bridge-01.webp' }
+const featuredImages: Record<string, string> = {
+  '02': 'ncsoft-ncdp-01.webp',
+  '03': 'finance-security-intelligence-01.webp',
+  '04': 'joara-01.webp',
+}
 function assetHref(route: PortfolioRoute, source: string) {
   const depth = route.path.split('/').filter(Boolean).length
   return `${'../'.repeat(depth) || './'}${source.replace(/^\//, '')}`
@@ -32,8 +36,8 @@ export function HomePage({ route }: { route: PortfolioRoute }) {
       <Overline>Selected Work / 04</Overline>
       <WorkHead><SectionTitle id="work-title">화면을 만드는 데서 멈추지 않고,<br />제품의 흐름을 완성합니다.</SectionTitle><WorkIntro>{overview.work.intro}</WorkIntro></WorkHead>
       <FeaturedGrid>{overview.work.featured.map((project) => <FeaturedCard key={project.index}>
-        {project.index === '01' ? <FeaturedLeadMark aria-hidden="true">{project.index}</FeaturedLeadMark> : <FeaturedMark aria-hidden="true">{project.index}</FeaturedMark>}
-        {project.index === '01' ? <ModuleMap aria-label="공통 라이브러리 구성: Button, OAuth, Utils, Form"><ModuleTile>Button</ModuleTile><ModuleTile>OAuth</ModuleTile><ModuleTile>Utils</ModuleTile><ModuleTile>Form</ModuleTile></ModuleMap> : featuredImages[project.index] ? <FeaturedMedia src={assetHref(route, `/assets/projects/${featuredImages[project.index]}`)} alt={`${project.heading} 프로젝트 화면`} loading="lazy" /> : null}
+        <FeaturedMark aria-hidden="true">{project.index}</FeaturedMark>
+        {featuredImages[project.index] ? <FeaturedMedia src={assetHref(route, `/assets/projects/${featuredImages[project.index]}`)} alt={`${project.heading} 프로젝트 화면`} loading="lazy" /> : null}
         <Text as="span" position="relative" zIndex={1} color="$primary" typography="meta">{project.index} / {project.meta.join(' · ')}</Text><FeaturedHeading>{project.heading}</FeaturedHeading><FeaturedSummary>{project.summary}</FeaturedSummary>
         {project.proof && <FeaturedProof>{project.proof}</FeaturedProof>}
         <DetailLink href={project.href} aria-label={project.linkLabel}>프로젝트 상세 <span aria-hidden="true">↗</span></DetailLink>
