@@ -7,7 +7,7 @@ export const overview = {
     "proof": [
       {
         "value": "15",
-        "label": "AI 워크플로우로 정비한 프로젝트"
+        "label": "진행한 프로젝트"
       },
       {
         "value": "FE",
@@ -59,13 +59,35 @@ export const overview = {
         "index": "04",
         "meta": [
           "2022",
-          "React / Redux / WebView"
+          "React / TypeScript / WebView"
         ],
         "heading": "웹소설 서비스·CMS 리뉴얼",
-        "summary": "작품 탐색, 뷰어, 결제 등 사용자 핵심 흐름과 운영 CMS를 구현하고 Redux로 복잡한 데이터 흐름을 정리했습니다.",
+        "summary": "웹소설 사용자 서비스와 운영 CMS의 핵심 화면·결제·뷰어를 구현한 리뉴얼 프로젝트입니다.",
         "proof": "",
         "href": "./projects/joara/",
         "linkLabel": "조아라 웹소설 서비스와 CMS 리뉴얼 상세 보기"
+      }
+    ]
+  },
+  "skills": {
+    "heading": "프로젝트에서 사용해 온 기술을 역할별로 정리했습니다.",
+    "intro": "사용자 화면부터 상태 관리, 빌드 환경, API 연동과 배포까지 실제 프로젝트에서 활용한 기술입니다.",
+    "groups": [
+      {
+        "heading": "Frontend",
+        "items": ["React", "Next.js", "TypeScript", "JavaScript"]
+      },
+      {
+        "heading": "Mobile & State",
+        "items": ["React Native", "Flutter", "Zustand", "Redux"]
+      },
+      {
+        "heading": "Build & Quality",
+        "items": ["Vite", "Vitest", "GitHub Actions"]
+      },
+      {
+        "heading": "API & Operations",
+        "items": ["Node.js", "Express", "FastAPI", "Notion API", "AWS", "Google Analytics"]
       }
     ]
   },
@@ -176,7 +198,8 @@ export const overview = {
         "React",
         "React Native",
         "TypeScript",
-        "Vite"
+        "Vite",
+        "Zustand"
       ],
       "facts": [
         {
@@ -311,7 +334,6 @@ export const overview = {
       "linkLabel": "라운드 테이블 프로젝트 상세 보기",
       "heading": "라운드 테이블",
       "tags": [
-        "Node.js",
         "Flutter",
         "Next.js"
       ],
@@ -359,6 +381,7 @@ export const overview = {
       "heading": "조아라 웹소설 서비스 리뉴얼",
       "tags": [
         "React",
+        "TypeScript",
         "Redux"
       ],
       "facts": [

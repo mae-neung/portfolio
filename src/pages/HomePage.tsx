@@ -8,7 +8,8 @@ import {
   Hero, HeroRail, HeroTitle, HeroBottom, HeroIntro, HeroActions, Proof, ProofItem, ProofValue, ProofLabel,
   Work, WorkHead, WorkIntro, FeaturedGrid, FeaturedCard, FeaturedMark,
   FeaturedHeading, FeaturedSummary, FeaturedProof, FeaturedMedia, DetailLink,
-  ArchiveCta, Approach, ApproachTitle, Steps, Step, StepNumber, StepHeading, StepBody, Contact, ContactEyebrow,
+  ArchiveCta, Skills, SkillsHead, SkillsIntro, SkillsGrid, SkillGroup, SkillGroupTitle, SkillList, Skill,
+  Approach, ApproachTitle, Steps, Step, StepNumber, StepHeading, StepBody, Contact, ContactEyebrow,
   ContactTitle, ContactLink,
 } from './HomePage.styles'
 
@@ -21,6 +22,8 @@ const MotionSectionTitle = m.create(SectionTitle)
 const MotionWorkIntro = m.create(WorkIntro)
 const MotionFeaturedCard = m.create(FeaturedCard)
 const MotionArchiveCta = m.create(ArchiveCta)
+const MotionSkillsIntro = m.create(SkillsIntro)
+const MotionSkillGroup = m.create(SkillGroup)
 const MotionApproachTitle = m.create(ApproachTitle)
 const MotionStep = m.create(Step)
 const MotionContactEyebrow = m.create(ContactEyebrow)
@@ -62,6 +65,13 @@ export function HomePage({ route }: { route: PortfolioRoute }) {
       </MotionFeaturedCard>)}</FeaturedGrid>
       <MotionArchiveCta {...revealUp} transition={enterTransition()} href="./projects/">전체 프로젝트 13개 보기 <span aria-hidden="true">→</span></MotionArchiveCta>
     </PageShell></Work>
+    <Skills id="skills" aria-labelledby="skills-title"><PageShell>
+      <MotionOverline {...revealUp} transition={enterTransition()}>Technical Toolkit</MotionOverline>
+      <SkillsHead><MotionSectionTitle {...revealUp} transition={enterTransition(0.06)} id="skills-title">{overview.skills.heading}</MotionSectionTitle><MotionSkillsIntro {...revealUp} transition={enterTransition(0.12)}>{overview.skills.intro}</MotionSkillsIntro></SkillsHead>
+      <SkillsGrid>{overview.skills.groups.map((group, index) => <MotionSkillGroup {...revealUp} transition={enterTransition((index % 2) * 0.08)} key={group.heading}>
+        <SkillGroupTitle>{group.heading}</SkillGroupTitle><SkillList>{group.items.map((item) => <Skill key={item}>{item}</Skill>)}</SkillList>
+      </MotionSkillGroup>)}</SkillsGrid>
+    </PageShell></Skills>
     <Approach id="approach" aria-labelledby="approach-title"><MotionOverline {...revealUp} transition={enterTransition()}>How I Work</MotionOverline><MotionApproachTitle {...revealUp} transition={enterTransition(0.06)} id="approach-title">구현은 빠르게,<br />판단 근거는 분명하게.</MotionApproachTitle>
       <Steps>{overview.approach.steps.map((step, index) => <MotionStep {...revealUp} transition={enterTransition(index * 0.08)} key={step.number}><StepNumber>{step.number}</StepNumber><StepHeading>{step.heading}</StepHeading><StepBody>{step.text}</StepBody></MotionStep>)}</Steps>
     </Approach>

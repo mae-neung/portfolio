@@ -52,13 +52,13 @@ describe('portfolio routes', () => {
   it.each(['/index.html', '/portfolio/index.html', '/projects/ai-docs/index.html', '/portfolio/projects/ai-docs/index.html'])('renders a physical HTML URL: %s', (pathname) => {
     window.history.pushState({}, '', pathname)
     render(<BrowserRouter basename={getBasename(pathname)}><App /></BrowserRouter>)
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(pathname.includes('ai-docs') ? 'AI의 속도에' : '복잡한 문제를')
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(pathname.includes('ai-docs') ? 'AI 에이전트 문서 관리' : '복잡한 문제를')
     window.history.pushState({}, '', '/')
   })
 
   it('renders a direct detail with the same facts and navigation', () => {
     render(<MemoryRouter initialEntries={['/projects/ai-docs/']}><App /></MemoryRouter>)
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('AI의 속도에')
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('AI 에이전트 문서 관리')
     const navigation = screen.getByRole('navigation', { name: '주요 메뉴' })
     expect(within(navigation).getAllByRole('link')).toHaveLength(2)
     expect(within(navigation).getByRole('link', { name: 'Project' })).toHaveAttribute('href', '../')
@@ -83,6 +83,25 @@ describe('portfolio routes', () => {
     expect(screen.getByRole('link', { name: 'maeneung@kakao.com' })).toHaveAttribute('href', 'mailto:maeneung@kakao.com')
   })
 
+  it('shows the verified project count and available technology groups', () => {
+    render(<MemoryRouter initialEntries={['/']}><App /></MemoryRouter>)
+    expect(screen.getByText('진행한 프로젝트')).toBeInTheDocument()
+    expect(screen.getByText('15')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Frontend' })).toBeInTheDocument()
+    expect(screen.getByText('React Native')).toBeInTheDocument()
+    expect(screen.getByText('GitHub Actions')).toBeInTheDocument()
+  })
+
+  it('keeps corrected project stacks consistent between archive and detail data', () => {
+    const archiveByHref = new Map(overview.archive.map((project) => [project.href, project]))
+    expect(archiveByHref.get('./planb/')?.tags).toEqual(['React', 'React Native', 'TypeScript', 'Vite', 'Zustand'])
+    expect(projectContent.planb.facts.find((fact) => fact.label === 'Stack')?.value).toContain('Vite')
+    expect(archiveByHref.get('./round-table/')?.tags).toEqual(['Flutter', 'Next.js'])
+    expect(projectContent['round-table'].facts.find((fact) => fact.label === 'Stack')?.value).not.toContain('Node.js')
+    expect(archiveByHref.get('./joara/')?.tags).toEqual(['React', 'TypeScript', 'Redux'])
+    expect(projectContent.joara.facts.find((fact) => fact.label === 'Stack')?.value).toContain('TypeScript')
+  })
+
   it('hydrates prerendered detail markup without a recovery error', async () => {
     localStorage.setItem('portfolio-theme', 'light')
     const page = <MemoryRouter initialEntries={['/projects/ai-docs/']}><App /></MemoryRouter>
@@ -98,7 +117,7 @@ describe('portfolio routes', () => {
     })
     expect(recovered).toEqual([])
     expect(document.documentElement).toHaveAttribute('data-theme', 'default')
-    expect(container.querySelector('main h1')).toHaveTextContent('AI의 속도에')
+    expect(container.querySelector('main h1')).toHaveTextContent('AI 에이전트 문서 관리')
     await act(async () => root?.unmount())
     container.remove()
     window.history.pushState({}, '', '/')
