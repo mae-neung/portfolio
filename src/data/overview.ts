@@ -278,7 +278,8 @@ export const overview = {
       "linkLabel": "서초구가족센터 프로젝트 상세 보기",
       "heading": "서초구가족센터",
       "tags": [
-        "React"
+        "React",
+        "TypeScript"
       ],
       "facts": [
         {
@@ -321,8 +322,9 @@ export const overview = {
       "linkLabel": "라운드 테이블 프로젝트 상세 보기",
       "heading": "라운드 테이블",
       "tags": [
+        "React",
         "Flutter",
-        "Next.js"
+        "TypeScript"
       ],
       "facts": [
         {

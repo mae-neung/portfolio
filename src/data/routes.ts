@@ -81,7 +81,7 @@ export const portfolioRoutes: PortfolioRoute[] = [
   {
     "path": "/projects/round-table/",
     "title": "라운드 테이블 — 이강욱",
-    "description": "Flutter 앱 유지보수와 Next.js 웹 확장·운영을 담당한 글로벌 한국어 교육 SNS 서비스",
+    "description": "Flutter 앱 유지보수와 React 웹 확장·운영을 담당한 글로벌 한국어 교육 SNS 서비스",
     "footerLabel": "Project 10 / 13"
   },
   {
