@@ -93,8 +93,8 @@ export const overview = {
     "eyebrow": "Let’s build something useful.",
     "heading": "복잡한 요구사항을 선명한 제품 경험으로.",
     "link": {
-      "href": "https://github.com/mae-neung",
-      "label": "GitHub에서 작업 보기 ↗"
+      "href": "mailto:maeneung@kakao.com",
+      "label": "maeneung@kakao.com"
     }
   },
   "archive": [

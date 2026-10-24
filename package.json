@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@devup-ui/react": "^1.0.43",
+    "motion": "^14.6.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-router-dom": "^7.18.4"
