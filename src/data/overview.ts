@@ -22,7 +22,7 @@ export const overview = {
       {
         "index": "01",
         "meta": [
-          "신한은행 · 2021",
+          "2021",
           "React / TypeScript / Vite"
         ],
         "heading": "2021 신한은행 업적평가",
@@ -34,7 +34,7 @@ export const overview = {
       {
         "index": "02",
         "meta": [
-          "NCSOFT · 2022",
+          "2022",
           "React / TypeScript / Vite"
         ],
         "heading": "NCSOFT NCDP",
@@ -46,7 +46,7 @@ export const overview = {
       {
         "index": "03",
         "meta": [
-          "금융보안원 · 2021",
+          "2021",
           "React / TypeScript / Vite"
         ],
         "heading": "위험 인텔리전스 관리 시스템",
@@ -58,7 +58,7 @@ export const overview = {
       {
         "index": "04",
         "meta": [
-          "조아라 · 2022",
+          "2022",
           "React / Redux / WebView"
         ],
         "heading": "웹소설 서비스·CMS 리뉴얼",

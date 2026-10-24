@@ -60,7 +60,7 @@ export const FeaturedGrid = styled.div`
   @media (max-width: 750px) { grid-template-columns: 1fr; grid-template-rows: none; }
 `
 export const FeaturedCard = styled.article`
-  position: relative; display: flex; flex-direction: column; justify-content: end; min-width: 0; overflow: hidden;
+  position: relative; display: flex; flex-direction: column; justify-content: start; min-width: 0; overflow: hidden;
   padding: 25px; border: 1px solid var(--border); border-radius: var(--tileRadius); background: var(--surface);
   &:first-child { background: var(--surfaceRaised); }
   @media (max-width: 750px) { min-height: 268px; }
@@ -81,11 +81,11 @@ export const FeaturedProof = styled.strong`
   position: relative; z-index: 1; margin-top: 12px; color: var(--primary); font-size: 13px;
 `
 export const FeaturedMedia = styled(Image)`
-  position: relative; z-index: 1; display: block; width: 100%; max-height: 160px; margin-bottom: 20px;
+  position: relative; z-index: 1; display: block; width: 100%; height: 160px; margin-bottom: 20px;
   border: 1px solid var(--border); border-radius: var(--tileRadius); object-fit: cover; object-position: top;
 `
 export const DetailLink = styled.a`
-  position: relative; z-index: 1; align-self: start; margin-top: 14px; padding-bottom: 3px;
+  position: relative; z-index: 1; align-self: start; margin-top: auto; padding-top: 14px; padding-bottom: 3px;
   border-bottom: 1px solid currentColor; color: var(--primary); font-size: 12px; font-weight: 800;
   &:hover { color: var(--primaryHover); }
 `

@@ -11,6 +11,7 @@ import {
 } from './HomePage.styles'
 
 const featuredImages: Record<string, string> = {
+  '01': 'shinhan-01.png',
   '02': 'ncsoft-ncdp-01.webp',
   '03': 'finance-security-intelligence-01.webp',
   '04': 'joara-01.webp',
