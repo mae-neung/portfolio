@@ -88,18 +88,24 @@ describe('portfolio routes', () => {
     expect(screen.getByText('진행한 프로젝트')).toBeInTheDocument()
     expect(screen.getByText('15')).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Frontend' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Backend' })).toBeInTheDocument()
     expect(screen.getByText('React Native')).toBeInTheDocument()
-    expect(screen.getByText('GitHub Actions')).toBeInTheDocument()
+    expect(screen.getByText('Node.js')).toBeInTheDocument()
+    expect(screen.queryByText('GitHub Actions')).not.toBeInTheDocument()
   })
 
-  it('keeps corrected project stacks consistent between archive and detail data', () => {
+  it('keeps archive and detail stacks limited to core technologies', () => {
     const archiveByHref = new Map(overview.archive.map((project) => [project.href, project]))
-    expect(archiveByHref.get('./planb/')?.tags).toEqual(['React', 'React Native', 'TypeScript', 'Vite', 'Zustand'])
-    expect(projectContent.planb.facts.find((fact) => fact.label === 'Stack')?.value).toContain('Vite')
+    const archiveTags = overview.archive.flatMap((project) => project.tags)
+    expect(new Set(archiveTags)).toEqual(new Set(['React', 'Next.js', 'React Native', 'Flutter', 'FastAPI']))
+    expect(archiveByHref.get('./planb/')?.tags).toEqual(['React', 'React Native'])
+    expect(projectContent.planb.facts.find((fact) => fact.label === 'Stack')?.value).toBe('React · React Native')
     expect(archiveByHref.get('./round-table/')?.tags).toEqual(['Flutter', 'Next.js'])
     expect(projectContent['round-table'].facts.find((fact) => fact.label === 'Stack')?.value).not.toContain('Node.js')
-    expect(archiveByHref.get('./joara/')?.tags).toEqual(['React', 'TypeScript', 'Redux'])
-    expect(projectContent.joara.facts.find((fact) => fact.label === 'Stack')?.value).toContain('TypeScript')
+    expect(archiveByHref.get('./joara/')?.tags).toEqual(['React'])
+    expect(projectContent.joara.facts.find((fact) => fact.label === 'Stack')?.value).toBe('React')
+    const displayedStacks = Object.values(projectContent).flatMap((content) => content.facts.filter((fact) => fact.label === 'Stack').map((fact) => fact.value))
+    expect(displayedStacks.join(' ')).not.toMatch(/TypeScript|Vite|Vitest|Zustand|Redux|Notion API|GitHub Actions|Google Analytics|Express|AWS/)
   })
 
   it('hydrates prerendered detail markup without a recovery error', async () => {

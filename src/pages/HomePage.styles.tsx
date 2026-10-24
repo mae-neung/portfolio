@@ -106,7 +106,7 @@ export const SkillsIntro = styled.p`
   max-width: 390px; color: var(--textMuted); line-height: 1.8;
 `
 export const SkillsGrid = styled.div`
-  display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px;
+  display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px;
   @media (max-width: 750px) { grid-template-columns: 1fr; }
 `
 export const SkillGroup = styled.article`

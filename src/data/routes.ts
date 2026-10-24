@@ -10,7 +10,7 @@ export const portfolioRoutes: PortfolioRoute[] = [
     "path": "/",
     "title": "이강욱 — Frontend Developer",
     "description": "React·Next.js 프론트엔드 개발자 이강욱의 프로젝트 포트폴리오",
-    "footerLabel": "React · Next.js · TypeScript"
+    "footerLabel": "React · Next.js · Node.js"
   },
   {
     "path": "/projects/",
@@ -21,7 +21,7 @@ export const portfolioRoutes: PortfolioRoute[] = [
   {
     "path": "/projects/ai-docs/",
     "title": "AI 에이전트 문서 관리 — 이강욱",
-    "description": "Codex와 Notion API를 연결한 승인 기반 AI 문서 관리 자동화 프로젝트",
+    "description": "Codex와 Notion을 연결한 승인 기반 AI 문서 관리 자동화 프로젝트",
     "footerLabel": "Case Study 04 / 04"
   },
   {

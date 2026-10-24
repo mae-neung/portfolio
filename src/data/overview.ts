@@ -11,7 +11,7 @@ export const overview = {
       },
       {
         "value": "FE",
-        "label": "React · Next.js · TypeScript"
+        "label": "React · Next.js · Node.js"
       }
     ]
   },
@@ -23,7 +23,7 @@ export const overview = {
         "index": "01",
         "meta": [
           "2021",
-          "React / TypeScript / Vite"
+          "React"
         ],
         "heading": "2021 신한은행 업적평가",
         "summary": "메타버스·영상·이미지 콘텐츠와 반응형 UI를 구현한 신한은행 사내 업적평가 이벤트 웹페이지입니다.",
@@ -35,7 +35,7 @@ export const overview = {
         "index": "02",
         "meta": [
           "2022",
-          "React / TypeScript / Vite"
+          "React"
         ],
         "heading": "NCSOFT NCDP",
         "summary": "44개 강연의 온라인 진행과 참가자 접근을 지원한 NCSOFT 사내 개발자 컨퍼런스 사이트입니다.",
@@ -47,7 +47,7 @@ export const overview = {
         "index": "03",
         "meta": [
           "2021",
-          "React / TypeScript / Vite"
+          "React"
         ],
         "heading": "위험 인텔리전스 관리 시스템",
         "summary": "다양한 위협 데이터를 수집·분류하고 실시간 알림·시각화를 제공하는 금융 보안 관리 시스템입니다.",
@@ -59,7 +59,7 @@ export const overview = {
         "index": "04",
         "meta": [
           "2022",
-          "React / TypeScript / WebView"
+          "React"
         ],
         "heading": "웹소설 서비스·CMS 리뉴얼",
         "summary": "웹소설 사용자 서비스와 운영 CMS의 핵심 화면·결제·뷰어를 구현한 리뉴얼 프로젝트입니다.",
@@ -70,24 +70,20 @@ export const overview = {
     ]
   },
   "skills": {
-    "heading": "프로젝트에서 사용해 온 기술을 역할별로 정리했습니다.",
-    "intro": "사용자 화면부터 상태 관리, 빌드 환경, API 연동과 배포까지 실제 프로젝트에서 활용한 기술입니다.",
+    "heading": "프로젝트에서 사용해 온 핵심 기술입니다.",
+    "intro": "세부 라이브러리보다 실제 제품 개발의 기반이 된 프레임워크와 런타임을 중심으로 정리했습니다.",
     "groups": [
       {
         "heading": "Frontend",
-        "items": ["React", "Next.js", "TypeScript", "JavaScript"]
+        "items": ["React", "Next.js"]
       },
       {
-        "heading": "Mobile & State",
-        "items": ["React Native", "Flutter", "Zustand", "Redux"]
+        "heading": "App",
+        "items": ["React Native", "Flutter"]
       },
       {
-        "heading": "Build & Quality",
-        "items": ["Vite", "Vitest", "GitHub Actions"]
-      },
-      {
-        "heading": "API & Operations",
-        "items": ["Node.js", "Express", "FastAPI", "Notion API", "AWS", "Google Analytics"]
+        "heading": "Backend",
+        "items": ["Node.js", "FastAPI"]
       }
     ]
   },
@@ -126,9 +122,7 @@ export const overview = {
       "linkLabel": "2021 신한은행 업적평가 프로젝트 상세 보기",
       "heading": "2021 신한은행 업적평가",
       "tags": [
-        "React",
-        "TypeScript",
-        "Vite"
+        "React"
       ],
       "facts": [
         {
@@ -149,9 +143,7 @@ export const overview = {
       "linkLabel": "DEVFIVE 랜딩페이지 프로젝트 상세 보기",
       "heading": "DEVFIVE 랜딩페이지",
       "tags": [
-        "Next.js",
-        "Notion API",
-        "TypeScript"
+        "Next.js"
       ],
       "facts": [
         {
@@ -172,9 +164,7 @@ export const overview = {
       "linkLabel": "HumanSense 프로젝트 상세 보기",
       "heading": "HumanSense",
       "tags": [
-        "Next.js",
-        "TypeScript",
-        "Vite"
+        "Next.js"
       ],
       "facts": [
         {
@@ -196,10 +186,7 @@ export const overview = {
       "heading": "플랜비",
       "tags": [
         "React",
-        "React Native",
-        "TypeScript",
-        "Vite",
-        "Zustand"
+        "React Native"
       ],
       "facts": [
         {
@@ -221,8 +208,7 @@ export const overview = {
       "heading": "한큐플랜트",
       "tags": [
         "React",
-        "FastAPI",
-        "TypeScript"
+        "FastAPI"
       ],
       "facts": [
         {
@@ -243,9 +229,7 @@ export const overview = {
       "linkLabel": "Matched Admin 프로젝트 상세 보기",
       "heading": "Matched Admin",
       "tags": [
-        "React",
-        "Vite",
-        "TypeScript"
+        "React"
       ],
       "facts": [
         {
@@ -266,9 +250,7 @@ export const overview = {
       "linkLabel": "NCSOFT NCDP 프로젝트 상세 보기",
       "heading": "NCSOFT NCDP",
       "tags": [
-        "React",
-        "Vite",
-        "TypeScript"
+        "React"
       ],
       "facts": [
         {
@@ -289,8 +271,7 @@ export const overview = {
       "linkLabel": "서초구가족센터 프로젝트 상세 보기",
       "heading": "서초구가족센터",
       "tags": [
-        "React",
-        "Zustand"
+        "React"
       ],
       "facts": [
         {
@@ -311,9 +292,7 @@ export const overview = {
       "linkLabel": "금융보안원 위험 인텔리전스 관리 시스템 프로젝트 상세 보기",
       "heading": "금융보안원 위험 인텔리전스 관리 시스템",
       "tags": [
-        "React",
-        "TypeScript",
-        "Vite"
+        "React"
       ],
       "facts": [
         {
@@ -356,10 +335,7 @@ export const overview = {
       "linkLabel": "더 브릿지 프로젝트 상세 보기",
       "heading": "더 브릿지",
       "tags": [
-        "React",
-        "TypeScript",
-        "Zustand",
-        "Google Analytics"
+        "React"
       ],
       "facts": [
         {
@@ -380,9 +356,7 @@ export const overview = {
       "linkLabel": "조아라 웹소설 서비스 리뉴얼 프로젝트 상세 보기",
       "heading": "조아라 웹소설 서비스 리뉴얼",
       "tags": [
-        "React",
-        "TypeScript",
-        "Redux"
+        "React"
       ],
       "facts": [
         {
@@ -404,9 +378,7 @@ export const overview = {
       "heading": "DEVFIVE 사내 공통 컴포넌트 라이브러리",
       "tags": [
         "React",
-        "Next.js",
-        "Vite",
-        "Vitest"
+        "Next.js"
       ],
       "facts": [
         {
