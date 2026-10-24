@@ -1,43 +1,34 @@
 <!doctype html>
-<html lang="ko" data-theme="dark">
+<html lang="ko" data-theme="default">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Flutter 앱 유지보수와 Next.js 웹 확장·운영을 담당한 글로벌 한국어 교육 SNS 서비스" />
-    <meta name="theme-color" content="#0b0f18" />
+    <meta name="theme-color" content="#F5F7FA" />
+    <script>
+      (() => {
+        try {
+          const saved = localStorage.getItem('portfolio-theme')
+          const dark = saved === 'dark' || (saved !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches)
+          document.documentElement.dataset.theme = dark ? 'dark' : 'default'
+          document.querySelector('meta[name="theme-color"]').content = dark ? '#101A2A' : '#F5F7FA'
+        } catch { /* The light theme remains readable when storage is unavailable. */ }
+      })()
+    </script>
     <title>라운드 테이블 — 이강욱</title>
-    <link rel="stylesheet" href="../../styles.css?v=20261021-4" />
-    <link rel="stylesheet" href="../../projects.css?v=20261021-3" />
-    <script src="../../script.js?v=20261021-4" defer></script>
+    <link rel="stylesheet" href="../../assets/devup-ui-Bi3FlMSP.css" />
+    <link rel="stylesheet" href="../../assets/devup-ui-8-BVfjxZs1.css" />
+    <link rel="stylesheet" href="../../assets/devup-ui-1-DTI2-7nZ.css" />
+    <link rel="stylesheet" href="../../assets/devup-ui-0-CDFaKCT6.css" />
+    <link rel="stylesheet" href="../../assets/devup-ui-15-YKpXffVK.css" />
+    <link rel="stylesheet" href="../../assets/devup-ui-19-D-nzHAaP.css" />
+    <link rel="stylesheet" href="../../assets/devup-ui-14-kkdUZCBr.css" />
+    <link rel="stylesheet" href="../../assets/devup-ui-10-CZh5zkOk.css" />
+    <link rel="stylesheet" href="../../assets/devup-ui-12-BHsRA0OV.css" />
+    <link rel="stylesheet" href="../../assets/devup-ui-18-Dugufcm2.css" />
   </head>
-  <body class="detail-page project-brief-page project-case-page">
-    <a class="skip-link" href="#main">본문으로 건너뛰기</a>
-    <header class="site-header" data-header>
-      <a class="brand" href="../../" aria-label="이강욱 포트폴리오 처음으로"><span class="brand-mark" aria-hidden="true">GW</span><span class="brand-name">Gangwook Lee</span></a>
-      <nav class="site-nav" aria-label="주요 메뉴"><a href="../">Projects</a><a href="../../#approach">Approach</a><a href="../../#contact">Contact</a></nav>
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="라이트 모드로 전환"><span class="theme-toggle__sun" aria-hidden="true">◌</span><span class="theme-toggle__label">Theme</span></button>
-    </header>
-    <main id="main" class="detail-main">
-      <a class="detail-back reveal" href="../"><span aria-hidden="true">←</span> Project Archive</a>
-      <section class="detail-hero" aria-labelledby="detail-title">
-        <div><p class="detail-kicker reveal">Project 10 · 2023</p><h1 id="detail-title" class="detail-title reveal">라운드 테이블</h1><p class="detail-lede reveal">Flutter 앱 유지보수와 Next.js 웹 확장·운영을 담당한 글로벌 한국어 교육 SNS 서비스</p></div>
-        <dl class="detail-facts reveal" aria-label="프로젝트 정보"><div><dt>Role</dt><dd>프론트엔드 개발자</dd></div><div><dt>Period</dt><dd>2023.05 — 2024.01</dd></div><div><dt>Stack</dt><dd>Node.js · Flutter · Next.js</dd></div><div><dt>Scope</dt><dd>앱 유지보수 · 웹 확장 · 운영</dd></div></dl>
-      </section>
-      <section class="detail-section reveal-on-scroll" aria-labelledby="section-10-1">
-        <p class="detail-section__label">01 / Overview</p>
-        <div class="detail-prose"><h2 id="section-10-1">프로젝트 개요</h2><p>본 프로젝트는 K-pop, K-drama, K-food 등 한류 콘텐츠를 통해 한국어를 학습하고자 하는 전 세계 한류 팬들을 대상으로 재미있는 언어 교육 콘텐츠와 글로벌 네트워킹 기능을 제공하는 RoundTable(라운드테이블) 교육 SNS 서비스의 고객 요구사항을 반영한 종합적인 플랫폼 개발 및 운영 지원 작업입니다.</p>
-<p>고객과의 전략적 파트너십을 통해 AI Tutor 시스템과 AI 기반 한국어 기본 말하기 기능을 포함한 서비스의 핵심 기능들을 체계적으로 구축했으며, 전 세계 한류 팬들이 효과적으로 한국어를 학습하면서 동시에 글로벌 커뮤니티를 형성할 수 있는 통합적인 교육 플랫폼을 완성했습니다.</p>
-<p>또한 서비스의 안정적이고 원활한 운영을 위해 지속적인 시스템 유지보수와 기술 지원을 담당하여 사용자들에게 끊김 없는 학습 경험을 제공하고 있습니다.</p></div>
-      </section>
-      <section class="detail-section reveal-on-scroll" aria-labelledby="section-10-2">
-        <p class="detail-section__label">02 / Contribution</p>
-        <div class="detail-prose"><h2 id="section-10-2">주요 작업</h2><ul class="detail-list"><li>Flutter 앱 유지보수</li><li>Next.js 기반 사이트 확장</li><li>정기 패치, 신규 콘텐츠 업로드, 관리자 기능 고도화로 운영 안정성과 확장성 강화</li><li>QA 및 오류 대응</li></ul></div>
-      </section>
-      <section class="detail-section reveal-on-scroll" aria-labelledby="section-10-3">
-        <p class="detail-section__label">03 / Outcome</p>
-        <div class="detail-prose"><h2 id="section-10-3">성과 및 결과</h2><div class="detail-gallery" aria-label="라운드 테이블 프로젝트 화면"><figure><img src="../../assets/projects/round-table-01.webp" alt="" loading="lazy" /></figure><figure><img src="../../assets/projects/round-table-02.webp" alt="" loading="lazy" /></figure><figure><img src="../../assets/projects/round-table-03.webp" alt="" loading="lazy" /></figure></div></div>
-      </section>
-    </main>
-    <footer class="site-footer"><span>© <span data-year></span> Gangwook Lee</span><span>Project 10 / 13</span></footer>
+  <body>
+    <div id="root"><a href="#main" class="i-a i-b i-c i-d i-e i-f i-g i-h i-i i-j">본문으로 건너뛰기</a><header class="b-a b-b b-c b-d b-e b-f b-g b-h b-i b-j b-k b-l b-m b-n"><a href="../../" aria-label="이강욱 포트폴리오 처음으로" class="b-o b-p b-q b-r b-s">Gangwook Lee</a><div class="b-t b-u b-v b-w b-x b-l b-n"><nav aria-label="주요 메뉴" class="b-y b-v b-z b-_ b-aa b-ab b-ac b-a-d b-l b-n"><a href="../" class="b-ae b-af">Projects</a><a href="../../#approach" class="b-ae">Approach</a><a href="../../#contact" class="b-ae">Contact</a></nav><button type="button" aria-label="다크 모드로 전환" class="b-ag b-ah b-ai b-aj b-ak b-al b-am b-an b-ao b-q b-ap b-aq b-ar"><span aria-hidden="true">◐</span> Theme</button></div></header><main id="main"><div class="t-a t-b t-c t-d"><a href="../" class="t-ae t-g t-af t-ag t-ah t-i">← Project Archive</a><header class="m-a m-b"><p class="t-e t-f t-g t-h t-i">Project 10 · 2023</p><h1 id="detail-title" class="m-c m-d m-e m-f m-g m-h m-i m-j">라운드 테이블</h1><p class="m-k m-l m-m m-n">Flutter 앱 유지보수와 Next.js 웹 확장·운영을 담당한 글로벌 한국어 교육 SNS 서비스</p><dl aria-label="프로젝트 정보" class="m-o m-p m-q m-r m-s m-t m-u m-v"><div><dt class="m-w m-h m-x m-y">Role</dt><dd class="m-z m-_ m-n">프론트엔드 개발자</dd></div><div><dt class="m-w m-h m-x m-y">Period</dt><dd class="m-z m-_ m-n">2023.05 — 2024.01</dd></div><div><dt class="m-w m-h m-x m-y">Stack</dt><dd class="m-z m-_ m-n">Node.js · Flutter · Next.js</dd></div><div><dt class="m-w m-h m-x m-y">Scope</dt><dd class="m-z m-_ m-n">앱 유지보수 · 웹 확장 · 운영</dd></div></dl></header><section aria-labelledby="section-0" class="m-ao m-ap m-aq m-ar m-as m-at m-u m-b"><p class="m-au m-w m-h m-x m-y">01 / Overview</p><div><h2 id="section-0" class="m-av m-aw m-ah m-ax m-h m-ay">프로젝트 개요</h2><p class="m-az m-a0 m-a1 m-a2 m-n">본 프로젝트는 K-pop, K-drama, K-food 등 한류 콘텐츠를 통해 한국어를 학습하고자 하는 전 세계 한류 팬들을 대상으로 재미있는 언어 교육 콘텐츠와 글로벌 네트워킹 기능을 제공하는 RoundTable(라운드테이블) 교육 SNS 서비스의 고객 요구사항을 반영한 종합적인 플랫폼 개발 및 운영 지원 작업입니다.</p><p class="m-az m-a0 m-a1 m-a2 m-n">고객과의 전략적 파트너십을 통해 AI Tutor 시스템과 AI 기반 한국어 기본 말하기 기능을 포함한 서비스의 핵심 기능들을 체계적으로 구축했으며, 전 세계 한류 팬들이 효과적으로 한국어를 학습하면서 동시에 글로벌 커뮤니티를 형성할 수 있는 통합적인 교육 플랫폼을 완성했습니다.</p><p class="m-az m-a0 m-a1 m-a2 m-n">또한 서비스의 안정적이고 원활한 운영을 위해 지속적인 시스템 유지보수와 기술 지원을 담당하여 사용자들에게 끊김 없는 학습 경험을 제공하고 있습니다.</p></div></section><section aria-labelledby="section-1" class="m-ao m-ap m-aq m-ar m-as m-at m-u m-b"><p class="m-au m-w m-h m-x m-y">02 / Contribution</p><div><h2 id="section-1" class="m-av m-aw m-ah m-ax m-h m-ay">주요 작업</h2><ul class="m-a3 m-l m-a4 m-a2 m-u m-a5 m-n"><li>Flutter 앱 유지보수</li><li>Next.js 기반 사이트 확장</li><li>정기 패치, 신규 콘텐츠 업로드, 관리자 기능 고도화로 운영 안정성과 확장성 강화</li><li>QA 및 오류 대응</li></ul></div></section><section aria-labelledby="section-2" class="m-ao m-ap m-aq m-ar m-as m-at m-u m-b"><p class="m-au m-w m-h m-x m-y">03 / Outcome</p><div><h2 id="section-2" class="m-av m-aw m-ah m-ax m-h m-ay">성과 및 결과</h2><div role="group" aria-label="라운드 테이블 프로젝트 화면" class="m-bd m-be m-a4 m-u"><figure class="m-bf m-ai m-aj m-ak"><img src="../../assets/projects/round-table-01.webp" alt="" loading="lazy" class="m-bg m-bh m-an"/></figure><figure class="m-bf m-ai m-aj m-ak"><img src="../../assets/projects/round-table-02.webp" alt="" loading="lazy" class="m-bg m-bh m-an"/></figure><figure class="m-bf m-ai m-aj m-ak"><img src="../../assets/projects/round-table-03.webp" alt="" loading="lazy" class="m-bg m-bh m-an"/></figure></div></div></section></div></main><footer class="a-a a-b a-c a-d a-e a-f a-g a-h a-i a-j a-k a-l a-m"><span>© <!-- -->2026<!-- --> Gangwook Lee</span><span>Project 10 / 13</span></footer></div>
+    <script type="module" src="../../assets/main-IGoFlBAK.js"></script>
   </body>
 </html>
