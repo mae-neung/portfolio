@@ -7,17 +7,17 @@
     "file": "assets/devup-ui-1-DTI2-7nZ.css",
     "src": "_devup-ui-1-DTI2-7nZ.css"
   },
-  "_devup-ui-10-CZh5zkOk.css": {
-    "file": "assets/devup-ui-10-CZh5zkOk.css",
-    "src": "_devup-ui-10-CZh5zkOk.css"
+  "_devup-ui-10-DM324oiI.css": {
+    "file": "assets/devup-ui-10-DM324oiI.css",
+    "src": "_devup-ui-10-DM324oiI.css"
   },
   "_devup-ui-12-BHsRA0OV.css": {
     "file": "assets/devup-ui-12-BHsRA0OV.css",
     "src": "_devup-ui-12-BHsRA0OV.css"
   },
-  "_devup-ui-14-wc5NzwMG.css": {
-    "file": "assets/devup-ui-14-wc5NzwMG.css",
-    "src": "_devup-ui-14-wc5NzwMG.css"
+  "_devup-ui-14-ggCHhQ1C.css": {
+    "file": "assets/devup-ui-14-ggCHhQ1C.css",
+    "src": "_devup-ui-14-ggCHhQ1C.css"
   },
   "_devup-ui-15-YKpXffVK.css": {
     "file": "assets/devup-ui-15-YKpXffVK.css",
@@ -40,7 +40,7 @@
     "src": "_devup-ui-Bi3FlMSP.css"
   },
   "src/main.tsx": {
-    "file": "assets/main-D6HxNsdM.js",
+    "file": "assets/main-BiqQibdw.js",
     "name": "main",
     "src": "src/main.tsx",
     "isEntry": true,
@@ -51,8 +51,8 @@
       "assets/devup-ui-0-CDFaKCT6.css",
       "assets/devup-ui-15-YKpXffVK.css",
       "assets/devup-ui-20-Cj09t4Qq.css",
-      "assets/devup-ui-14-wc5NzwMG.css",
-      "assets/devup-ui-10-CZh5zkOk.css",
+      "assets/devup-ui-14-ggCHhQ1C.css",
+      "assets/devup-ui-10-DM324oiI.css",
       "assets/devup-ui-12-BHsRA0OV.css",
       "assets/devup-ui-18-Dugufcm2.css"
     ]
