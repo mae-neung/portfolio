@@ -6,7 +6,7 @@ export const overview = {
     "intro": "React와 Next.js로 사용자 흐름을 설계하고 구현합니다. 공통 라이브러리부터 업무 자동화까지, 설계·개발·운영을 연결합니다.",
     "proof": [
       {
-        "value": "17",
+        "value": null,
         "label": "진행한 프로젝트"
       },
       {
@@ -83,7 +83,7 @@ export const overview = {
       },
       {
         "heading": "Backend",
-        "items": ["Node.js", "FastAPI"]
+        "items": ["Node.js · Express", "Python · FastAPI"]
       }
     ]
   },

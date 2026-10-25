@@ -56,23 +56,30 @@ export const WorkIntro = styled.p`
   max-width: 375px; color: var(--textMuted); line-height: 1.8;
 `
 export const FeaturedGrid = styled.div`
-  display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); grid-template-rows: repeat(2,minmax(270px,auto)); gap: 12px;
+  display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px;
   @media (max-width: 750px) { grid-template-columns: 1fr; grid-template-rows: none; }
 `
-export const FeaturedCard = styled.article`
+export const FeaturedCard = styled.a`
   position: relative; display: flex; flex-direction: column; justify-content: start; min-width: 0; overflow: hidden;
-  padding: 25px; border: 1px solid var(--border); border-radius: var(--tileRadius); background: var(--surface);
-  &:first-child { background: var(--surfaceRaised); }
-  @media (max-width: 750px) { min-height: 268px; }
-  @media (max-width: 390px) { padding: 19px; }
+  border: 1px solid var(--border); border-radius: 16px; background: var(--surface); box-shadow: var(--raised);
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+  &:hover { border-color: var(--primary); transform: translateY(-3px); }
+  &:hover img { transform: scale(1.025); }
+  @media (prefers-reduced-motion: reduce) { transition-duration: .01ms; }
 `
 export const FeaturedMark = styled.span`
-  position: absolute; right: -12px; top: -57px; color: var(--primary); opacity: .065;
-  font-size: 258px; font-weight: 800; line-height: 1; letter-spacing: -.12em; pointer-events: none;
+  position: absolute; z-index: 2; top: 13px; left: 13px; display: grid; place-items: center;
+  min-width: 32px; height: 32px; padding-inline: 8px; border-radius: var(--buttonRadius);
+  background: var(--surface); color: var(--primary); box-shadow: var(--raised);
+  font-size: 11px; font-weight: 800; pointer-events: none;
+`
+export const FeaturedBody = styled.div`
+  display: flex; flex: 1; flex-direction: column; align-items: start; min-width: 0; padding: 24px;
+  @media (max-width: 390px) { padding: 20px; }
 `
 export const FeaturedHeading = styled.h3`
   position: relative; z-index: 1; margin: 11px 0 7px; font-size: clamp(18px,2.4vw,25px);
-  font-weight: 800; line-height: 1.3; letter-spacing: -.045em;
+  font-weight: 800; line-height: 1.3; letter-spacing: -.045em; word-break: keep-all; overflow-wrap: anywhere;
 `
 export const FeaturedSummary = styled.p`
   position: relative; z-index: 1; max-width: 440px; color: var(--textMuted); font-size: 13px; line-height: 1.7;
@@ -81,13 +88,16 @@ export const FeaturedProof = styled.strong`
   position: relative; z-index: 1; margin-top: 12px; color: var(--primary); font-size: 13px;
 `
 export const FeaturedMedia = styled(Image)`
-  position: relative; z-index: 1; display: block; width: 100%; height: 160px; margin-bottom: 20px;
-  border: 1px solid var(--border); border-radius: var(--tileRadius); object-fit: cover; object-position: top;
+  position: relative; z-index: 1; display: block; width: 100%; height: 210px;
+  object-fit: cover; object-position: top; background: var(--surfaceRaised); transition: transform .3s;
+  @media (max-width: 900px) { height: 180px; }
+  @media (max-width: 750px) { height: 220px; }
+  @media (max-width: 520px) { height: 180px; }
+  @media (prefers-reduced-motion: reduce) { transition-duration: .01ms; }
 `
-export const DetailLink = styled.a`
+export const DetailLabel = styled.span`
   position: relative; z-index: 1; align-self: start; margin-top: auto; padding-top: 14px; padding-bottom: 3px;
   border-bottom: 1px solid currentColor; color: var(--primary); font-size: 12px; font-weight: 800;
-  &:hover { color: var(--primaryHover); }
 `
 export const ArchiveCta = styled.a`
   display: flex; justify-content: space-between; align-items: center; gap: 15px; margin-top: 18px;
@@ -106,23 +116,23 @@ export const SkillsIntro = styled.p`
   max-width: 390px; color: var(--textMuted); line-height: 1.8;
 `
 export const SkillsGrid = styled.div`
-  display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px;
-  @media (max-width: 750px) { grid-template-columns: 1fr; }
+  display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 30px;
+  @media (max-width: 750px) { grid-template-columns: 1fr; gap: 34px; }
 `
 export const SkillGroup = styled.article`
-  display: flex; flex-direction: column; gap: 24px; min-width: 0; padding: 25px;
-  border: 1px solid var(--border); border-radius: var(--tileRadius); background: var(--surface);
-  @media (max-width: 390px) { padding: 19px; }
+  display: flex; flex-direction: column; gap: 28px; min-width: 0; padding-top: 18px;
+  border-top: 2px solid var(--primary);
 `
 export const SkillGroupTitle = styled.h3`
-  color: var(--primary); font-size: 12px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--primary); font-size: 14px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
 `
 export const SkillList = styled.ul`
-  display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none;
+  display: flex; flex-wrap: wrap; gap: 10px 18px; padding: 0; list-style: none;
 `
 export const Skill = styled.li`
-  padding: 8px 11px; border: 1px solid var(--border); border-radius: 999px;
-  background: var(--surfaceRaised); color: var(--text); font-size: 13px; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 18px; color: var(--text);
+  font-size: clamp(18px,1.7vw,22px); font-weight: 800; line-height: 1.35; letter-spacing: -.035em;
+  &:not(:last-child)::after { width: 4px; height: 4px; border-radius: 50%; background: var(--border); content: ''; }
 `
 export const Approach = styled.section`
   width: min(calc(100% - 76px), 1120px); margin-inline: auto; padding-block: 80px 98px; border-top: 1px solid var(--border);
@@ -158,8 +168,15 @@ export const ContactEyebrow = styled.p`
 `
 export const ContactTitle = styled.h2`
   margin: 20px 0 32px; font-size: clamp(40px,5.5vw,72px); font-weight: 800; line-height: 1.16; letter-spacing: -.07em;
+  word-break: keep-all; overflow-wrap: anywhere;
 `
 export const ContactLink = styled.a`
-  display: inline-block; padding-bottom: 8px; border-bottom: 2px solid currentColor; font-weight: 800;
+  display: inline-flex; align-items: center; gap: 14px; max-width: 100%;
+  font-size: clamp(22px,3vw,36px); font-weight: 800; line-height: 1.2; letter-spacing: -.035em; overflow-wrap: anywhere;
+  transition: opacity .2s;
+  &:hover { opacity: .82; }
   &:focus-visible { outline-color: var(--onPrimary); }
+`
+export const MailIcon = styled.svg`
+  flex: 0 0 auto; width: 1.05em; height: 1.05em; fill: none; stroke: currentColor; stroke-width: 1.8;
 `
