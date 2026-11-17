@@ -15,9 +15,9 @@
     "file": "assets/devup-ui-12-BHsRA0OV.css",
     "src": "_devup-ui-12-BHsRA0OV.css"
   },
-  "_devup-ui-14-ggCHhQ1C.css": {
-    "file": "assets/devup-ui-14-ggCHhQ1C.css",
-    "src": "_devup-ui-14-ggCHhQ1C.css"
+  "_devup-ui-14-xq5i47qz.css": {
+    "file": "assets/devup-ui-14-xq5i47qz.css",
+    "src": "_devup-ui-14-xq5i47qz.css"
   },
   "_devup-ui-15-YKpXffVK.css": {
     "file": "assets/devup-ui-15-YKpXffVK.css",
@@ -40,7 +40,7 @@
     "src": "_devup-ui-Bi3FlMSP.css"
   },
   "src/main.tsx": {
-    "file": "assets/main-BiqQibdw.js",
+    "file": "assets/main-DL4FIlSy.js",
     "name": "main",
     "src": "src/main.tsx",
     "isEntry": true,
@@ -51,7 +51,7 @@
       "assets/devup-ui-0-CDFaKCT6.css",
       "assets/devup-ui-15-YKpXffVK.css",
       "assets/devup-ui-20-Cj09t4Qq.css",
-      "assets/devup-ui-14-ggCHhQ1C.css",
+      "assets/devup-ui-14-xq5i47qz.css",
       "assets/devup-ui-10-DM324oiI.css",
       "assets/devup-ui-12-BHsRA0OV.css",
       "assets/devup-ui-18-Dugufcm2.css"
