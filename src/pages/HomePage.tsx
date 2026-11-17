@@ -1,80 +1,127 @@
-import { Box, Text } from '@devup-ui/react'
-import { m } from 'motion/react'
-import type { PortfolioRoute } from '../data/routes'
 import { overview } from '../data/overview'
-import { PageShell, Overline, PrimaryAction, SecondaryAction, SectionTitle } from '../theme/primitives'
-import { enterTransition, revealLeft, revealUp } from '../theme/motion'
-import {
-  Hero, HeroRail, HeroTitle, HeroBottom, HeroIntro, HeroActions, Proof, ProofItem, ProofValue, ProofLabel,
-  Work, WorkHead, WorkIntro, FeaturedGrid, FeaturedCard, FeaturedMark, FeaturedBody,
-  FeaturedHeading, FeaturedSummary, FeaturedProof, FeaturedMedia, DetailLabel,
-  FeaturedFallback, ArchiveCta, Skills, SkillsHead, SkillsIntro, SkillsGrid, SkillGroup, SkillGroupTitle, SkillList, Skill,
-  Approach, ApproachTitle, Steps, Step, StepNumber, StepHeading, StepBody, Contact, ContactEyebrow,
-  ContactTitle, ContactLink, MailIcon,
-} from './HomePage.styles'
 
-const MotionHeroRail = m.create(HeroRail)
-const MotionOverline = m.create(Overline)
-const MotionHeroTitle = m.create(HeroTitle)
-const MotionHeroBottom = m.create(HeroBottom)
-const MotionProofItem = m.create(ProofItem)
-const MotionSectionTitle = m.create(SectionTitle)
-const MotionWorkIntro = m.create(WorkIntro)
-const MotionArchiveCta = m.create(ArchiveCta)
-const MotionSkillsIntro = m.create(SkillsIntro)
-const MotionSkillGroup = m.create(SkillGroup)
-const MotionApproachTitle = m.create(ApproachTitle)
-const MotionStep = m.create(Step)
-const MotionContactEyebrow = m.create(ContactEyebrow)
-const MotionContactTitle = m.create(ContactTitle)
-const MotionContactLink = m.create(ContactLink)
+const cardTint = [
+  { wrap: 'bg-sagewash border-sage/35', badge: 'bg-sage text-sageink', chip: 'bg-sage text-sageink' },
+  { wrap: 'bg-skywash border-sky/35', badge: 'bg-sky text-skyink', chip: 'bg-sky text-skyink' },
+  { wrap: 'bg-peachwash border-peach/35', badge: 'bg-peach text-peachink', chip: 'bg-peach text-peachink' },
+  { wrap: 'bg-card border-line', badge: 'bg-butter text-butterink', chip: 'bg-butter text-butterink' },
+]
 
-const featuredImages: Record<string, string> = {
-  '01': 'joara-01.webp',
-  '02': 'finance-security-intelligence-01.webp',
-  '03': 'ncsoft-ncdp-01.webp',
-  // '04' (비번찾기): 스크린샷 없음 — 텍스트 카드로 렌더
-}
-function assetHref(route: PortfolioRoute, source: string) {
-  const depth = route.path.split('/').filter(Boolean).length
-  return `${'../'.repeat(depth) || './'}${source.replace(/^\//, '')}`
-}
+const skillTint = [
+  { bar: 'border-t-sage', chip: 'bg-sagewash text-sageink' },
+  { bar: 'border-t-sky', chip: 'bg-skywash text-skyink' },
+  { bar: 'border-t-peach', chip: 'bg-peachwash text-peachink' },
+]
 
-export function HomePage({ route }: { route: PortfolioRoute }) {
-  return <Box as="main" id="main">
-    <Hero id="top" aria-labelledby="hero-title">
-      <MotionHeroRail {...revealLeft} transition={enterTransition()} aria-hidden="true"><span>GW / FRONTEND</span><span>DESIGN · BUILD · OPERATE</span></MotionHeroRail>
-      <Box><MotionOverline {...revealUp} transition={enterTransition(0.06)}>{overview.hero.eyebrow}</MotionOverline>
-        <MotionHeroTitle {...revealUp} transition={enterTransition(0.12)} id="hero-title">복잡한 문제를,<br /><em>실제로 쓰이는<br />제품으로.</em></MotionHeroTitle>
-        <MotionHeroBottom {...revealUp} transition={enterTransition(0.2)}><HeroIntro>{overview.hero.intro}</HeroIntro>
-          <HeroActions><PrimaryAction href="#work">프로젝트 보기 <span aria-hidden="true">↘</span></PrimaryAction><SecondaryAction href="https://github.com/mae-neung" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></SecondaryAction></HeroActions>
-        </MotionHeroBottom>
-      </Box>
-    </Hero>
-    <Proof aria-label="핵심 경험">{overview.hero.proof.map((proof, index) => <MotionProofItem {...revealUp} transition={enterTransition(index * 0.08)} key={proof.label}><ProofValue>{proof.value ?? overview.archive.length}</ProofValue><ProofLabel>{proof.label}</ProofLabel></MotionProofItem>)}</Proof>
-    <Work id="work" aria-labelledby="work-title"><PageShell>
-      <MotionOverline {...revealUp} transition={enterTransition()}>Selected Work / 04</MotionOverline>
-      <WorkHead><MotionSectionTitle {...revealUp} transition={enterTransition(0.06)} id="work-title">화면을 만드는 데서 멈추지 않고,<br />제품의 흐름을 완성합니다.</MotionSectionTitle><MotionWorkIntro {...revealUp} transition={enterTransition(0.12)}>{overview.work.intro}</MotionWorkIntro></WorkHead>
-      <FeaturedGrid>{overview.work.featured.map((project) => <FeaturedCard href={project.href} aria-label={project.linkLabel} key={project.index}>
-        <FeaturedMark aria-hidden="true">{project.index}</FeaturedMark>
-        {featuredImages[project.index] ? <FeaturedMedia src={assetHref(route, `/assets/projects/${featuredImages[project.index]}`)} alt={`${project.heading} 프로젝트 화면`} loading="lazy" /> : <FeaturedFallback aria-hidden="true">{project.meta.join(' · ')}</FeaturedFallback>}
-        <FeaturedBody><Text as="span" position="relative" zIndex={1} color="$primary" typography="meta">{project.meta.join(' · ')}</Text><FeaturedHeading>{project.heading}</FeaturedHeading><FeaturedSummary>{project.summary}</FeaturedSummary>
-          {project.proof && <FeaturedProof>{project.proof}</FeaturedProof>}
-          <DetailLabel>프로젝트 상세 <span aria-hidden="true">↗</span></DetailLabel>
-        </FeaturedBody>
-      </FeaturedCard>)}</FeaturedGrid>
-      <MotionArchiveCta {...revealUp} transition={enterTransition()} href="./projects/">전체 프로젝트 {overview.archive.length}개 보기 <span aria-hidden="true">→</span></MotionArchiveCta>
-    </PageShell></Work>
-    <Skills id="skills" aria-labelledby="skills-title"><PageShell>
-      <MotionOverline {...revealUp} transition={enterTransition()}>Technical Toolkit</MotionOverline>
-      <SkillsHead><MotionSectionTitle {...revealUp} transition={enterTransition(0.06)} id="skills-title">{overview.skills.heading}</MotionSectionTitle><MotionSkillsIntro {...revealUp} transition={enterTransition(0.12)}>{overview.skills.intro}</MotionSkillsIntro></SkillsHead>
-      <SkillsGrid>{overview.skills.groups.map((group, index) => <MotionSkillGroup {...revealUp} transition={enterTransition((index % 2) * 0.08)} key={group.heading}>
-        <SkillGroupTitle>{group.heading}</SkillGroupTitle><SkillList>{group.items.map((item) => <Skill key={item}>{item}</Skill>)}</SkillList>
-      </MotionSkillGroup>)}</SkillsGrid>
-    </PageShell></Skills>
-    <Approach id="approach" aria-labelledby="approach-title"><MotionOverline {...revealUp} transition={enterTransition()}>How I Work</MotionOverline><MotionApproachTitle {...revealUp} transition={enterTransition(0.06)} id="approach-title">구현은 빠르게,<br />판단 근거는 분명하게.</MotionApproachTitle>
-      <Steps>{overview.approach.steps.map((step, index) => <MotionStep {...revealUp} transition={enterTransition(index * 0.08)} key={step.number}><StepNumber>{step.number}</StepNumber><StepHeading>{step.heading}</StepHeading><StepBody>{step.text}</StepBody></MotionStep>)}</Steps>
-    </Approach>
-    <Contact id="contact" aria-labelledby="contact-title"><PageShell><MotionContactEyebrow {...revealUp} transition={enterTransition()}>{overview.contact.eyebrow}</MotionContactEyebrow><MotionContactTitle {...revealUp} transition={enterTransition(0.06)} id="contact-title">복잡한 요구사항을<br />선명한 제품 경험으로.</MotionContactTitle><MotionContactLink {...revealUp} transition={enterTransition(0.12)} href={overview.contact.link.href}><MailIcon aria-hidden="true" viewBox="0 0 24 24"><path d="M3 5.5h18v13H3z" /><path d="m3.5 6 8.5 7 8.5-7" /></MailIcon>{overview.contact.link.label}</MotionContactLink></PageShell></Contact>
-  </Box>
+const stepTint = [
+  { wrap: 'bg-sagewash border-sage/35', ghost: 'text-sage/40' },
+  { wrap: 'bg-skywash border-sky/35', ghost: 'text-sky/40' },
+  { wrap: 'bg-peachwash border-peach/35', ghost: 'text-peach/45' },
+]
+
+export function HomePage() {
+  return (
+    <main id="main" className="max-w-[1060px] mx-auto px-7 max-[600px]:px-[18px]">
+      <header id="top" className="relative pt-12 pb-[70px]">
+        <div aria-hidden="true" className="absolute right-[-10px] top-6 w-28 h-28 rounded-[32px] bg-peach/40 float max-[700px]:hidden" />
+        <div aria-hidden="true" className="absolute right-24 top-40 w-16 h-16 rounded-full bg-sky/50 float [animation-delay:-2s] max-[700px]:hidden" />
+        <div className="relative">
+          <span className="reveal [animation-delay:40ms] inline-flex items-center gap-2 text-[13px] font-bold bg-peachwash text-peachink px-3.5 py-1.5 rounded-full border border-peach/40">
+            <span className="w-1.5 h-1.5 rounded-full bg-peach" />{overview.hero.eyebrow}
+          </span>
+          <h1 className="reveal [animation-delay:120ms] font-disp font-extrabold text-[clamp(42px,7.6vw,90px)] leading-[1.04] tracking-[-.03em] mt-6">
+            프론트엔드 개발자<br /><span className="hl-marker">이강욱</span>입니다.
+          </h1>
+          <p className="reveal [animation-delay:200ms] mt-7 max-w-[52ch] text-[15.5px] leading-[1.75] text-muted">{overview.hero.intro}</p>
+          <div className="reveal [animation-delay:280ms] flex gap-3 mt-9 flex-wrap">
+            <a href="#work" className="group inline-flex items-center gap-2.5 px-7 py-4 rounded-full text-[15px] font-bold bg-ink text-cream shadow-[0_16px_30px_-12px_rgba(43,70,53,.6)] transition hover:bg-sageink hover:-translate-y-0.5">
+              프로젝트 보기 <span aria-hidden="true" className="transition group-hover:translate-x-0.5">↘</span>
+            </a>
+            <a href="https://github.com/mae-neung" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2.5 px-7 py-4 rounded-full text-[15px] font-bold bg-sage text-sageink shadow-[0_16px_30px_-14px_rgba(43,70,53,.5)] transition hover:bg-sageink hover:text-cream hover:-translate-y-0.5">
+              GitHub <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <section className="py-12">
+        <span className="font-disp font-bold text-sm text-skyink bg-sky/30 inline-block px-3 py-1 rounded-full">Skills</span>
+        <h2 className="font-disp font-extrabold text-[clamp(26px,3.6vw,40px)] tracking-[-.02em] mt-3 mb-[26px]">기술</h2>
+        <div className="grid grid-cols-3 gap-4 max-[720px]:grid-cols-1">
+          {overview.skills.groups.map((group, index) => {
+            const tint = skillTint[index % skillTint.length]
+            return (
+              <div key={group.heading} className={`bg-card border border-line rounded-[22px] p-[22px] border-t-4 ${tint.bar}`}>
+                <h3 className="font-disp font-bold text-[15px] mb-3.5">{group.heading}</h3>
+                <div className="flex flex-wrap gap-2 text-[13px] font-semibold">
+                  {group.items.map((item) => <span key={item} className={`rounded-full px-3 py-1 ${tint.chip}`}>{item}</span>)}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+
+      <section id="work" className="py-12">
+        <div className="mb-7">
+          <span className="font-disp font-bold text-sm text-sageink bg-sage/30 inline-block px-3 py-1 rounded-full">Work</span>
+          <h2 className="font-disp font-extrabold text-[clamp(26px,3.6vw,40px)] tracking-[-.02em] mt-3">대표 프로젝트</h2>
+        </div>
+        <div className="grid grid-cols-2 gap-4 max-[720px]:grid-cols-1">
+          {overview.work.featured.map((project, index) => {
+            const tint = cardTint[index % cardTint.length]
+            return (
+              <a key={project.index} href={project.href} aria-label={project.linkLabel} className={`group rounded-[26px] border p-7 transition hover:-translate-y-1.5 ${tint.wrap}`}>
+                <div className="flex justify-between items-center">
+                  <span className={`font-disp font-extrabold w-10 h-10 grid place-items-center rounded-[14px] text-[15px] ${tint.badge}`}>{project.index}</span>
+                  <span className="text-xs text-muted tracking-[.05em]">{project.meta.join(' · ')}</span>
+                </div>
+                <h3 className="font-disp font-bold text-[22px] mt-4 mb-2 break-keep">{project.heading}</h3>
+                <p className="text-sm text-muted">{project.summary}</p>
+                {project.proof ? <div className={`inline-block mt-4 text-xs font-bold px-3 py-1.5 rounded-full ${tint.chip}`}>{project.proof}</div> : null}
+              </a>
+            )
+          })}
+        </div>
+        <div className="mt-7">
+          <a href="./projects/" className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-bold bg-ink text-cream transition hover:bg-sageink hover:-translate-y-0.5">
+            프로젝트 전체보기 <span className="opacity-70">({overview.archive.length})</span> <span aria-hidden="true" className="transition group-hover:translate-x-0.5">→</span>
+          </a>
+        </div>
+      </section>
+
+      <section className="py-12">
+        <span className="font-disp font-bold text-sm text-peachink bg-peach/30 inline-block px-3 py-1 rounded-full">Process</span>
+        <h2 className="font-disp font-extrabold text-[clamp(26px,3.6vw,40px)] tracking-[-.02em] mt-3 mb-[26px]">작업 방식</h2>
+        <div className="grid grid-cols-3 gap-4 max-[720px]:grid-cols-1">
+          {overview.approach.steps.map((step, index) => {
+            const tint = stepTint[index % stepTint.length]
+            return (
+              <div key={step.number} className={`relative overflow-hidden rounded-[22px] border p-6 ${tint.wrap}`}>
+                <div aria-hidden="true" className={`absolute -right-3 -top-4 font-disp font-extrabold text-[80px] leading-none select-none ${tint.ghost}`}>{step.number}</div>
+                <h3 className="font-disp font-bold text-lg mb-2 relative">{step.heading}</h3>
+                <p className="text-sm text-muted relative">{step.text}</p>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+
+      <section id="contact" className="py-10">
+        <div className="relative overflow-hidden rounded-[32px] border border-sage/50 p-10 max-[600px]:p-7 bg-gradient-to-br from-sagewash to-sage/60">
+          <div aria-hidden="true" className="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-peach/35 float" />
+          <div aria-hidden="true" className="absolute right-24 bottom-[-30px] w-24 h-24 rounded-full bg-sky/40 float [animation-delay:-3s]" />
+          <div className="relative max-w-[560px]">
+            <div className="w-12 h-12 grid place-items-center bg-ink text-cream rounded-2xl font-disp font-extrabold text-lg">GW</div>
+            <p className="mt-5 font-disp font-bold text-[clamp(22px,3.2vw,30px)] text-sageink tracking-[-.02em]">{overview.contact.heading}</p>
+            <a href={overview.contact.link.href} className="group inline-flex items-center gap-3 mt-6 bg-ink text-cream rounded-full pl-6 pr-3 py-3 font-bold text-[15px] transition hover:bg-sageink">
+              {overview.contact.link.label}
+              <span aria-hidden="true" className="w-8 h-8 grid place-items-center bg-cream text-ink rounded-full transition group-hover:translate-x-0.5">→</span>
+            </a>
+            <p className="mt-4 text-sm text-sageink">또는 <a href="https://github.com/mae-neung" target="_blank" rel="noopener noreferrer" className="font-bold underline decoration-sage decoration-2 underline-offset-2">GitHub</a>에서 코드도 볼 수 있어요.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
 }

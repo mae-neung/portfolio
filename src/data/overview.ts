@@ -1,17 +1,17 @@
 // Migrated from the original home and archive content fragments.
 export const overview = {
   "hero": {
-    "eyebrow": "이강욱 · Frontend Developer",
-    "heading": "복잡한 문제를, 실제로 쓰이는 제품으로.",
-    "intro": "React·Next.js 기반 SI 프로젝트를 프론트엔드 팀장으로 2년 2개월 이끌었습니다. 반복 비용을 줄이는 공통 라이브러리 설계부터 업무를 바꾸는 자동화까지, 설계·개발·운영을 연결합니다.",
+    "eyebrow": "Frontend Engineer",
+    "heading": "프론트엔드 개발자 이강욱입니다.",
+    "intro": "React·Next.js 기반 SI 프로젝트 프론트엔드를 2년 2개월간 개발했습니다. 요구사항 분석부터 상태 설계, 외부 연동, QA와 운영까지 맡은 범위를 끝까지 책임졌습니다.",
     "proof": [
       {
         "value": null,
-        "label": "진행한 프로젝트"
+        "label": "참여 프로젝트"
       },
       {
-        "value": "2Y 2M",
-        "label": "프론트엔드 팀장 · DEVFIVE"
+        "value": "2년 2개월",
+        "label": "프론트엔드 경력"
       }
     ]
   },
@@ -27,7 +27,7 @@ export const overview = {
         ],
         "heading": "조아라 웹소설 서비스 리뉴얼",
         "summary": "웹소설 사용자 서비스와 운영 CMS를 리뉴얼하며 메인·로그인·결제·뷰어 등 약 40페이지를 담당했습니다.",
-        "proof": "규모 확장에 맞춰 Zustand→Redux 상태관리 전환",
+        "proof": "",
         "href": "./projects/joara/",
         "linkLabel": "조아라 웹소설 서비스 리뉴얼 프로젝트 상세 보기"
       },
@@ -63,7 +63,7 @@ export const overview = {
         ],
         "heading": "비번찾기",
         "summary": "매달 무작위로 배치되는 교대근무표를 조건에 맞게 자동 생성하는, 기획·개발·배포를 1인 수행한 실사용 서비스입니다.",
-        "proof": "혼자 끝까지 · 실업무에 6개월 적용",
+        "proof": "기획부터 배포까지 혼자 만든 서비스",
         "href": "./projects/shift-scheduler/",
         "linkLabel": "비번찾기 프로젝트 상세 보기"
       }
@@ -109,7 +109,7 @@ export const overview = {
   },
   "contact": {
     "eyebrow": "Let’s build something useful.",
-    "heading": "복잡한 요구사항을 선명한 제품 경험으로.",
+    "heading": "메일로 편하게 연락 주세요.",
     "link": {
       "href": "mailto:maeneung@kakao.com",
       "label": "maeneung@kakao.com"

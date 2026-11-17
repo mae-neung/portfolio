@@ -19,11 +19,10 @@ const manifest = JSON.parse(await readFile(path.join(dist, '.vite', 'manifest.js
 const entry = manifest['src/main.tsx'] ?? Object.values(manifest).find((chunk) => chunk.isEntry && chunk.file.endsWith('.js'))
 if (!entry) throw new Error('Missing client entry in Vite manifest')
 const css = [...new Set([
-  ...Object.values(manifest).filter((chunk) => chunk.file.endsWith('.css') && !/devup-ui-\d+-/.test(chunk.file)).map((chunk) => chunk.file),
   ...(entry.css ?? []),
-  ...Object.values(manifest).filter((chunk) => /devup-ui-\d+-/.test(chunk.file)).map((chunk) => chunk.file),
+  ...Object.values(manifest).filter((chunk) => chunk.file.endsWith('.css')).map((chunk) => chunk.file),
 ])]
-if (css.length === 0) throw new Error('Missing DEVUP UI CSS in Vite manifest')
+if (css.length === 0) throw new Error('Missing CSS in Vite manifest')
 
 const server = await createServer({
   configFile: path.join(root, 'vite.config.ts'),

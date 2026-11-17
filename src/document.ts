@@ -13,22 +13,16 @@ const escapeText = (value: string) => value.replaceAll('&', '&amp;').replaceAll(
 export function renderDocument({ title, description, entryScript, styles = [], markup = '' }: DocumentOptions): string {
   const styleLinks = styles.map((style) => `<link rel="stylesheet" href="${escapeAttribute(style)}" />`).join('\n    ')
   return `<!doctype html>
-<html lang="ko" data-theme="default">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="${escapeAttribute(description)}" />
-    <meta name="theme-color" content="#F5F7FA" />
-    <script>
-      (() => {
-        try {
-          const saved = localStorage.getItem('portfolio-theme')
-          const dark = saved === 'dark' || (saved !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches)
-          document.documentElement.dataset.theme = dark ? 'dark' : 'default'
-          document.querySelector('meta[name="theme-color"]').content = dark ? '#101A2A' : '#F5F7FA'
-        } catch { /* The light theme remains readable when storage is unavailable. */ }
-      })()
-    </script>
+    <meta name="theme-color" content="#F4F0E6" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&display=swap" />
     <title>${escapeText(title)}</title>
     ${styleLinks}
   </head>

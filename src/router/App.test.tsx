@@ -2,7 +2,6 @@ import { act, StrictMode } from 'react'
 import { hydrateRoot } from 'react-dom/client'
 import { renderToString } from 'react-dom/server'
 import { render, screen, within } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import { BrowserRouter, MemoryRouter } from 'react-router-dom'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { App } from './App'
@@ -14,7 +13,6 @@ import { getBasename } from '../utils/paths'
 
 beforeEach(() => {
   localStorage.clear()
-  document.documentElement.dataset.theme = 'default'
 })
 
 describe('portfolio routes', () => {
@@ -52,7 +50,7 @@ describe('portfolio routes', () => {
   it.each(['/index.html', '/portfolio/index.html', '/projects/ai-docs/index.html', '/portfolio/projects/ai-docs/index.html'])('renders a physical HTML URL: %s', (pathname) => {
     window.history.pushState({}, '', pathname)
     render(<BrowserRouter basename={getBasename(pathname)}><App /></BrowserRouter>)
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(pathname.includes('ai-docs') ? 'AI 에이전트 문서 관리' : '복잡한 문제를')
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(pathname.includes('ai-docs') ? 'AI 에이전트 문서 관리' : '프론트엔드 개발자')
     window.history.pushState({}, '', '/')
   })
 
@@ -67,17 +65,6 @@ describe('portfolio routes', () => {
     expect(document.title).toBe('AI 에이전트 문서 관리 — 이강욱')
   })
 
-  it('toggles and persists the existing theme key', async () => {
-    localStorage.setItem('portfolio-theme', 'light')
-    const user = userEvent.setup()
-    render(<MemoryRouter initialEntries={['/']}><App /></MemoryRouter>)
-    const toggle = screen.getByRole('button', { name: '다크 모드로 전환' })
-    await user.click(toggle)
-    expect(document.documentElement).toHaveAttribute('data-theme', 'dark')
-    expect(localStorage.getItem('portfolio-theme')).toBe('dark')
-    expect(toggle).toHaveAccessibleName('라이트 모드로 전환')
-  })
-
   it('provides the contact email as a mail link', () => {
     render(<MemoryRouter initialEntries={['/']}><App /></MemoryRouter>)
     expect(screen.getByRole('link', { name: 'maeneung@kakao.com' })).toHaveAttribute('href', 'mailto:maeneung@kakao.com')
@@ -85,8 +72,7 @@ describe('portfolio routes', () => {
 
   it('shows the verified project count and available technology groups', () => {
     render(<MemoryRouter initialEntries={['/']}><App /></MemoryRouter>)
-    expect(screen.getByText('진행한 프로젝트')).toBeInTheDocument()
-    expect(screen.getByText(String(overview.archive.length))).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: new RegExp(`프로젝트 전체보기 \\(${overview.archive.length}\\)`) })).toHaveAttribute('href', './projects/')
     expect(screen.getByRole('heading', { name: 'Frontend' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Backend' })).toBeInTheDocument()
     expect(screen.getByText('React Native')).toBeInTheDocument()
@@ -119,7 +105,6 @@ describe('portfolio routes', () => {
   })
 
   it('hydrates prerendered detail markup without a recovery error', async () => {
-    localStorage.setItem('portfolio-theme', 'light')
     const page = <MemoryRouter initialEntries={['/projects/ai-docs/']}><App /></MemoryRouter>
     const explicitPath = '/portfolio/projects/ai-docs/index.html'
     window.history.pushState({}, '', explicitPath)
@@ -132,7 +117,6 @@ describe('portfolio routes', () => {
       root = hydrateRoot(container, <StrictMode><BrowserRouter basename={getBasename(explicitPath)}><App /></BrowserRouter></StrictMode>, { onRecoverableError: (error) => recovered.push(error) })
     })
     expect(recovered).toEqual([])
-    expect(document.documentElement).toHaveAttribute('data-theme', 'default')
     expect(container.querySelector('main h1')).toHaveTextContent('AI 에이전트 문서 관리')
     await act(async () => root?.unmount())
     container.remove()

@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { color-scheme: light; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: #262420;
+    background: #F4F0E6;
+    font-family: 'Pretendard', system-ui, sans-serif;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -2;
+    background:
+      radial-gradient(40vw 34vw at 88% -4%, rgba(143, 180, 155, 0.38), transparent 62%),
+      radial-gradient(38vw 32vw at -6% 20%, rgba(239, 174, 146, 0.30), transparent 60%),
+      radial-gradient(44vw 38vw at 50% 118%, rgba(163, 194, 223, 0.30), transparent 60%),
+      #F4F0E6;
+  }
+  body::after {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.5;
+    background-image: radial-gradient(rgba(38, 36, 32, 0.06) 1px, transparent 1.4px);
+    background-size: 22px 22px;
+    -webkit-mask-image: linear-gradient(#000, transparent 70%);
+    mask-image: linear-gradient(#000, transparent 70%);
+  }
+  a { color: inherit; text-decoration: none; }
+  :focus-visible { outline: 3px solid #8FB49B; outline-offset: 3px; }
+}
+
+@layer components {
+  .hl-marker { position: relative; display: inline-block; padding: 0 0.08em; white-space: nowrap; }
+  .hl-marker::before {
+    content: ""; position: absolute; z-index: -1; left: -0.12em; right: -0.14em; top: 40%; bottom: 2%;
+    background: #A6E36F; opacity: 0.62; mix-blend-mode: multiply;
+    transform: rotate(-1.4deg); border-radius: 0.5em 0.35em 0.55em 0.3em;
+  }
+  .hl-marker::after {
+    content: ""; position: absolute; z-index: -1; left: 0.05em; right: 0.02em; top: 58%; bottom: 6%;
+    background: #BFEB8A; opacity: 0.5; mix-blend-mode: multiply;
+    transform: rotate(-0.6deg); border-radius: 0.4em 0.5em 0.3em 0.45em;
+  }
+}
+
+@layer utilities {
+  .reveal { opacity: 0; transform: translateY(18px); animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; }
+  .float { animation: floaty 6s ease-in-out infinite; }
+}
+
+@keyframes rise { to { opacity: 1; transform: none; } }
+@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .float { animation: none; opacity: 1; transform: none; }
+}

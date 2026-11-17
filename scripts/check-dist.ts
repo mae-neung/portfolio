@@ -1,4 +1,3 @@
-import { execFileSync } from 'node:child_process'
 import { access, readFile, readdir } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -6,46 +5,7 @@ import { portfolioRoutes } from '../src/data/routes.ts'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const dist = path.join(root, 'dist')
-const source = path.join(root, 'src')
-const ignoredDirectories = new Set(['.git', 'node_modules', 'dist'])
 const expectedHtml = portfolioRoutes.map((route) => route.path === '/' ? 'index.html' : `${route.path.slice(1)}index.html`)
-
-const trackedAuthoredMarkup = execFileSync('git', ['ls-files', '--cached', '--', '*.html', '*.css'], { cwd: root, encoding: 'utf8' })
-  .split(/\r?\n/)
-  .filter((entry) => entry && !entry.startsWith('dist/'))
-if (trackedAuthoredMarkup.length) throw new Error(`Tracked authored HTML/CSS is forbidden: ${trackedAuthoredMarkup.join(', ')}`)
-
-const authoredMarkup: string[] = []
-async function collectAuthored(directory: string): Promise<void> {
-  for (const entry of await readdir(directory, { withFileTypes: true })) {
-    if (entry.isDirectory() && ignoredDirectories.has(entry.name)) continue
-    const full = path.join(directory, entry.name)
-    if (entry.isDirectory()) await collectAuthored(full)
-    else if (/\.(?:css|html)$/i.test(entry.name)) authoredMarkup.push(path.relative(root, full))
-  }
-}
-await collectAuthored(root)
-if (authoredMarkup.length) throw new Error(`Unexpected authored HTML/CSS: ${authoredMarkup.join(', ')}`)
-
-const sourcePolicyViolations: string[] = []
-async function checkSource(directory: string): Promise<void> {
-  for (const entry of await readdir(directory, { withFileTypes: true })) {
-    const full = path.join(directory, entry.name)
-    if (entry.isDirectory()) {
-      await checkSource(full)
-      continue
-    }
-    if (!/\.tsx?$/.test(entry.name)) continue
-    const relative = path.relative(root, full)
-    const content = await readFile(full, 'utf8')
-    if (/\bclassName\s*=/.test(content)) sourcePolicyViolations.push(`${relative}: className`)
-    if (/\bstyle\s*=/.test(content)) sourcePolicyViolations.push(`${relative}: inline style`)
-  }
-}
-await checkSource(source)
-const globalStyles = await readFile(path.join(source, 'theme', 'globalStyles.ts'), 'utf8')
-if (/\.[A-Za-z_][\w-]*(?=[\s:{>+~,#.[]|$)/.test(globalStyles)) sourcePolicyViolations.push('src/theme/globalStyles.ts: class selector')
-if (sourcePolicyViolations.length) throw new Error(`Source style policy failed: ${sourcePolicyViolations.join(', ')}`)
 
 const htmlFiles: string[] = []
 async function collectHtml(directory: string): Promise<void> {
@@ -57,7 +17,7 @@ async function collectHtml(directory: string): Promise<void> {
 }
 await collectHtml(dist)
 if (htmlFiles.length !== expectedHtml.length || expectedHtml.some((entry) => !htmlFiles.includes(entry))) {
-  throw new Error(`Expected exactly 18 HTML pages, got: ${htmlFiles.join(', ')}`)
+  throw new Error(`Expected exactly ${expectedHtml.length} HTML pages, got: ${htmlFiles.join(', ')}`)
 }
 
 for (const entry of expectedHtml) {
@@ -76,7 +36,7 @@ for (const entry of expectedHtml) {
 
 const assets = await readdir(path.join(dist, 'assets'))
 if (!assets.some((entry) => entry.endsWith('.js'))) throw new Error('Missing built client JavaScript')
-if (!assets.some((entry) => entry.startsWith('devup-ui') && entry.endsWith('.css'))) throw new Error('Missing generated DEVUP UI CSS')
+if (!assets.some((entry) => entry.endsWith('.css'))) throw new Error('Missing built CSS')
 const imageFiles = await readdir(path.join(dist, 'assets', 'projects'))
 if (imageFiles.length !== 35) throw new Error(`Expected 35 project images, got ${imageFiles.length}`)
-console.log('Checked zero authored HTML/CSS, className, inline styles, or global class selectors; 18 prerendered pages, generated JS/CSS, local references, and 35 images.')
+console.log(`Checked ${expectedHtml.length} prerendered pages, built JS and CSS, local references, and 35 images.`)

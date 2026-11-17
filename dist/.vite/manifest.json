@@ -1,60 +1,11 @@
 {
-  "_devup-ui-0-CDFaKCT6.css": {
-    "file": "assets/devup-ui-0-CDFaKCT6.css",
-    "src": "_devup-ui-0-CDFaKCT6.css"
-  },
-  "_devup-ui-1-DTI2-7nZ.css": {
-    "file": "assets/devup-ui-1-DTI2-7nZ.css",
-    "src": "_devup-ui-1-DTI2-7nZ.css"
-  },
-  "_devup-ui-10-DM324oiI.css": {
-    "file": "assets/devup-ui-10-DM324oiI.css",
-    "src": "_devup-ui-10-DM324oiI.css"
-  },
-  "_devup-ui-12-BHsRA0OV.css": {
-    "file": "assets/devup-ui-12-BHsRA0OV.css",
-    "src": "_devup-ui-12-BHsRA0OV.css"
-  },
-  "_devup-ui-14-xq5i47qz.css": {
-    "file": "assets/devup-ui-14-xq5i47qz.css",
-    "src": "_devup-ui-14-xq5i47qz.css"
-  },
-  "_devup-ui-15-YKpXffVK.css": {
-    "file": "assets/devup-ui-15-YKpXffVK.css",
-    "src": "_devup-ui-15-YKpXffVK.css"
-  },
-  "_devup-ui-18-Dugufcm2.css": {
-    "file": "assets/devup-ui-18-Dugufcm2.css",
-    "src": "_devup-ui-18-Dugufcm2.css"
-  },
-  "_devup-ui-20-Cj09t4Qq.css": {
-    "file": "assets/devup-ui-20-Cj09t4Qq.css",
-    "src": "_devup-ui-20-Cj09t4Qq.css"
-  },
-  "_devup-ui-8-BVfjxZs1.css": {
-    "file": "assets/devup-ui-8-BVfjxZs1.css",
-    "src": "_devup-ui-8-BVfjxZs1.css"
-  },
-  "_devup-ui-Bi3FlMSP.css": {
-    "file": "assets/devup-ui-Bi3FlMSP.css",
-    "src": "_devup-ui-Bi3FlMSP.css"
-  },
   "src/main.tsx": {
-    "file": "assets/main-DL4FIlSy.js",
+    "file": "assets/main-BC8LqtUo.js",
     "name": "main",
     "src": "src/main.tsx",
     "isEntry": true,
     "css": [
-      "assets/devup-ui-Bi3FlMSP.css",
-      "assets/devup-ui-8-BVfjxZs1.css",
-      "assets/devup-ui-1-DTI2-7nZ.css",
-      "assets/devup-ui-0-CDFaKCT6.css",
-      "assets/devup-ui-15-YKpXffVK.css",
-      "assets/devup-ui-20-Cj09t4Qq.css",
-      "assets/devup-ui-14-xq5i47qz.css",
-      "assets/devup-ui-10-DM324oiI.css",
-      "assets/devup-ui-12-BHsRA0OV.css",
-      "assets/devup-ui-18-Dugufcm2.css"
+      "assets/main-BhRcviPr.css"
     ]
   }
 }
