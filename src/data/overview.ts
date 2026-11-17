@@ -59,7 +59,7 @@ export const overview = {
         "index": "04",
         "meta": [
           "2026",
-          "React · CI/CD"
+          "React · NestJS · PostgreSQL"
         ],
         "heading": "비번찾기",
         "summary": "매달 무작위로 배치되는 교대근무표를 조건에 맞게 자동 생성하는, 기획·개발·배포를 1인 수행한 실사용 서비스입니다.",
@@ -83,7 +83,7 @@ export const overview = {
       },
       {
         "heading": "Backend",
-        "items": ["Node.js · Express", "Python · FastAPI"]
+        "items": ["NestJS", "Node.js · Express", "Python · FastAPI"]
       }
     ]
   },
