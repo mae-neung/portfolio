@@ -227,4 +227,24 @@ export const projectContent: Record<string, ProjectContent> = {
     images: ['yourtest-01.webp', 'yourtest-02.webp', 'yourtest-03.webp'],
     links: [{ href: 'https://yourtest.kr/', label: '유어테스트 바로가기 ↗', external: true }],
   }),
+  'shift-scheduler': createProject({
+    index: '16', year: '2026', heading: '비번찾기',
+    summary: '매달 무작위로 배치되는 교대근무표를 조건에 맞게 자동 생성하는, 기획·프론트엔드·백엔드·배포를 1인 수행한 실사용 서비스입니다.',
+    role: '기획 · 프론트엔드 · 백엔드 · 배포 (1인)', period: '2026.01 — 2026.03', stack: 'React', scope: '스케줄 생성 로직 · 1인 풀스택 · 실운영',
+    intro: [
+      '사회복무요원 복무 중, 복잡한 조건을 반영한 교대근무표를 매달 수작업으로 작성해야 하는 문제를 해결하기 위해 만든 서비스입니다. N조 M교대 같은 반복형이 아니라 매달 다르게 배치되는 무작위 형태라, 지난달 표를 복사해 밀어 쓰는 방식이 통하지 않았습니다.',
+      '한 사람의 일정을 고치면 연속근무 제한과 필수근무 인원이 함께 틀어지기 때문에, 개별 배치가 아니라 조건 전체를 만족하는 표를 한 번에 생성하는 구조로 접근했습니다. 실제 6개월치 스케줄을 생성해 업무에 적용하고, 사용 중 발견된 오류를 직접 수정하며 운영했습니다.',
+    ],
+    features: [
+      '프로젝트 기획과 전체 UI 구성, 기능 구현',
+      '근무일수 산정(주말 제외)·5일 이상 연속근무 제한·특정일 2인 필수근무 조건을 반영한 스케줄 생성 로직',
+      '프론트엔드·백엔드 CI/CD 구축 (GitHub Actions, AWS)',
+      '앱으로의 확장을 감안한 백엔드 설계',
+    ],
+    technology: ['React 기반 프론트엔드', 'GitHub Actions·AWS 기반 CI/CD와 배포'],
+    links: [
+      { href: 'https://github.com/maeneung2/frontend', label: 'Frontend 저장소 ↗', external: true },
+      { href: 'https://github.com/maeneung2/backend', label: 'Backend 저장소 ↗', external: true },
+    ],
+  }),
 }

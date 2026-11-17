@@ -3,15 +3,15 @@ export const overview = {
   "hero": {
     "eyebrow": "이강욱 · Frontend Developer",
     "heading": "복잡한 문제를, 실제로 쓰이는 제품으로.",
-    "intro": "React와 Next.js로 사용자 흐름을 설계하고 구현합니다. 공통 라이브러리부터 업무 자동화까지, 설계·개발·운영을 연결합니다.",
+    "intro": "React·Next.js 기반 SI 프로젝트를 프론트엔드 팀장으로 2년 2개월 이끌었습니다. 반복 비용을 줄이는 공통 라이브러리 설계부터 업무를 바꾸는 자동화까지, 설계·개발·운영을 연결합니다.",
     "proof": [
       {
         "value": null,
         "label": "진행한 프로젝트"
       },
       {
-        "value": "FE",
-        "label": "React · Next.js · TypeScript"
+        "value": "2Y 2M",
+        "label": "프론트엔드 팀장 · DEVFIVE"
       }
     ]
   },
@@ -22,17 +22,29 @@ export const overview = {
       {
         "index": "01",
         "meta": [
-          "2021",
+          "2022",
           "React / TypeScript"
         ],
-        "heading": "2021 신한은행 업적평가",
-        "summary": "메타버스·영상·이미지 콘텐츠와 반응형 UI를 구현한 신한은행 사내 업적평가 이벤트 웹페이지입니다.",
-        "proof": "이벤트 UI · 인증 · 반응형",
-        "href": "./projects/shinhan/",
-        "linkLabel": "2021 신한은행 업적평가 프로젝트 상세 보기"
+        "heading": "조아라 웹소설 서비스 리뉴얼",
+        "summary": "웹소설 사용자 서비스와 운영 CMS를 리뉴얼하며 메인·로그인·결제·뷰어 등 약 40페이지를 담당했습니다.",
+        "proof": "규모 확장에 맞춰 Zustand→Redux 상태관리 전환",
+        "href": "./projects/joara/",
+        "linkLabel": "조아라 웹소설 서비스 리뉴얼 프로젝트 상세 보기"
       },
       {
         "index": "02",
+        "meta": [
+          "2021",
+          "React / TypeScript"
+        ],
+        "heading": "위험 인텔리전스 관리 시스템",
+        "summary": "IP·파일·URL 등 위협 데이터를 수집·분류하고 대시보드와 실시간 알림을 제공하는 금융 보안 관리 시스템입니다.",
+        "proof": "폐쇄망 반입 제약을 사전 목록화로 해결",
+        "href": "./projects/finance-security-intelligence/",
+        "linkLabel": "금융보안원 위험 인텔리전스 관리 시스템 프로젝트 상세 보기"
+      },
+      {
+        "index": "03",
         "meta": [
           "2022",
           "React / TypeScript"
@@ -44,38 +56,26 @@ export const overview = {
         "linkLabel": "NCSOFT NCDP 프로젝트 상세 보기"
       },
       {
-        "index": "03",
-        "meta": [
-          "2021",
-          "React / TypeScript"
-        ],
-        "heading": "위험 인텔리전스 관리 시스템",
-        "summary": "다양한 위협 데이터를 수집·분류하고 실시간 알림·시각화를 제공하는 금융 보안 관리 시스템입니다.",
-        "proof": "",
-        "href": "./projects/finance-security-intelligence/",
-        "linkLabel": "금융보안원 위험 인텔리전스 관리 시스템 프로젝트 상세 보기"
-      },
-      {
         "index": "04",
         "meta": [
-          "2022",
-          "React / TypeScript"
+          "2026",
+          "React · CI/CD"
         ],
-        "heading": "웹소설 서비스·CMS 리뉴얼",
-        "summary": "웹소설 사용자 서비스와 운영 CMS의 핵심 화면·결제·뷰어를 구현한 리뉴얼 프로젝트입니다.",
-        "proof": "",
-        "href": "./projects/joara/",
-        "linkLabel": "조아라 웹소설 서비스와 CMS 리뉴얼 상세 보기"
+        "heading": "비번찾기",
+        "summary": "매달 무작위로 배치되는 교대근무표를 조건에 맞게 자동 생성하는, 기획·개발·배포를 1인 수행한 실사용 서비스입니다.",
+        "proof": "혼자 끝까지 · 실업무에 6개월 적용",
+        "href": "./projects/shift-scheduler/",
+        "linkLabel": "비번찾기 프로젝트 상세 보기"
       }
     ]
   },
   "skills": {
     "heading": "프로젝트에서 사용해 온 핵심 기술입니다.",
-    "intro": "세부 라이브러리보다 실제 제품 개발의 기반이 된 프레임워크와 런타임을 중심으로 정리했습니다.",
+    "intro": "실제 SI 프로젝트와 개인 서비스 개발에 반복해서 사용해 온 기술을 영역별로 정리했습니다.",
     "groups": [
       {
         "heading": "Frontend",
-        "items": ["React", "Next.js", "TypeScript"]
+        "items": ["React", "Next.js", "TypeScript", "Zustand", "Redux"]
       },
       {
         "heading": "App",
@@ -98,7 +98,7 @@ export const overview = {
       {
         "number": "02",
         "heading": "반복을 구조로 바꿉니다",
-        "text": "공통 컴포넌트와 명확한 상태 관리로 다음 변경의 비용까지 줄입니다."
+        "text": "공통 컴포넌트와 명확한 상태 관리, CI/CD 자동화로 다음 변경의 비용까지 줄입니다."
       },
       {
         "number": "03",

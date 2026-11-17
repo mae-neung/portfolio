@@ -95,6 +95,14 @@ export const FeaturedMedia = styled(Image)`
   @media (max-width: 520px) { height: 180px; }
   @media (prefers-reduced-motion: reduce) { transition-duration: .01ms; }
 `
+export const FeaturedFallback = styled.div`
+  position: relative; z-index: 1; display: grid; place-items: center; width: 100%; height: 210px;
+  background: var(--surfaceRaised); color: var(--textMuted);
+  font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase;
+  @media (max-width: 900px) { height: 180px; }
+  @media (max-width: 750px) { height: 220px; }
+  @media (max-width: 520px) { height: 180px; }
+`
 export const DetailLabel = styled.span`
   position: relative; z-index: 1; align-self: start; margin-top: auto; padding-top: 14px; padding-bottom: 3px;
   border-bottom: 1px solid currentColor; color: var(--primary); font-size: 12px; font-weight: 800;

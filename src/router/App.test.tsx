@@ -18,13 +18,13 @@ beforeEach(() => {
 })
 
 describe('portfolio routes', () => {
-  it('retains the 18 physical routes and structured content', () => {
-    expect(portfolioRoutes).toHaveLength(18)
-    expect(projectRoutes).toHaveLength(16)
+  it('retains the 19 physical routes and structured content', () => {
+    expect(portfolioRoutes).toHaveLength(19)
+    expect(projectRoutes).toHaveLength(17)
     expect(overview.archive).toHaveLength(15)
-    expect(Object.keys(projectContent)).toHaveLength(16)
+    expect(Object.keys(projectContent)).toHaveLength(17)
     expect(JSON.stringify({ projectContent, overview })).not.toMatch(/<\/?[a-z][^>]*>/i)
-    expect(new Set(portfolioRoutes.map((route) => route.path)).size).toBe(18)
+    expect(new Set(portfolioRoutes.map((route) => route.path)).size).toBe(19)
     for (const route of projectRoutes) {
       const slug = route.path.split('/').filter(Boolean).at(-1) ?? ''
       const content = projectContent[slug]

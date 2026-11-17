@@ -8,7 +8,7 @@ import {
   Hero, HeroRail, HeroTitle, HeroBottom, HeroIntro, HeroActions, Proof, ProofItem, ProofValue, ProofLabel,
   Work, WorkHead, WorkIntro, FeaturedGrid, FeaturedCard, FeaturedMark, FeaturedBody,
   FeaturedHeading, FeaturedSummary, FeaturedProof, FeaturedMedia, DetailLabel,
-  ArchiveCta, Skills, SkillsHead, SkillsIntro, SkillsGrid, SkillGroup, SkillGroupTitle, SkillList, Skill,
+  FeaturedFallback, ArchiveCta, Skills, SkillsHead, SkillsIntro, SkillsGrid, SkillGroup, SkillGroupTitle, SkillList, Skill,
   Approach, ApproachTitle, Steps, Step, StepNumber, StepHeading, StepBody, Contact, ContactEyebrow,
   ContactTitle, ContactLink, MailIcon,
 } from './HomePage.styles'
@@ -30,10 +30,10 @@ const MotionContactTitle = m.create(ContactTitle)
 const MotionContactLink = m.create(ContactLink)
 
 const featuredImages: Record<string, string> = {
-  '01': 'shinhan-01.png',
-  '02': 'ncsoft-ncdp-01.webp',
-  '03': 'finance-security-intelligence-01.webp',
-  '04': 'joara-01.webp',
+  '01': 'joara-01.webp',
+  '02': 'finance-security-intelligence-01.webp',
+  '03': 'ncsoft-ncdp-01.webp',
+  // '04' (비번찾기): 스크린샷 없음 — 텍스트 카드로 렌더
 }
 function assetHref(route: PortfolioRoute, source: string) {
   const depth = route.path.split('/').filter(Boolean).length
@@ -57,7 +57,7 @@ export function HomePage({ route }: { route: PortfolioRoute }) {
       <WorkHead><MotionSectionTitle {...revealUp} transition={enterTransition(0.06)} id="work-title">화면을 만드는 데서 멈추지 않고,<br />제품의 흐름을 완성합니다.</MotionSectionTitle><MotionWorkIntro {...revealUp} transition={enterTransition(0.12)}>{overview.work.intro}</MotionWorkIntro></WorkHead>
       <FeaturedGrid>{overview.work.featured.map((project) => <FeaturedCard href={project.href} aria-label={project.linkLabel} key={project.index}>
         <FeaturedMark aria-hidden="true">{project.index}</FeaturedMark>
-        {featuredImages[project.index] ? <FeaturedMedia src={assetHref(route, `/assets/projects/${featuredImages[project.index]}`)} alt={`${project.heading} 프로젝트 화면`} loading="lazy" /> : null}
+        {featuredImages[project.index] ? <FeaturedMedia src={assetHref(route, `/assets/projects/${featuredImages[project.index]}`)} alt={`${project.heading} 프로젝트 화면`} loading="lazy" /> : <FeaturedFallback aria-hidden="true">{project.meta.join(' · ')}</FeaturedFallback>}
         <FeaturedBody><Text as="span" position="relative" zIndex={1} color="$primary" typography="meta">{project.meta.join(' · ')}</Text><FeaturedHeading>{project.heading}</FeaturedHeading><FeaturedSummary>{project.summary}</FeaturedSummary>
           {project.proof && <FeaturedProof>{project.proof}</FeaturedProof>}
           <DetailLabel>프로젝트 상세 <span aria-hidden="true">↗</span></DetailLabel>

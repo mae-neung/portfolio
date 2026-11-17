@@ -113,6 +113,12 @@ export const portfolioRoutes: PortfolioRoute[] = [
     "title": "유어테스트 — 이강욱",
     "description": "회원가입 없이 다양한 심리·성향 테스트를 이용하고 결과를 공유할 수 있는 종합 테스트 플랫폼",
     "footerLabel": "Project 15 / 15"
+  },
+  {
+    "path": "/projects/shift-scheduler/",
+    "title": "비번찾기 — 이강욱",
+    "description": "복잡한 조건을 반영한 교대근무표를 자동 생성하는, 기획·개발·배포를 1인 수행한 실사용 서비스",
+    "footerLabel": "Solo Project · 2026"
   }
 ]
 
