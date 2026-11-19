@@ -3,14 +3,14 @@ export const overview = {
   "hero": {
     "eyebrow": "Frontend Engineer",
     "heading": "프론트엔드 개발자 이강욱입니다.",
-    "intro": "React·Next.js 기반 SI 프로젝트 프론트엔드를 2년 2개월간 개발했습니다. 요구사항 분석부터 상태 설계, 외부 연동, QA와 운영까지 맡은 범위를 끝까지 책임졌습니다.",
+    "intro": "React·Next.js 기반 SI 프로젝트 프론트엔드를 2년 8개월간 개발했습니다. 요구사항 분석부터 상태 설계, 외부 연동, QA와 운영까지 맡은 범위를 끝까지 책임졌습니다.",
     "proof": [
       {
         "value": null,
         "label": "참여 프로젝트"
       },
       {
-        "value": "2년 2개월",
+        "value": "2년 8개월",
         "label": "프론트엔드 경력"
       }
     ]
